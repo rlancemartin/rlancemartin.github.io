@@ -1,11 +1,11 @@
 # Site settings
 title: Lance's Blog
-email: rlance.martin@gmail.com
-description: "Riffing on science."
+email:
+description: "Riffs."
 baseurl: ""
 url: "http://lmart999.github.io"
 twitter_username: RLanceMartin
-github_username:  lmart999
+github_username: lmart999
 
 # Build settings
 markdown: redcarpet
