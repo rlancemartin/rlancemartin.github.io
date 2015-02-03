@@ -5,39 +5,36 @@ excerpt: "A nice post"
 date:   2015-02-02 10:19:00
 ---
 
-# Basics!
+####Basics!
 
-It's very easy to make some words **bold** and other words *italic* with Markdown. 
+It's very easy to make some words **bold**.
 
-You can even [link to Google!](http://google.com)
+And to make other words *italic* with Markdown. 
 
-# Bullet points work!
+You can even [link to Google!](http://google.com).
+
+#### Bullet points work!
 
 * Start a line with a star
 * Profit!
 
-# Tables work!
+#### Tables work!
 
 First Header | Second Header
 ------------ | -------------
 Content from cell 1 | Content from cell 2
 Content in the first column | Content in the second column
 
-# Images work!
+####Images work!
 
 <div class="imgcap">
 <img src="/assets/cancer_1.jpg">
 <div class="thecap">The O.G.</a>.</div>
 </div>
 
-# Strike through
+#### Code
 
-like ~~this~~
-
-# Code
-
-{% highlight javascript %}
-if (isAwesome){
-  return true
-}
-{% endhighlight %}
+```python
+import codecs
+codecs.open(filename, 'w', 'utf-8').write(tweet_texts)
+```
