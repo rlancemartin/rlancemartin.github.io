@@ -33,8 +33,8 @@ like ~~this~~
 
 # Code
 
-```javascript
+{% highlight javascript %}
 if (isAwesome){
   return true
 }
-```
+{% endhighlight %}
