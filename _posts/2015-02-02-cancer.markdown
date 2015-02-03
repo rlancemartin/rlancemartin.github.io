@@ -7,7 +7,9 @@ date:   2015-02-02 10:19:00
 
 # Basics!
 
-It's very easy to make some words **bold** and other words *italic* with Markdown. You can even [link to Google!](http://google.com)
+It's very easy to make some words **bold** and other words *italic* with Markdown. 
+
+You can even [link to Google!](http://google.com)
 
 # Bullet points work!
 
@@ -23,7 +25,7 @@ Content in the first column | Content in the second column
 
 # Images work!
 
-![BJC](https://lmart999.github.com/lmart999.github.io/assets/cancer_1.jpg)
+![Test_image](https://github.com/lmart999/lmart999.github.io/blob/master/assets/cancer_1.jpg)
 
 # Strike through
 
