@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title:  "Poisson and Cancer"
 excerpt: "A nice post"
 date:   2015-02-02 10:19:00
