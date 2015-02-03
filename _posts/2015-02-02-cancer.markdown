@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title:  "Poisson and Cancer"
-excerpt: "A nice post"
+excerpt: "Modeling Cancer as a Poisson process."
 date:   2015-02-02 10:19:00
 ---
 
