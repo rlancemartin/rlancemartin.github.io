@@ -25,7 +25,7 @@ Content in the first column | Content in the second column
 
 # Images work!
 
-![Test_image](https://github.com/lmart999/lmart999.github.io/blob/master/assets/cancer_1.jpg)
+![Test_image]({{ site.url }}/assets/cancer_1.jpg)
 
 # Strike through
 
