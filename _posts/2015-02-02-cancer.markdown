@@ -28,11 +28,13 @@ Content in the first column | Content in the second column
 ####Images work!
 
 <div class="imgcap">
-<img src="/assets/cancer_1.jpg">
+<img src="/assets/cancer_1.jpg" width="70%">
 <div class="thecap">The O.G.</a>.</div>
 </div>
 
 #### Code
+
+Test `time.sleep`
 
 ```python
 import codecs
