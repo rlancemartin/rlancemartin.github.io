@@ -25,7 +25,10 @@ Content in the first column | Content in the second column
 
 # Images work!
 
-![Test_image](https://github.com/lmart999/lmart999.github.io/blob/master/assets/cancer_1.jpg)
+<div class="imgcap">
+<img src="/assets/cancer_1.jpg">
+<div class="thecap">The O.G.</a>.</div>
+</div>
 
 # Strike through
 
