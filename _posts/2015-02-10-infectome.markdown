@@ -40,19 +40,19 @@ This resulted in a large amount of data to organize and understand. The value of
 * Profit!
 
 <div class="imgcap">
-<img src="/assets/Infectome_3.jpg" width="100%">
+<img src="/assets/Infectome_3.jpg" width="70%">
 </div>
 
 And to make other words *italic* with Markdown. 
 
 <div class="imgcap">
-<img src="/assets/Infectome_4.jpg" width="100%">
+<img src="/assets/Infectome_4.jpg" width="70%">
 </div>
 
 #### Code
 
 <div class="imgcap">
-<img src="/assets/Infectome_5.jpg" width="100%">
+<img src="/assets/Infectome_5.jpg" width="70%">
 </div>
 
 Test `time.sleep`
