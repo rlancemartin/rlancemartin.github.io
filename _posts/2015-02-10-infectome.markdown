@@ -81,19 +81,23 @@ Infections are interesting because there are many categories: there are many dif
 
 ####But, is it real?
 
-It is reasonable to ask whether these measuments are real! Time-series data was an early indication that the level of infection-derived cell-free DNA may reflect bona-fide infections within the body. For many cases, we observed a sustained signal in blood prior to detection with a clincal test (after which treatment was administered and the signal drops, shown below left). The study was also designed such that we could easily validate our measurments using indepdent clinical tests performed on the same patients (clinical correlations on HHV-5, below right). Both provided strong evidence that the measurments were real. 
+Many blood samples were collected longitudinally for the same patient, allowing us to record time-series for each measured infection. Sustained, high abundance in the time-series data provided an early indication that the measurments may correlated with infections within the body. By overlaying independent clinical data, we often observed a sustained signal in blood prior to clinical detection of the specified pathogen (below left). We also could validate our measurments using indepdent clinical tests performed on the same patients (clinical correlations on HHV-5, below right). 
 
 <div class="imgcap">
 <img src="/assets/Infectome_3.jpg" width="70%">
 </div>
 
-####How to navigate the data?
+####Building a data product
 
-We quickly found that navigating the data was very cumbersome, in part because it had several layers of organization: each cohort was comprised of patients, which in turn may have many samples. In each sample, there may be thousands of unique infections identified in the cell-free DNA sequencing. Furthermore, infections may be viewed at different levels of taxonomic complexity, such as genus or species level resolution. 
+**Defining the organization**. After validating that the signal is clinically meaningful for infections that had matched clinical tests, we addressed the practical challenge of building a tool that clinicians and resarchers could use. We noted that the data has natural structure: each cohort was comprised of patients, which may have many samples. In each sample, there may be thousands of unique infections identified. 
 
-To address this, we built a `Django` application such that the views were organized according to these different layers of organization. Each view (page)in the application sources from a common `.html` base template. The base templates sources `bootstrap` javascript and css templates from the  project's `static` directory; these do most of the nice layout work!
+**Encoding the questions**. Each layer of organization had associated questions. We built a `Django` application that split the data according to these different layers of organization and designed objects (tables and visualizations) that address relevant questions at that layer of organization. 
 
-Each view `.html` template is associated with a particular url and a corresponding function in the `views.py` script. The funtion recieves parameters from the url string (e.g., `p1` and `p2` below) and return various objects to the `.html`. Conviently, these objects can be Pandas dataframes using `to_html`. By tagging the dataframes with relevant .css tags, they can be rendered as attractive tables on the page. ALso links to other views can easily be embedded based upon table entries (below). 
+**Designing the views**. In terms of basic design, each view (page) in the application sources a common `.html` base template, which sources `bootstrap` javascript and css templates. These take care of the basic layout. Each view is also coupled to a particular `.html` template, url, and function in the `views.py` script. 
+
+Each function in `views.py` recieves parameters from the url string (e.g., `p1` and `p2` below), generates objects (e.g., tables or graphs) needed to address the relevant questions, and returns objects to the `.html` template, which handles layout. 
+
+Conviently, these objects can be Pandas dataframes using the `to_html()` method. By tagging a dataframe with relevant .css tags, it will be rendered nicely on the page. In many cases, we easily be embedded links in table entries (below) and use `Dynatable.js`, interactive table plugin using jQuery. 
 
 ```python
 def my_view(request,p1,p2):
@@ -110,6 +114,12 @@ def my_view(request,p1,p2):
 	return render_to_response('infectome_app/cohort.html', context_dict, context)
 ```
 
+With these basic tools, each view presented our choice of table or plots, directly pulled from the Python code. For the latter, we took advantage of python visualization libraries, including `Matplotlib` and `Seaborn`. As a simple example, the patient view presented a sortable and searable table of all infections detected in that patient, using intutive percentile measurments. 
+
+<div class="imgcap">
+<img src="/assets/Infectome_4.jpg" width="70%">
+</div>
+
 Similarly, plots can be passed back to the `.html` by funtions in `views.py`. 
 
 ```python
@@ -124,11 +134,7 @@ def my_view_plot(request,p1,p2):
 	return response
 ```
 
-With these basic tools, each view can easily present any Pandas table or plot. For the latter, we took advantage of python visualization libraries, including `Matplotlib` and a very nice statistical plotting library called `Seaborn`. This simply organization allowed us to present data in view that was reponsive to questions relevat to that layer of organization. For example, the patient view simply presented a sortable and searable table of all infections detected in that patient, using reasonably intutive percentile measurments. 
 
-<div class="imgcap">
-<img src="/assets/Infectome_4.jpg" width="70%">
-</div>
 
 With these basics in place, it was also easy to design views with more complex organization. For example, the below view is accessed from the patient table. In this case, we are curious to learn more information about a particular infection in a patient. The view presents timeseries data (below) as well as coverage, which indicates the actual distribution of raw measurments across the organism genome.
 
