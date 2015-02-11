@@ -8,25 +8,25 @@ date:   2015-02-10 10:19:00
 
 ####The cell-free DNA phenomenon
 
-Much of the work for my PhD was rooted in an observation made by two French scientists in 1947. They reported that human blood contains free-floating "cell-free" DNA molecules. These molecules are the debris of dead cells that continually get washed into circulation. Blood is packed full of them: there are ~100 billion of these DNA fragments per mililiter.
+Much of the work for my PhD was rooted in an observation made by two French scientists in 1947. They reported that human blood contains free-floating "cell-free" DNA molecules. These molecules are the debris of dead cells that continually get washed into circulation throughout the body. Blood is packed full of them: there are ~100 billion of these DNA fragments per mililiter.
 
-In certain contexts, these molecules can come from interesting sources. For example, during pregnancy up to 10% of cell-free DNA comes from the fetus. In the 1990s, researchers began to develop non-invasive genetic tests based upon this fact. Chromosonal disorders, such as Down Syndrome, were an obvious target; non-invasive tests have limited reliability and invasive testing has a risk of miscarriage.
+Sometimes these molecules can come from interesting sources. For example, during pregnancy up to 10% of cell-free DNA comes from the fetus. In the 1990s, researchers began to consider whether this can be used to detect chromosonal disorders, such as Down Syndrome. Existing non-invasive tests had limited reliability and invasive testing has a reasonable risk of miscarriage.
 
-Down Syndrome is caused by the duplication of a chromosome, which could lead to a slightly elevated signal from this chromosome in maternal blood. But, the high background of maternal DNA made this difference challenging to detect with statistical confidence. In the mid-2000s, Next-Generation Sequencing (NGS), a very high-throughput DNA sequeucning technology, made it possible sample cell-free DNA at very high depth. 
+Down Syndrome is caused by the duplication of a particular chromosome (21). Because some cell-free DNA is fetal-derived, a slightly elevated signal from the chromosome 21 is expected if the baby has Down Syndrome. The problem is that the expected elevation is very subtle due to the high background of maternal DNA from this same chromosome.
 
-In 2008, Steve Quake (my advisor) showed that deep molecular couting of these fragments using NGS can non-invasively [detect Down Syndrome](http://well.blogs.nytimes.com/2014/02/26/new-dna-test-better-at-predicting-some-disorders-in-babies-study-finds/?_r=0). Due to its high reliability and superiroity to invasive methods, sequencing cell-free DNA has been rapidly commercialized. Over one million women are now tested per year.
+In the mid-2000s, Next-Generation DNA Sequencing (NGS) technology made it possible sample cell-free DNA at high enough depth to detect this elevation with staistical confidence. In 2008, Steve Quake (my advisor) showed that deep molecular couting of these fragments using NGS can non-invasively [detect Down Syndrome](http://well.blogs.nytimes.com/2014/02/26/new-dna-test-better-at-predicting-some-disorders-in-babies-study-finds/?_r=0). This has been rapidly commercialized and over one million women in the US are now tested per year.
 
 ####Taste for problems
 
-Around the time I started my PhD, a [rising tide](http://www.hmpdacc.org/) of studies were using NGS to study the human microbiome and infectious disease. It was also clear that cell-free DNA is broadly useful for non-invasive detection of foreign genomes. For example, Quake lab had completed a large study on organ transplants, showing that donor-organ derived cell-free DNA can be resolved using donor-specific DNA mutations. The level of this signal correlates with [organ damage and rejection](http://www.marketwatch.com/story/caredx-presents-cell-free-dna-biomarker-results-in-heart-and-kidney-transplant-recipients-at-the-world-transplant-congress-2014-07-28).
+Around the time I started my PhD, a [several](http://www.hmpdacc.org/) studies were applying NGS to the human microbiome and infectious disease. It was also clear that cell-free DNA can be used for non-invasive detection of foreign genomes: the Quake lab was completing a study on organ transplants, which showed that the level of donor-organ derived cell-free DNA correlates with [transplant rejection](http://www.marketwatch.com/story/caredx-presents-cell-free-dna-biomarker-results-in-heart-and-kidney-transplant-recipients-at-the-world-transplant-congress-2014-07-28).
 
-We thought that it should be possible to merge these two threads and build a non-invasive diagnostic for infectious disease by applying NGS to cell-free DNA. At least three features made this a good problem to tackle:
+We thought merging these two threads made sense. We planned to build a universal non-invasive diagnostic for infectious disease by applying NGS to cell-free DNA for at least three reasons:
 
 * ***Fundemental:*** We knew that DNA from dead human cells is shed into blood. Micro-organisms should be subject to this same process. The question made physical sense.
 
-* ***Zero cost data:*** We already had cell-free DNA sequencing data for thousands of transplant samples. We simply had to mine these and extract the "exhuast" data (non-human cell-free DNA sequences) that was normally discarded. 
+* ***Zero cost data:*** We had cell-free DNA sequencing data for thousands of transplant samples. We could mine these and extract the "exhuast" (non-human sequencess) that were normally discarded. 
 
-* ***Easily testable:*** We had indepndent clinical tests for infection disease for most of the samples. The non-human cell-free DNA signal could be correlated with these tests in order to determine whether it is clinically informative.
+* ***Easily testable:*** We had indepndent clinical tests for infection disease for most of the samples. The non-human cell-free DNA signal could be correlated with these tests.
 
 ####Re-mining 
 
