@@ -22,7 +22,7 @@ We thought merging these two threads made sense. We planned to build a universal
 
 * ***Fundemental:*** We knew that DNA from dead human cells is shed into blood. Micro-organisms should be subject to this same process. The question made physical sense.
 
-* ***Zero cost data:*** We had cell-free DNA sequencing data for thousands of transplant samples. We could mine these and extract the exhuast (non-human sequencess) that were not previously analyzed. 
+* ***Zero cost data:*** We had cell-free DNA sequencing data for thousands of transplant samples. We could mine these and extract the non-human sequencess that were not previously analyzed. 
 
 * ***Easily testable:*** We had indepndent clinical tests for infection disease for most of the samples. The non-human cell-free DNA signal could be correlated with these tests.
 
