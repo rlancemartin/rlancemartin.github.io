@@ -20,8 +20,9 @@ The ability to resolve foreign genomes in blood presents an opportunity for non-
 <img src="/assets/Infectome_1.jpg" width="1000%">
 </div>
 
-Simply, this is a data problem, because the biochemistry and technology needed to isolate cell-free DNA and perform NGS are well worked out. 
+This is data problem, because the biochemistry and technology needed to isolate and sequence cell-free DNA are well worked out; I barely touched a pipet during my PhD. The challenge (and opportunity) is that human blood is very information rich: there are around 100 billion cell-free DNA fragments per mililiter of blood! Given the cost of existing sequencing technology, we typically sequence only around 30 million of these at a time. This means that we take a very small sample from the population in blood and digitize it, resulting in a large file (a few GB) of short (100-200) character strings. Each string indicates the nucleic acid composition (A,C,T, or G) of a single DNA molecule floating in blood that we sampled.
 
+####Why is "big data" relevant?
 
 
 ability to perform such measurments non-invasively from blood adds to the power of NGS, as blood presents a window into the microbiome of deep tissues that are otherwise inaccessible.
