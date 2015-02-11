@@ -67,11 +67,13 @@ def do_something(l,p):
 	# Use df ...
 ```
 
-####Why is "big data" relevant here?
+####Why is a lot of data useful?
 
-**Significance**. We compared each micro-organism count to all prior measurments of that same micro-organism. The resulting percentile is more intutive than absolute abundance when examining data, but becomes increacingly meaningful as more samples are collected.  
+Infections are interesting because there are many categories: there are many different pathogens and subtle differences in the genome sequence of each one may confer clinically relevant traits (e.g., drug resistance). Unlike existing tests, NGS can detect all possible categories. 
 
-**Unbiased**. We looked at the number of samples in which a given virus is detected in our data relative to the number of samples in which that same virus was actually tested clinically for lung transplants. The most commonly clinically screened virus (HHV-5, tested in 335 samples) was detected (based upon our data) in 22 samples. This incidence was similar to that of several other pathogens that were not routinely screened, including adenovirus and polyomavirus (clinically tested on four occasions and one occasion, respectively). We also detect many un-tested pathogens.
+**Significance**. Because no "healthy" baseline yet exists for this kind of measurment, it is challenging to interpet absolute count, particularly for micro-organisms that are not familiar pathogens. One way to address this is simply to build out the distribution by acquiring more samples. To aid interpretation, each count can be re-cast as a percentile relative all prior processed samples. As more samples are collected, the percentile become increacingly effective at identifying anomolies.
+
+**Unbiased**. To examine the benefit of unbiased measurment, we looked at the number of samples in which a each virus was detected in our data relative to the number of samples in which that same virus was tested clinically (for lung transplants). The most commonly clinically screened virus (HHV-5, tested in 335 samples) was detected (based upon our data) in 22 samples, an incidence similar to several pathogens that were not routinely screened, such as Adenovirus and Polyomavirus (clinically tested on four occasions and one occasion, respectively). We also detect many un-tested pathogens.
 
 <div class="imgcap">
 <img src="/assets/Infectome_2.jpg" width="100%">
