@@ -16,13 +16,13 @@ In 2008, Steve Quake (my advisor) showed that deep molecular couting of these fr
 
 ####Taste: Why work on a probem?
 
-Around the time I started my PhD, a [several](http://www.hmpdacc.org/) studies were applying NGS to the human microbiome and infectious disease. It was also clear that cell-free DNA can be used for non-invasive detection of foreign genomes: the Quake lab was completing a study on organ transplants, which showed that the level of donor-organ derived cell-free DNA correlates with [transplant rejection](http://www.marketwatch.com/story/caredx-presents-cell-free-dna-biomarker-results-in-heart-and-kidney-transplant-recipients-at-the-world-transplant-congress-2014-07-28).
+Around the time I started my PhD, a [several](http://www.hmpdacc.org/) studies were applying NGS to the human microbiome and infectious disease. It was also clear that NGS applied to cell-free DNA can be used for non-invasive detection of foreign genomes: the Quake lab was completing a study on organ transplants, which showed that the level of donor-organ derived cell-free DNA correlates with [transplant rejection](http://www.marketwatch.com/story/caredx-presents-cell-free-dna-biomarker-results-in-heart-and-kidney-transplant-recipients-at-the-world-transplant-congress-2014-07-28).
 
 We thought merging these two threads made sense. We planned to build a universal non-invasive diagnostic for infectious disease by applying NGS to cell-free DNA for at least three reasons:
 
 * ***Fundemental:*** We knew that DNA from dead human cells is shed into blood. Micro-organisms should be subject to this same process. The question made physical sense.
 
-* ***Zero cost data:*** We had cell-free DNA sequencing data for thousands of transplant samples. We could mine these and extract the "exhuast" (non-human sequencess) that were normally not analyzed. 
+* ***Zero cost data:*** We had cell-free DNA sequencing data for thousands of transplant samples. We could mine these and extract the exhuast (non-human sequencess) that were not previously analyzed. 
 
 * ***Easily testable:*** We had indepndent clinical tests for infection disease for most of the samples. The non-human cell-free DNA signal could be correlated with these tests.
 
