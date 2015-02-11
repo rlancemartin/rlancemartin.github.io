@@ -40,26 +40,31 @@ We simply re-designed the pipeline to capture the "junk" that is normally discar
 
 ####Data management
 
-This process resulted in thousands of count dictionaries for our samples, each with up to thousands of unique identified micro-organisms. To further complicate this, each micro-organism exists within a taxonomic tree. For example, a sample may contain dozens of different E. coli species. For analysis, we want the ability to aggregate these counts at different level of taxonomic resolution, such as genus or class.
+Across all samples, this yielded thousands of count dictionaries with up to thousands of unique identified micro-organisms in each. To further complicate this, each micro-organism exists within a taxonomic tree. For example, a sample may contain dozens of different E. coli species. 
 
-In addition, we collected patient -metadata, thousands of de-identified clinical test results, and pipeline log files required for normalization of counts (e.g., to account for differences in sampling depth). All of this information had to be assocaited sample counts. To collate all of this information, we used `Postgres` with two excellent libraries, [`pandas`](http://pandas.pydata.org/) and [`SQLAlchemy`](http://www.sqlalchemy.org/). 
+For analysis, we wanted the ability to aggregate these counts at different level of taxonomic resolution. We also needed to couple each sample measurment with assocaited patient -metadata, thousands of clinical test results, and pipeline log files for steps such as count normalization.
 
-Coupling `Postgres` to `pandas` via `SQLAlchemy` was very convient. All the SQL logic is simply passed to `Postgres` (along with specified paramters in the python script) and `pandas` dataframes are returned. For example, below is a common query required to consolodate data from the various sources: we grab counts for all micro-organisms within a specified patient at a specified `level` of taxonomic resolution.
+To deal with this, we used `Postgres` along with two excellent libraries, [`Pandas`](http://pandas.pydata.org/) and [`SQLAlchemy`](http://www.sqlalchemy.org/). These three tools alone made it possible to easily weave data sources together via `SQL` queries and immediatly have the output available as a `Pandas` dataframe.
+
+For example, below is a common query required to consolodate data from the various sources: we grab counts for all micro-organisms within a specified patient at a specified taxonomic `level` of resolution (e.g., species), group by infection ID and sample ID, and sum all counts per group. 
 
 ```python
+def do_something(l,p):
+	''' Pull all patient (p) data at tax level (l).'''
 
-# Connection object
-from sqlalchemy import create_engine
-engine = create_engine('postgresql://lmartin@localhost:5432/infectome_db')
+	# Connection object
+	from sqlalchemy import create_engine
+	engine = create_engine('postgresql://lmartin@localhost:5432/infectome_db')
 
-# Pull data for patient 
-p=sql.read_sql("select Count_Table.Sample_ID,Tax_Table.%s,SUM(Count_Table.Counts) "
-                 "from Tax_Table "
-                 "INNER JOIN Count_Table "
-                 "ON Tax_Table.Tax_ID=Count_Table.Tax_ID "
-                 "WHERE Count_Table.Patient_ID = '%s' "
-                 "GROUP BY Count_Table.Sample_ID,Tax_Table.%s "%(level,patient,level),engine)
-
+	# Pull data for patient 
+	df=sql.read_sql("select Count_Table.Sample_ID,Tax_Table.%s,SUM(Count_Table.Counts) "
+	                 "from Tax_Table "
+	                 "INNER JOIN Count_Table "
+	                 "ON Tax_Table.Tax_ID=Count_Table.Tax_ID "
+	                 "WHERE Count_Table.Patient_ID = '%s' "
+	                 "GROUP BY Count_Table.Sample_ID,Tax_Table.%s "%(l,p,l),engine)
+	
+	# Use df ...
 ```
 
 ####Why is "big data" relevant here?
