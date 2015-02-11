@@ -32,9 +32,17 @@ We thought merging these two threads made sense. We planned to build a universal
 <img src="/assets/Infectome_1.jpg" width="100%">
 </div>
 
-We had thousands of cell-free DNA samples sequenced from organ transplant patients. The majority of cell-free DNA fragments in each sample were human-derived (black, above) and a small fraction come from micro-organisms (red). In most of our samples, ~30 million cell-free DNA fragments were sequenced and captured in file (typically a few GB) of short (100-200) character strings that indicate the DNA base composition (A,C,T, or G) of each molecule. 
+We started with thousands of cell-free DNA datasets from from organ transplant patients. The majority of cell-free DNA fragments in each sample were human-derived (black, above). Only a small fraction came from micro-organisms (red). In most samples, ~30 million DNA fragments were sequenced, resulting in files (typically a few GB) of short (100-200) character strings that indicate the DNA base composition (A,C,T, or G) of each sampled DNA molecule. 
 
-Previously, the human-derived sequences in these datasets were isolated and analyzed. This process uses the human reference, a ["representitive"](http://en.wikipedia.org/wiki/Reference_genome) human genome sequence. The pool of strings are matched to this reference using alignment algoriths and the un-aligned strings are discarded. We inverted this: we discarded all human-derived sequences. We then [aligned](http://en.wikipedia.org/wiki/BLAST) the trace remainder to databases of micro-organism genomes, yielding a dictionary (a count of strings associated with each identified micro-organism). 
+Previously, human-derived sequences can be isolated using string matching algorithms that align each to a human ["reference genome"](http://en.wikipedia.org/wiki/Reference_genome).
+
+
+
+these datasets were isolated using string-matching to the human 
+
+
+
+ The pool of strings are matched to this reference using alignment algoriths and the un-aligned strings are discarded. We inverted this: we discarded all human-derived sequences. We then [aligned](http://en.wikipedia.org/wiki/BLAST) the trace remainder to databases of micro-organism genomes, yielding a dictionary (a count of strings associated with each identified micro-organism). 
 
 ####Data management
 
