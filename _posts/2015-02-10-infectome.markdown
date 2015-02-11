@@ -42,11 +42,11 @@ We simply re-designed the pipeline to capture the "junk" that is normally discar
 
 Across all samples, this yielded thousands of count dictionaries with up to thousands of unique identified micro-organisms in each. To further complicate this, each micro-organism exists within a taxonomic tree. For example, a sample may contain dozens of different E. coli species. 
 
-For analysis, we wanted the ability to aggregate these counts at different level of taxonomic resolution. We also needed to couple each sample measurment with assocaited patient -metadata, thousands of clinical test results, and pipeline log files for steps such as count normalization.
+For analysis, we wanted the ability to aggregate these counts at different level of taxonomic resolution. We also needed to couple each count with assocaited patient -metadata, thousands of clinical test results, and pipeline log files for steps such as count normalization.
 
 To deal with this, we used `Postgres` along with two excellent libraries, [`Pandas`](http://pandas.pydata.org/) and [`SQLAlchemy`](http://www.sqlalchemy.org/). These three tools alone made it possible to easily weave data sources together via `SQL` queries and immediatly have the output available as a `Pandas` dataframe.
 
-For example, below is a common query required to consolodate data from the various sources: we grab counts for all micro-organisms within a specified patient at a specified taxonomic `level` of resolution (e.g., species), group by infection ID and sample ID, and sum all counts per group. 
+For example, below is a common query required to consolodate data from the various sources: we grab counts for all micro-organisms within a specified patient at a specified taxonomic level of resolution (e.g., species), group by infection ID and sample ID, and sum all counts per group. 
 
 ```python
 def do_something(l,p):
@@ -69,9 +69,9 @@ def do_something(l,p):
 
 ####Why is "big data" relevant here?
 
-Though we had a suitable means of data organization, it is worth asking why a lot of data is valuable for this application. **Significance**. For each micro-organism detected in a new sequenced sample, we compared the count against all prior measurments of that same micro-organism. This results in a percentile (relative to the cohort), which is an intutive measure of abundance. As more samples are collected, this can be helpful for distinguishing whether a measurment is anomolous. 
+**Significance**. We compared each micro-organism count to all prior measurments of that same micro-organism. The resulting percentile is more intutive than absolute abundance when examining data, but becomes increacingly meaningful as more samples are collected.  
 
-**Unbiased**. With deep and un-biased sampling, we found that this approach can detect a broad range of micro-organisms, many of which are potential pathogens that escape conventional testing. To highlight this, we evaluated the incidence of infection (number of samples in which a given virus is detected via sequencing) relative to the clinical screening frequency for a cohort of lung transplant patients. The most commonly clinically screened virus (HHV-5, tested in 335 samples) was detected (based upon our data) in 22 samples. This incidence was similar to that of several other pathogens that were not routinely screened, including adenovirus and polyomavirus (clinically tested on four occasions and one occasion, respectively). We also detect many un-tested pathogens using this approach.
+**Unbiased**. We looked at the number of samples in which a given virus is detected in our data relative to the number of samples in which that same virus was actually tested clinically for lung transplants. The most commonly clinically screened virus (HHV-5, tested in 335 samples) was detected (based upon our data) in 22 samples. This incidence was similar to that of several other pathogens that were not routinely screened, including adenovirus and polyomavirus (clinically tested on four occasions and one occasion, respectively). We also detect many un-tested pathogens.
 
 <div class="imgcap">
 <img src="/assets/Infectome_2.jpg" width="100%">
