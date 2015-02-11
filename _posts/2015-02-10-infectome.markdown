@@ -32,17 +32,11 @@ We thought merging these two threads made sense. We planned to build a universal
 <img src="/assets/Infectome_1.jpg" width="100%">
 </div>
 
-We started with thousands of cell-free DNA datasets from from organ transplant patients. The majority of cell-free DNA fragments in each sample were human-derived (black, above). Only a small fraction came from micro-organisms (red). In most samples, ~30 million DNA fragments were sequenced, resulting in files (typically a few GB) of short (100-200) character strings that indicate the DNA base composition (A,C,T, or G) of each sampled DNA molecule. 
+We started with thousands of cell-free DNA datasets from from organ transplant patients. The majority of cell-free DNA fragments in each sample were human-derived (black, above). Only a small fraction came from micro-organisms (red). In most samples, ~30 million DNA fragments were sequenced, resulting in files of short (100-200) character strings (A,C,T, or G). 
 
-Previously, human-derived sequences can be isolated using string matching algorithms that align each to a human ["reference genome"](http://en.wikipedia.org/wiki/Reference_genome).
+Human-derived sequences were previously isolated from these samples using string matching algorithms. These align each strings to a human ["reference genome"](http://en.wikipedia.org/wiki/Reference_genome) and keep those with a certain alignment quality (deemed human sequences). Everything else was discarded.
 
-
-
-these datasets were isolated using string-matching to the human 
-
-
-
- The pool of strings are matched to this reference using alignment algoriths and the un-aligned strings are discarded. We inverted this: we discarded all human-derived sequences. We then [aligned](http://en.wikipedia.org/wiki/BLAST) the trace remainder to databases of micro-organism genomes, yielding a dictionary (a count of strings associated with each identified micro-organism). 
+We simply re-designed the pipeline to capture the "junk" that is normally discarded. These we then [aligned](http://en.wikipedia.org/wiki/BLAST) these trace remaining fragments to a availabile databases of micro-organism genomes, yielding a dictionary (a count of strings associated with each identified micro-organism). 
 
 ####Data management
 
