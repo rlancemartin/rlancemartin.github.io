@@ -12,7 +12,7 @@ Much of the work for my PhD was rooted in an observation made by two French scie
 
 Sometimes these molecules can come from interesting sources. For example, during pregnancy up to 10% of cell-free DNA comes from the fetus. In the 1990s, researchers began to consider whether this can be used to detect chromosonal disorders, such as Down Syndrome. Existing non-invasive tests have limited reliability and invasive testing has a reasonable risk of miscarriage.
 
-In 2008, Steve Quake (my advisor) showed that deep molecular couting of these fragments using Next-Generation DNA Sequencing (NGS) can non-invasively [detect Down Syndrome](http://well.blogs.nytimes.com/2014/02/26/new-dna-test-better-at-predicting-some-disorders-in-babies-study-finds/?_r=0) with high statistical confidence. This has been rapidly commercialized and over one million women in the US are now tested per year.
+In 2008, Steve Quake (my advisor) showed that deep molecular couting of these fragments using Next-Generation DNA Sequencing (NGS) can non-invasively [detect Down Syndrome](http://well.blogs.nytimes.com/2014/02/26/new-dna-test-better-at-predicting-some-disorders-in-babies-study-finds/?_r=0) with high statistical confidence. This was commercialized and has become a [multi-billion dollar market](http://www.xconomy.com/san-francisco/2014/12/02/roche-enters-noninvasive-prenatal-test-market-with-ariosa-purchase/).
 
 ####Taste: Why work on a probem?
 
