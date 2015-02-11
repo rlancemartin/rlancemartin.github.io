@@ -17,7 +17,7 @@ The greatest value of these tests has been the ability to measure the proportion
 The ability to resolve foreign genomes in blood presents an opportunity for infectious disease monitoring. Already, a [rising tide](http://www.ucsf.edu/news/2014/06/114946/faster-dna-sleuthing-saves-critically-ill-boy) of studies have made a strong case for NGS in various infectious disease scearios, such as resistance and outbreak monitoring. The ability to perform such measurments non-invasively from blood adds to the power of NGS, as blood presents a window into the microbiome of deep tissues that are otherwise inaccessible.
 
 <div class="imgcap">
-<img src="/assets/infectome_1.jpg" width="70%">
+<img src="/assets/Infectome_1.jpg" width="70%">
 <div class="thecap">Genome fragments in human blood can be isolated and sequenced. The digitized genome fragments are simply strings of letters, which can be further filtered based upon similarity to known microbial sequencings. Strings that match to pathogens can be counted. </a>.</div>
 </div>
 
