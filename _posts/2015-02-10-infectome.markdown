@@ -14,7 +14,7 @@ Sometimes these molecules can come from interesting sources. For example, during
 
 In 2008, Steve Quake (my advisor) showed that deep molecular couting of these fragments using Next-Generation DNA Sequencing (NGS) can non-invasively [detect Down Syndrome](http://well.blogs.nytimes.com/2014/02/26/new-dna-test-better-at-predicting-some-disorders-in-babies-study-finds/?_r=0) with high statistical confidence. This was commercialized and has become a [multi-billion dollar market](http://www.xconomy.com/san-francisco/2014/12/02/roche-enters-noninvasive-prenatal-test-market-with-ariosa-purchase/).
 
-####Taste: Why work on a probem?
+####Taste: Why work on this probem?
 
 Around the time I started my PhD, a [several](http://www.hmpdacc.org/) studies were applying NGS to the human microbiome and infectious disease. It was also clear that NGS applied to cell-free DNA can be used for non-invasive detection of foreign genomes: the Quake lab was completing a study on organ transplants, which showed that the level of donor-organ derived cell-free DNA correlates with [transplant rejection](http://www.marketwatch.com/story/caredx-presents-cell-free-dna-biomarker-results-in-heart-and-kidney-transplant-recipients-at-the-world-transplant-congress-2014-07-28).
 
@@ -28,9 +28,12 @@ We thought merging these two threads made sense. We planned to build a universal
 
 ####Re-mining 
 
-<div class="imgcap">
+<figure>
 <img src="/assets/Infectome_1.jpg" width="100%">
-</div>
+<figcaption>
+    Caption to image
+</figcaption>
+</figure>
 
 We started with thousands of cell-free DNA datasets from from organ transplant patients. The majority of cell-free DNA fragments in each sample were human-derived (black, above). Only a small fraction came from micro-organisms (red). In most samples, ~30 million DNA fragments were sequenced, resulting in files of short (100-200) character strings (A,C,T, or G). 
 
@@ -40,7 +43,7 @@ We simply re-designed the pipeline to capture the "junk" that is normally discar
 
 ####Scale
 
-In terms of data scale, the dataset is reasonably large. For example, below is a sub-set of the data with all abundance values discretized. Each column is a unique identified species and each row is a unique sample. Colums are rows are sorted the sum. This is ~1 million measurments. The challenge is to first examine whether that it is useful and, if so, organize it so that browsing is intutive.
+In terms of data scale, the dataset is reasonably large. For example, below is a sub-set of the data with all abundance values discretized. Each column is a unique identified species and each row is a unique sample. Colums are rows are sorted the sum. This is ~1 million measurments. The challenge is to first examine whether the data are useful and, if so, organize the data so that extracting insights is possible.
 
 <div class="imgcap">
 <img src="/assets/Infectome_1_1.jpg" width="50%">
@@ -105,7 +108,7 @@ Many blood samples were collected longitudinally for the same patient, allowing 
 
 Each function in `views.py` recieves parameters from the url string (e.g., `p1` and `p2` below), generates objects (e.g., tables or graphs) needed to address the relevant questions, and returns objects to the `.html` template, which handles layout. 
 
-Conviently, these objects can be Pandas dataframes using the `to_html()` method. By tagging a dataframe with relevant .css tags, it will be rendered nicely on the page. In many cases, we easily be embedded links in table entries (below) and use `Dynatable.js`, interactive table plugin using jQuery. 
+Conviently, these objects can be Pandas dataframes using the `to_html()` method. By tagging a dataframe with relevant .css tags, it can be rendered nicely on the page. We easily be embedded links to other views in the table entries (below) and used `Dynatable.js`, interactive table plugin using jQuery. 
 
 ```python
 def my_view(request,p1,p2):
@@ -122,7 +125,7 @@ def my_view(request,p1,p2):
 	return render_to_response('infectome_app/cohort.html', context_dict, context)
 ```
 
-With these basic tools, each view presented our choice of table or plots, directly pulled from the Python code. For the latter, we took advantage of python visualization libraries, including `Matplotlib` and [`Seaborn`](http://stanford.edu/~mwaskom/software/seaborn/). As a simple example, the patient view presented a sortable and searable table of all infections detected in that patient, using intutive percentile measurments. 
+With these basic tools, each view presented our choice of table or plots, directly pulled from the Python code. For the latter, we took advantage of python visualization libraries, including `Matplotlib` and [`Seaborn`](http://stanford.edu/~mwaskom/software/seaborn/). As a simple example, the patient view presented a sortable and searchable table of all infections detected in that patient, using intutive percentile measurments. 
 
 <div class="imgcap">
 <img src="/assets/Infectome_4.jpg" width="100%">
@@ -141,8 +144,6 @@ def my_view_plot(request,p1,p2):
 	plt.close('all')
 	return response
 ```
-
-
 
 With these basics in place, it was also easy to design views with more complex organization. For example, the below view is accessed from the patient table. In this case, we are curious to learn more information about a particular infection in a patient. The view presents timeseries data (below) as well as coverage, which indicates the actual distribution of raw measurments across the organism genome.
 
