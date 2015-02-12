@@ -105,7 +105,7 @@ Many blood samples were collected longitudinally for the same patient, allowing 
 
 **Encoding the questions**. Each layer of organization had associated questions. In addition to splitting the data according to these layers of organization, the application views (tables and visualizations) were responsive to questions at each layer of organization. 
 
-**Designing the views**. Each view in the application used the `bootstrap` framework, which take care of the basic layout. Each view was coupled to an associated `.html` template, url, and function in the `views.py` script. Each function irecieves parameters from the url string for that view (e.g., `p1` and `p2` below), generates objects (e.g., tables or graphs), and returns the objects to the `.html` template for layout. 
+**Designing the views**. Each view in the application used the `bootstrap` framework, which take care of the basic layout. Each view was coupled to an associated `.html` template, url, and function in the `views.py` script. Each function receives parameters from the url string for that view (e.g., `p1` and `p2` below), generates objects (e.g., tables or graphs), and returns the objects to the `.html` template.
 
 Conviently, these objects can be Pandas dataframes using the `to_html()` method. By tagging a dataframe with relevant .css tags, it can be rendered nicely on the page. We easily be embedded links to other views in the table entries (below) and used `Dynatable.js`, interactive table plugin using jQuery. 
 
