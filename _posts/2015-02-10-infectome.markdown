@@ -31,7 +31,6 @@ We thought merging these two threads made sense. We planned to build a universal
 <figure>
 <img src="/assets/Infectome_1.jpg" width="100%">
 <figcaption>
-    Caption to image
 </figcaption>
 </figure>
 
