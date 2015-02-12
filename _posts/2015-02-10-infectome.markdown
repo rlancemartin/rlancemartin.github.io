@@ -124,13 +124,13 @@ def my_view(request,p1,p2):
 	return render_to_response('infectome_app/cohort.html', context_dict, context)
 ```
 
-With these basic tools, each view presented our choice of table or plots, directly pulled from the Python code. For the latter, we took advantage of python visualization libraries, including `Matplotlib` and [`Seaborn`](http://stanford.edu/~mwaskom/software/seaborn/). As a simple example, the patient view presented a sortable and searchable table of all infections detected in that patient, using intutive percentile measurments. 
+With these basic tools, each view could be easily populated with any dataframe or plot directly pulled from python. As a simple example, the patient view presented a sortable and searchable table of all infections detected in that patient (displaying percentile measurments).
 
 <div class="imgcap">
 <img src="/assets/Infectome_4.jpg" width="100%">
 </div>
 
-Similarly, plots can be passed back to the `.html` by funtions in `views.py`. 
+For plotting, we took advantage of `Matplotlib` and [`Seaborn`](http://stanford.edu/~mwaskom/software/seaborn/). Conveniently, plots could be passed to any template from `views.py`. 
 
 ```python
 def my_view_plot(request,p1,p2):
@@ -144,7 +144,7 @@ def my_view_plot(request,p1,p2):
 	return response
 ```
 
-With these basics in place, it was also easy to design views with more complex organization. For example, the below view is accessed from the patient table. In this case, we are curious to learn more information about a particular infection in a patient. The view presents timeseries data (below) as well as coverage, which indicates the actual distribution of raw measurments across the organism genome.
+With these basics in place, it was also easy to design views with more complex organization. For example, the below view provides detailed information about an infection and is accessed directly from the patient table. This view presents timeseries data (below) with overlaid clinical test results. It also displays sequencing statistics from `Postgres`, presenting the distribution of sequencing reads across the microbial genome to evaluate uniformity of sequencing coverage.
 
 <div class="imgcap">
 <img src="/assets/Infectome_5.jpg" width="100%">
