@@ -42,7 +42,7 @@ We simply re-designed the pipeline to capture the "junk" that is normally discar
 
 ####Scale
 
-In terms of data scale, the dataset is reasonably large. For example, below is a sub-set of the data with all abundance values discretized. Each column is a unique identified species and each row is a unique sample. Colums are rows are sorted the sum. This is ~1 million measurments. The challenge is to first examine whether the data are useful and, if so, organize the data so that extracting insights is possible.
+After a dictioary for each sample, we were left with a reasonably large nunber of measurments. Below is a sub-set with counts discretized (0 or 1). Each column is a unique micro-organism species and each row is a unique sample, with both sorted by sum. In total, there are ~1 million measurments shown here. The challenge was first examine whether the data are useful. If so, we then wanted to organize it such that extracting insights is possible.
 
 <div class="imgcap">
 <img src="/assets/Infectome_1_1.jpg" width="50%">
