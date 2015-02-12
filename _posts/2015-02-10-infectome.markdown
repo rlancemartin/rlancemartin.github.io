@@ -43,7 +43,7 @@ We simply re-designed the pipeline to capture the "junk" that is normally discar
 In terms of data scale, the dataset is reasonably large. For example, below is a sub-set of the data with all abundance values discretized. Each column is a unique identified species and each row is a unique sample. Colums are rows are sorted the sum. This is ~1 million measurments. The challenge is to first examine whether that it is useful and, if so, organize it so that browsing is intutive.
 
 <div class="imgcap">
-<img src="/assets/Infectome_1_1.jpg" width="100%">
+<img src="/assets/Infectome_1_1.jpg" width="70%">
 </div>
 
 ####Data management
