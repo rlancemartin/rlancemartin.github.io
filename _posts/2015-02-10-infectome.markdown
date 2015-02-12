@@ -22,11 +22,11 @@ We thought merging these two threads made sense. We planned to build a universal
 
 * ***Fundamental:*** We knew that DNA from dead human cells is shed into blood. Micro-organisms should be subject to this same process. The question made physical sense.
 
-* ***Testable:*** We had independent clinical tests for infection disease for most of the samples. The non-human cell-free DNA signal could be correlated with these tests.
-
 * ***Zero cost data:*** We had cell-free DNA sequencing data for thousands of transplant samples. We could mine these and extract the non-human sequences that were not previously analyzed. 
 
-####Re-mining 
+* ***Testable:*** We had independent clinical tests for infection disease for most of the samples. The non-human cell-free DNA signal could be correlated with these tests.
+
+####Mining
 
 <figure>
 <img src="/assets/Infectome_1.jpg" width="100%">
@@ -35,11 +35,11 @@ We thought merging these two threads made sense. We planned to build a universal
 </figcaption>
 </figure>
 
-We started with thousands of cell-free DNA datasets from from organ transplant patients. The majority of cell-free DNA fragments in each sample were human-derived (black, above). Only a small fraction came from micro-organisms (red). In most samples, ~30 million DNA fragments were sequenced, resulting in files of short (100-200) character strings (A,C,T, or G). 
+We started with thousands of cell-free DNA datasets from from organ transplant patients. The majority of cell-free DNA fragments in each sample were human-derived (black, above). Only a small fraction came from micro-organisms (red). In most samples, ~30 million DNA fragments were sequenced, resulting in large files of short (100-200) character strings (A,C,T, or G). 
 
 Human-derived sequences were previously isolated from these samples using string matching algorithms. These align each strings to a human ["reference genome"](http://en.wikipedia.org/wiki/Reference_genome) and keep those with a certain alignment quality (deemed human sequences). Everything else was discarded.
 
-We simply re-designed the pipeline to capture the "junk" that is normally discarded. These we then [aligned](http://en.wikipedia.org/wiki/BLAST) these trace remaining fragments to a availabile databases of micro-organism genomes, yielding a dictionary (a count of strings associated with each identified micro-organism). 
+We simply re-designed the pipeline to capture the "junk" that is normally discarded. We then [aligned](http://en.wikipedia.org/wiki/BLAST) these remaining fragments to a databases of micro-organism genomes, yielding a dictionary: we recorded a count of strings (DNA fragments) associated with each micro-organism. 
 
 ####Scale
 
