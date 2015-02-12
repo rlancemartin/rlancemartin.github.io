@@ -1,0 +1,24 @@
+---
+layout: post
+comments: false
+title:  "Machine learning notes"
+excerpt: "iPython notebooks following CS229 and ISL with scikit-learn."
+date:   2015-02-8 10:19:00
+---
+
+####Notes
+
+These are some notes that I wrote for myself while studying for PhD qualifying exams at Stanford.
+
+The combine three sources:
+
+* CS229 (Machine Learning), an excellent Stanford course
+* An Introduction to Statistical Learning (ISL), an excellent text by G. James, D. Witten, T. Hastie and R. Tibshirani (Springer, 2013)
+* [`scikit-learn`](http://scikit-learn.org/stable/) and [`Seaborn`](http://stanford.edu/~mwaskom/software/seaborn/)
+
+They combine the details (CS229) with implementation (in python) for many of the algorithms. Notebook links: 
+
+* [Linear Regression](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Linear%20Regression.ipynb) 
+* [Logistic Regression](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Logistic%20Regression.ipynb) 
+* (Will add more when I have time.)
+
