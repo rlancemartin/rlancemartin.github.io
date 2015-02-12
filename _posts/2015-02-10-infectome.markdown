@@ -107,7 +107,7 @@ Many blood samples were collected longitudinally for the same patient, allowing 
 
 **Designing the views**. Each view uses the `bootstrap` framework, which takes care of the basic layout. Each view was also coupled to an associated `.html` template, url, and function in the `views.py` script. Each function receives parameters from the url string for that view (e.g., `p1` and `p2` below), generates objects (e.g., tables or graphs), and returns the objects to the `.html` template.
 
-The objects returned by `views.py` present the data. Conveniently, Pandas dataframes can be re-cast as attractive tables using the `to_html()` method, which adds relevant `css` tags. We embedded links to other views in the table entries (below) and used `Dynatable.js`, interactive table plugin using jQuery.
+The objects returned by `views.py` present the data. Conveniently, Pandas dataframes can be re-cast as tables using the `to_html()` method, which adds relevant `css` tags. We embedded links to other views in the table entries (below) and used `Dynatable.js`, an interactive table plugin.
 
 ```python
 def my_view(request,p1,p2):
