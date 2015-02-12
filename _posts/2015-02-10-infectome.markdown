@@ -42,7 +42,7 @@ We simply re-designed the pipeline to capture the "junk" that is normally discar
 
 ####Scale
 
-After a dictioary for each sample, we were left with a reasonably large nunber of measurments. Below is a sub-set with counts discretized (0 or 1). Each column is a unique micro-organism species and each row is a unique sample, with both sorted by sum. In total, there are ~1 million measurments shown here. The challenge was first examine whether the data are useful. If so, we then wanted to organize it such that extracting insights is possible.
+Our mining resulted in a large nunber of measurments. Below is a sub-set, with counts discretized (0 or 1). Each column is a unique micro-organism species and each row is a unique sample. Both are sorted by sum. In total, there are ~1 million measurments shown. The challenge was to examine whether the data is useful and, if so, organize it in order to extract insights.
 
 <div class="imgcap">
 <img src="/assets/Infectome_1_1.jpg" width="50%">
