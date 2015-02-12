@@ -40,9 +40,9 @@ Human-derived sequences were previously isolated from these samples using string
 
 We simply re-designed the pipeline to capture the "junk" that is normally discarded. We then [aligned](http://en.wikipedia.org/wiki/BLAST) these remaining fragments to a databases of micro-organism genomes, yielding a dictionary: we recorded a count of strings (DNA fragments) associated with each micro-organism. 
 
-####Scale
+####Organizing one million measurments
 
-Our mining resulted in a large nunber of measurments. Below is a sub-set, with counts discretized (0 or 1). Each column is a unique micro-organism species and each row is a unique sample. Both are sorted by sum. In total, there are ~1 million measurments shown. The challenge was to examine whether the data is useful and, if so, organize it so that insights can be extracted.
+Our mining resulted in a large nunber of measurments. Below is a sub-set, with counts discretized (0 or 1). Each column is a unique micro-organism species and each row is a unique sample. Both are sorted by sum. In total, there are ~1 million measurments shown. The challenge was to examine whether the data is useful and, if so, organize it so that insights can be easily extracted.
 
 <div class="imgcap">
 <img src="/assets/Infectome_1_1.jpg" width="50%">
@@ -50,9 +50,9 @@ Our mining resulted in a large nunber of measurments. Below is a sub-set, with c
 
 ####Data management
 
-Across all samples, this yielded thousands of count dictionaries with up to thousands of unique identified micro-organisms in each. To further complicate this, each micro-organism exists within a taxonomic tree. For example, a sample may contain dozens of different E. coli species. 
+We collected millions of measurments associated with thousands of unique micro-organisms across hunderds of patients. To further complicate this, each micro-organism exists within a taxonomic tree. For example, a sample may contain dozens of different E. coli species. 
 
-For analysis, we wanted the ability to aggregate these counts at different level of taxonomic resolution. We also needed to couple each count with assocaited patient -metadata, thousands of clinical test results, and pipeline log files for steps such as count normalization.
+For analysis, we wanted the ability to aggregate these counts at different level of taxonomic resolution. We also needed to couple each count with assocaited patient -metadata, thousands of clinical test results, and pipeline log files (e.g., for count normalization).
 
 To deal with this, we used `Postgres` along with two excellent libraries, [`Pandas`](http://pandas.pydata.org/) and [`SQLAlchemy`](http://www.sqlalchemy.org/). These three tools alone made it possible to easily weave data sources together via `SQL` queries and immediatly have the output available as a `Pandas` dataframe.
 
@@ -76,6 +76,8 @@ def do_something(l,p):
 	
 	# Use df ...
 ```
+
+As we process more samples, we simply write the outputs and logs to `Postgres`. All downstream analysis can easily pull from `Postgres`, with the output dataframe available for further analysis and plotting.
 
 ####Why is big data useful here?
 
