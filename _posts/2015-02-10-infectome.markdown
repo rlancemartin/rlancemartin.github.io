@@ -50,13 +50,13 @@ Our mining resulted in a large nunber of measurments. Below is a sub-set, with c
 
 ####Data management
 
-We collected millions of measurments associated with thousands of unique micro-organisms across hunderds of patients. To further complicate this, each micro-organism exists within a taxonomic tree. For example, a sample may contain dozens of different E. coli species. 
+We collected millions of measurements associated with thousands of unique micro-organisms across hundreds of patients. To further complicate this, each micro-organism exists within a taxonomic tree. For example, a sample may contain dozens of different E. coli species. 
 
-For analysis, we wanted the ability to aggregate these counts at different level of taxonomic resolution. We also needed to couple each count with assocaited patient -metadata, thousands of clinical test results, and pipeline log files (e.g., for count normalization).
+For analysis, we wanted the ability to aggregate these counts at different level of taxonomic resolution. We also needed to couple each count with associated patient -metadata, thousands of clinical test results, and pipeline log files (e.g., for count normalization).
 
-To deal with this, we used `Postgres` along with two excellent libraries, [`Pandas`](http://pandas.pydata.org/) and [`SQLAlchemy`](http://www.sqlalchemy.org/). These three tools alone made it possible to easily weave data sources together via `SQL` queries and immediatly have the output available as a `Pandas` dataframe.
+To deal with this, we used `Postgres` along with two excellent libraries, [`Pandas`](http://pandas.pydata.org/) and [`SQLAlchemy`](http://www.sqlalchemy.org/). These three tools alone made it possible to easily weave data sources together via `SQL` queries and immediately have the output available as a `Pandas` dataframe.
 
-For example, below is a common query required to consolodate data from the various sources: we grab counts for all micro-organisms within a specified patient at a specified taxonomic level of resolution (e.g., species), group by infection ID and sample ID, and sum all counts per group. 
+For example, below is a common query required to consolidate data from the various sources: we grab counts for all micro-organisms within a specified patient at a specified taxonomic level of resolution (e.g., species), group by infection ID and sample ID, and sum all counts per group. 
 
 ```python
 def do_something(l,p):
@@ -77,15 +77,15 @@ def do_something(l,p):
 	# Use df ...
 ```
 
-As we process more samples, we simply write the outputs and logs to `Postgres`. All downstream analysis can easily pull from `Postgres`, with the output dataframe available for further analysis and plotting.
+As we process more samples, we simply write the outputs and logs to `Postgres`. All downstream analysis can easily pull from `Postgres`, with the output dataframe available for further analysis.
 
 ####Why is big data useful here?
 
-Infections are interesting because there are many categories: there are many different pathogens and subtle differences in the genome sequence of each one may confer clinically relevant traits (e.g., drug resistance). Unlike existing tests, NGS can detect all possible categories. 
+Infections are interesting because there are many categories: there are many different pathogens and subtle differences in the genome sequence of each one may confer clinically relevant traits (e.g., drug resistance). Unlike conventional clinical tests, NGS can detect all possible categories. 
 
-**Significance**. Because no "healthy" baseline yet exists for this kind of measurment, it is challenging to interpet absolute count, particularly for micro-organisms that are not familiar pathogens. One way to address this is simply to build out the distribution by acquiring more samples. To aid interpretation, each count can be re-cast as a percentile relative all prior processed samples. As more samples are collected, the percentile become increacingly effective at identifying anomolies.
+**Significance**. Because no "healthy" baseline yet exists for this kind of measurement, it is challenging to interpret absolute counts, particularly for micro-organisms that are not familiar pathogens. One way to address this is simply to build out the distribution by acquiring more samples. To aid interpretation, each count can be re-cast as a percentile relative all prior processed samples. As more samples are collected, the percentile become increasingly effective at identifying anomalies.
 
-**Unbiased**. To examine the benefit of unbiased measurment, we looked at the number of samples in which a each virus was detected in our data relative to the number of samples in which that same virus was tested clinically (for lung transplants). The most commonly clinically screened virus (HHV-5, tested in 335 samples) was detected (based upon our data) in 22 samples, an incidence similar to several pathogens that were not routinely screened, such as Adenovirus and Polyomavirus (clinically tested on four occasions and one occasion, respectively). We also detect many un-tested pathogens.
+**Unbiased**. To examine the benefit of unbiased measurement, we looked at the number of samples in which a each virus was detected in our data relative to the number of samples in which that same virus was tested clinically (for lung transplants). The most commonly clinically screened virus (HHV-5, tested in 335 samples) was detected (based upon our data) in 22 samples, an incidence similar to several pathogens that were not routinely screened, such as Adenovirus and Polyomavirus (clinically tested on four occasions and one occasion, respectively). We also detect many un-tested pathogens.
 
 <div class="imgcap">
 <img src="/assets/Infectome_2.jpg" width="100%">
@@ -93,7 +93,7 @@ Infections are interesting because there are many categories: there are many dif
 
 ####But, is it real?
 
-Many blood samples were collected longitudinally for the same patient, allowing us to record time-series for each measured infection. Sustained, high abundance in the time-series data provided an early indication that the measurments may correlated with infections within the body. By overlaying independent clinical data, we often observed a sustained signal in blood prior to clinical detection of the specified pathogen (below left). We also could validate our measurments using indepdent clinical tests performed on the same patients (clinical correlations on HHV-5, below right). 
+Many blood samples were collected longitudinally for the same patient, allowing us to record time-series for each measured infection. Sustained, high abundance in the time-series data provided an early indication that the measurements may correlated with infections within the body. By overlaying independent clinical data, we often observed a sustained signal in blood prior to clinical detection of the specified pathogen (below left). We also could validate our measurements using independent clinical tests performed on the same patients (clinical correlations on HHV-5, below right). 
 
 <div class="imgcap">
 <img src="/assets/Infectome_3.jpg" width="70%">
