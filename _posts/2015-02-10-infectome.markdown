@@ -1,6 +1,6 @@
 ---
 layout: post
-comments: true
+comments: false
 title:  "Building a counter for infectious disease"
 excerpt: "High throughput measurment of infection-derived DNA in human blood."
 date:   2015-02-10 10:19:00
@@ -38,6 +38,14 @@ Human-derived sequences were previously isolated from these samples using string
 
 We simply re-designed the pipeline to capture the "junk" that is normally discarded. These we then [aligned](http://en.wikipedia.org/wiki/BLAST) these trace remaining fragments to a availabile databases of micro-organism genomes, yielding a dictionary (a count of strings associated with each identified micro-organism). 
 
+####Scale
+
+In terms of data scale, the dataset is reasonably large. For example, below is a sub-set of the data with all abundance values discretized. Each column is a unique identified species and each row is a unique sample. Colums are rows are sorted the sum. This is ~1 million measurments. The challenge is to first examine whether that it is useful and, if so, organize it so that browsing is intutive.
+
+<div class="imgcap">
+<img src="/assets/Infectome_1_1.jpg" width="100%">
+</div>
+
 ####Data management
 
 Across all samples, this yielded thousands of count dictionaries with up to thousands of unique identified micro-organisms in each. To further complicate this, each micro-organism exists within a taxonomic tree. For example, a sample may contain dozens of different E. coli species. 
@@ -67,7 +75,7 @@ def do_something(l,p):
 	# Use df ...
 ```
 
-####Why is a lot of data useful?
+####Why is big data useful here?
 
 Infections are interesting because there are many categories: there are many different pathogens and subtle differences in the genome sequence of each one may confer clinically relevant traits (e.g., drug resistance). Unlike existing tests, NGS can detect all possible categories. 
 
@@ -114,10 +122,10 @@ def my_view(request,p1,p2):
 	return render_to_response('infectome_app/cohort.html', context_dict, context)
 ```
 
-With these basic tools, each view presented our choice of table or plots, directly pulled from the Python code. For the latter, we took advantage of python visualization libraries, including `Matplotlib` and `Seaborn`. As a simple example, the patient view presented a sortable and searable table of all infections detected in that patient, using intutive percentile measurments. 
+With these basic tools, each view presented our choice of table or plots, directly pulled from the Python code. For the latter, we took advantage of python visualization libraries, including `Matplotlib` and [`Seaborn`](http://stanford.edu/~mwaskom/software/seaborn/). As a simple example, the patient view presented a sortable and searable table of all infections detected in that patient, using intutive percentile measurments. 
 
 <div class="imgcap">
-<img src="/assets/Infectome_4.jpg" width="70%">
+<img src="/assets/Infectome_4.jpg" width="100%">
 </div>
 
 Similarly, plots can be passed back to the `.html` by funtions in `views.py`. 
@@ -139,7 +147,7 @@ def my_view_plot(request,p1,p2):
 With these basics in place, it was also easy to design views with more complex organization. For example, the below view is accessed from the patient table. In this case, we are curious to learn more information about a particular infection in a patient. The view presents timeseries data (below) as well as coverage, which indicates the actual distribution of raw measurments across the organism genome.
 
 <div class="imgcap">
-<img src="/assets/Infectome_5.jpg" width="70%">
+<img src="/assets/Infectome_5.jpg" width="100%">
 </div>
 
 ####Summary
