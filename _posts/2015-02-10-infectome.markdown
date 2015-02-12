@@ -101,13 +101,11 @@ Many blood samples were collected longitudinally for the same patient, allowing 
 
 ####Building an application around the data
 
-**Data organization**. After validating that the measurments could be clinically meaningful, we addressed the practical challenge of managing this large volume of data. We built a tool that clinicians and resarchers could use to extract insights from the data. In this case, the data had structure, with cohort comprised of patients. In each patient was sampled many times. Each sample could have thousands of infections identified. 
+**Data organization**. After validating that the measurements could be clinically meaningful, we addressed the practical challenge of managing this large volume of data. To do this, we built an application that would serve the data such that clinicians and researchers could easily extract insights from it. We designed the application around the basic organization of the data, with natural segmentation of cohorts, patients, samples, and micro-organisms detected within each sample.
 
-**Encoding the questions**. Each layer of organization had associated questions. We built a `Django` application that split the data according to these layers of organization and designed views (tables and visualizations) that were responsive to questions at each layer of organization. 
+**Encoding the questions**. Each layer of organization had associated questions. In addition to splitting the data according to these layers of organization, the application views (tables and visualizations) were responsive to questions at each layer of organization. 
 
-**Designing the views**. Each view (page) in the application sources `bootstrap` javascript and css templates. These take care of the basic layout. Each view is also coupled to a `.html` template, url, and function in the `views.py` script. 
-
-Each function in `views.py` recieves parameters from the url string for that view (e.g., `p1` and `p2` below), generates objects (e.g., tables or graphs), and returns the objects to the `.html` template for layout. 
+**Designing the views**. Each view in the application used the `bootstrap` framework, which take care of the basic layout. Each view was coupled to an associated `.html` template, url, and function in the `views.py` script. Each function irecieves parameters from the url string for that view (e.g., `p1` and `p2` below), generates objects (e.g., tables or graphs), and returns the objects to the `.html` template for layout. 
 
 Conviently, these objects can be Pandas dataframes using the `to_html()` method. By tagging a dataframe with relevant .css tags, it can be rendered nicely on the page. We easily be embedded links to other views in the table entries (below) and used `Dynatable.js`, interactive table plugin using jQuery. 
 
