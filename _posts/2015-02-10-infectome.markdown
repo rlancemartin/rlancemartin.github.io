@@ -8,23 +8,23 @@ date:   2015-02-10 10:19:00
 
 ####The cell-free DNA phenomenon
 
-Much of the work for my PhD was rooted in an observation made by two French scientists in 1947. They reported that human blood contains free-floating "cell-free" DNA molecules. These molecules are the debris of dead cells that continually get washed into circulation throughout the body. Blood is packed full of them: there are ~100 billion of these DNA fragments per mililiter.
+Much of my PhD work was rooted in an observation made by two French scientists in 1947. They reported that human blood contains free-floating "cell-free" DNA molecules. These molecules are the debris of dead cells that continually get washed into circulation throughout the body. Blood is packed full of them: there are ~100 billion of these DNA fragments per mililiter of plasma!
 
-Sometimes these molecules can come from interesting sources. For example, during pregnancy up to 10% of cell-free DNA comes from the fetus. In the 1990s, researchers began to consider whether this can be used to detect chromosonal disorders, such as Down Syndrome. Existing non-invasive tests have limited reliability and invasive testing has a reasonable risk of miscarriage.
+Sometimes these molecules come from interesting sources. For example, during pregnancy up to 10% of cell-free DNA actually comes from the fetus. In the 1990s, researchers began to consider whether this phenomenon could be used to detect chromosomal disorders, such as Down Syndrome; existing non-invasive tests had limited reliability and invasive testing had a reasonable risk of miscarriage.
 
-In 2008, Steve Quake (my advisor) showed that deep molecular couting of these fragments using Next-Generation DNA Sequencing (NGS) can non-invasively [detect Down Syndrome](http://well.blogs.nytimes.com/2014/02/26/new-dna-test-better-at-predicting-some-disorders-in-babies-study-finds/?_r=0) with high statistical confidence. This was commercialized and has become a [multi-billion dollar market](http://www.xconomy.com/san-francisco/2014/12/02/roche-enters-noninvasive-prenatal-test-market-with-ariosa-purchase/).
+In 2008, Steve Quake (my advisor) showed that deep molecular counting of these fragments using Next-Generation DNA Sequencing (NGS) can non-invasively [detect Down Syndrome](http://well.blogs.nytimes.com/2014/02/26/new-dna-test-better-at-predicting-some-disorders-in-babies-study-finds/?_r=0) with high statistical confidence. This was commercialized and has become a [multi-billion dollar market](http://www.xconomy.com/san-francisco/2014/12/02/roche-enters-noninvasive-prenatal-test-market-with-ariosa-purchase/).
 
 ####Taste: Why work on this probem?
 
-Around the time I started my PhD, a [several](http://www.hmpdacc.org/) studies were applying NGS to the human microbiome and infectious disease. It was also clear that NGS applied to cell-free DNA can be used for non-invasive detection of foreign genomes: the Quake lab was completing a study on organ transplants, which showed that the level of donor-organ derived cell-free DNA correlates with [transplant rejection](http://www.marketwatch.com/story/caredx-presents-cell-free-dna-biomarker-results-in-heart-and-kidney-transplant-recipients-at-the-world-transplant-congress-2014-07-28).
+Around the time I started my PhD, [several](http://www.hmpdacc.org/) studies were applying NGS to the human microbiome and infectious disease. It was also clear that NGS applied to cell-free DNA can be used for non-invasive detection of foreign genomes: the Quake lab was completing a study on organ transplants, which showed that the level of donor-organ derived cell-free DNA correlates with [transplant rejection](http://www.marketwatch.com/story/caredx-presents-cell-free-dna-biomarker-results-in-heart-and-kidney-transplant-recipients-at-the-world-transplant-congress-2014-07-28).
 
 We thought merging these two threads made sense. We planned to build a universal non-invasive diagnostic for infectious disease by applying NGS to cell-free DNA for at least three reasons:
 
-* ***Fundemental:*** We knew that DNA from dead human cells is shed into blood. Micro-organisms should be subject to this same process. The question made physical sense.
+* ***Fundamental:*** We knew that DNA from dead human cells is shed into blood. Micro-organisms should be subject to this same process. The question made physical sense.
 
-* ***Zero cost data:*** We had cell-free DNA sequencing data for thousands of transplant samples. We could mine these and extract the non-human sequencess that were not previously analyzed. 
+* ***Testable:*** We had independent clinical tests for infection disease for most of the samples. The non-human cell-free DNA signal could be correlated with these tests.
 
-* ***Easily testable:*** We had indepndent clinical tests for infection disease for most of the samples. The non-human cell-free DNA signal could be correlated with these tests.
+* ***Zero cost data:*** We had cell-free DNA sequencing data for thousands of transplant samples. We could mine these and extract the non-human sequences that were not previously analyzed. 
 
 ####Re-mining 
 
