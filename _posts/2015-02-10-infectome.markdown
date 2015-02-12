@@ -152,4 +152,4 @@ With these basics in place, it was also easy to design views with more complex o
 
 ####Summary: "Found money"
 
-We built a universal non-invasive diagnostic for infectious disease by applying NGS to cell-free DNA. We mined existing datasets that were generated for a different application. Because of this, the results were "found money," un-claimed value that we were able to validate by correlating our results with existing clinical test results. We built an application for managing this complex data, which split the data according to a natural hierarchy of questions that clinicians and researchers can use to extract insights.
+We built a universal non-invasive diagnostic for infectious disease by applying NGS to cell-free DNA. We mined existing datasets that were generated for a different application. Because of this, the results were "found money," un-claimed value that we were able to validate by correlating our results with existing clinical test results. We built an application to manage this data, which split the data according to an intuitive hierarchy that clinicians and researchers can use to extract insights.
