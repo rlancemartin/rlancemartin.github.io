@@ -93,15 +93,15 @@ Infections are interesting because there are many categories: there are many dif
 
 ####But, is it real?
 
-Many blood samples were collected longitudinally for the same patient, allowing us to record time-series for each measured infection. Sustained, high abundance in the time-series data provided an early indication that the measurements may correlated with infections within the body. By overlaying independent clinical data, we often observed a sustained signal in blood prior to clinical detection of the specified pathogen (below left). We also could validate our measurements using independent clinical tests performed on the same patients (clinical correlations on HHV-5, below right). 
+Many blood samples were collected longitudinally for the same patient, allowing us to record a time-series for each infection. We saw sustained, high abundance signal for many infections. By overlaying independent clinical tests, we often observed a sustained signal in blood prior to clinical detection of the specified pathogen (below left, with decrease in signal after clinical detection and intervention). We also could validate our measurements using independent clinical tests performed on the same patients (clinical correlations on HHV-5, below right). 
 
 <div class="imgcap">
 <img src="/assets/Infectome_3.jpg" width="70%">
 </div>
 
-####Building a data product
+####Building an application around the data
 
-**Defining the organization**. After validating that the signal is clinically meaningful for infections that had matched clinical tests, we addressed the practical challenge of building a tool that clinicians and resarchers could use. We noted that the data has natural structure: each cohort was comprised of patients, which may have many samples. In each sample, there may be thousands of unique infections identified. 
+**Data organization**. After validating that the measurments could be clinically meaningful, we addressed the practical challenge of managing this large volume of data. We built a tool that clinicians and resarchers could use to extract insights from the data. In this case, the data had structure, with cohort comprised of patients. In each patient was sampled many times. Each sample could have thousands of unique infections identified. 
 
 **Encoding the questions**. Each layer of organization had associated questions. We built a `Django` application that split the data according to these different layers of organization and designed objects (tables and visualizations) that address relevant questions at that layer of organization. 
 
