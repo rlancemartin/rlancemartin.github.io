@@ -22,4 +22,5 @@ They combine theory with implementation using iPython notebooks:
 * [Logistic Regression](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Logistic%20Regression.ipynb) 
 * [Linear Discriminant Analysis](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Linear%20Discriminant%20Analysis.ipynb) 
 * [Cross-validation](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Cross-validation.ipynb) 
+* [Dimension Reduction](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Dimension%20Reduction.ipynb) 
 * (Will add more when I have time.)
