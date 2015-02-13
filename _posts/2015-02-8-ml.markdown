@@ -16,11 +16,10 @@ The combine three sources:
 * An Introduction to Statistical Learning (ISL), an excellent text by G. James, D. Witten, T. Hastie and R. Tibshirani (Springer, 2013)
 * [`scikit-learn`](http://scikit-learn.org/stable/) and [`Seaborn`](http://stanford.edu/~mwaskom/software/seaborn/)
 
-They combine the details (CS229) with implementation (in python) for many of the algorithms. Notebook links: 
+They combine theory with implementation using iPython notebooks: 
 
 * [Linear Regression](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Linear%20Regression.ipynb) 
 * [Logistic Regression](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Logistic%20Regression.ipynb) 
 * [Linear Discriminant Analysis](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Linear%20Discriminant%20Analysis.ipynb) 
 * [Cross-validation](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Cross-validation.ipynb) 
 * (Will add more when I have time.)
-
