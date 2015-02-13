@@ -20,5 +20,7 @@ They combine the details (CS229) with implementation (in python) for many of the
 
 * [Linear Regression](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Linear%20Regression.ipynb) 
 * [Logistic Regression](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Logistic%20Regression.ipynb) 
+* [Linear Discriminant Analysis](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Linear%20Discriminant%20Analysis.ipynb) 
+* [Cross-validation](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Cross-validation.ipynb) 
 * (Will add more when I have time.)
 
