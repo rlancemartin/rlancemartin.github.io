@@ -1,8 +1,8 @@
 ---
 layout: post
 comments: false
-title:  "Machine learning notes"
-excerpt: "iPython notebooks following CS229 and ISL with scikit-learn."
+title:  "Machine learning: Theory and iPython notebooks"
+excerpt: "iPython notebooks following CS229 and ISL with scikit-learn implementations."
 date:   2015-02-8 10:19:00
 ---
 
