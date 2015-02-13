@@ -13,7 +13,7 @@ These are some notes that I wrote for myself while studying for PhD qualifying e
 The combine three sources:
 
 * CS229 (Machine Learning), an excellent Stanford course
-* An Introduction to Statistical Learning by G. James, D. Witten, T. Hastie and R. Tibshirani (Springer, 2013)
+* An Introduction to Statistical Learning by G. James, D. Witten, T. Hastie and R. Tibshirani
 * [`scikit-learn`](http://scikit-learn.org/stable/) and [`Seaborn`](http://stanford.edu/~mwaskom/software/seaborn/)
 
 They combine theory with implementation using iPython notebooks: 
