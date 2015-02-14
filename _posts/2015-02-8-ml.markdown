@@ -6,15 +6,17 @@ excerpt: "iPython notebooks following CS229 and ISL with scikit-learn implementa
 date:   2015-02-8 10:19:00
 ---
 
-####Machine learning for data hackers
+####Machine learning iPython notebooks for data hacking
 
-Several short notebooks that draw theory and practice from from:
+Several short notebooks that draw theory and practice from:
 
 * CS229 (Machine Learning), an excellent Stanford course
 * An Introduction to Statistical Learning by G. James, D. Witten, T. Hastie and R. Tibshirani
 * [`scikit-learn`](http://scikit-learn.org/stable/) and [`Seaborn`](http://stanford.edu/~mwaskom/software/seaborn/)
 
-Links to iPython notebooks:
+Still very much in development.
+
+Links to the notebooks:
 
 * [Intro](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Intro%20and%20Philosophy.ipynb)
 * [Linear Regression](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Linear%20Regression.ipynb) 
