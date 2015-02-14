@@ -1,22 +1,20 @@
 ---
 layout: post
 comments: false
-title:  "Machine learning iPython notebooks"
+title:  "Machine learning notebooks"
 excerpt: "iPython notebooks following CS229 and ISL with scikit-learn implementations."
 date:   2015-02-13 10:19:00
 ---
 
 ####Machine learning iPython notebooks for data hacking
 
-Several short notebooks that draw theory and practice from:
+Several notebooks that I use that include theory (mainly CS229) and practice from:
 
 * CS229 (Machine Learning), an excellent Stanford course
 * An Introduction to Statistical Learning by G. James, D. Witten, T. Hastie and R. Tibshirani
 * [`scikit-learn`](http://scikit-learn.org/stable/) and [`Seaborn`](http://stanford.edu/~mwaskom/software/seaborn/)
 
-Still very much in development.
-
-Links to the notebooks:
+Still very much in development, but links to the notebooks here:
 
 * [Intro](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Intro%20and%20Philosophy.ipynb)
 * [Linear Regression](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Linear%20Regression.ipynb)
@@ -29,4 +27,5 @@ Links to the notebooks:
 * [Dimension Reduction](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Dimension%20Reduction.ipynb)
 * [Unsupervised Learning](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Unsupervised%20learning.ipynb)
 * [Deep Learning](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Deep%20Learning.ipynb)
-* (Will add more and continue to refine these when I have time.)
+
+(Will add more and continue to refine these when I have time!)
