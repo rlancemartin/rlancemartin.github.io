@@ -1,26 +1,30 @@
 ---
 layout: post
 comments: false
-title:  "Machine learning: Theory and iPython notebooks"
+title:  "Machine learning iPython notebooks"
 excerpt: "iPython notebooks following CS229 and ISL with scikit-learn implementations."
 date:   2015-02-8 10:19:00
 ---
 
-####Notes
+####Machine learning for data hackers
 
-These are some notes that I wrote for myself while studying for PhD qualifying exams at Stanford.
-
-The combine three sources:
+Several short notebooks that draw theory and practice from from:
 
 * CS229 (Machine Learning), an excellent Stanford course
 * An Introduction to Statistical Learning by G. James, D. Witten, T. Hastie and R. Tibshirani
 * [`scikit-learn`](http://scikit-learn.org/stable/) and [`Seaborn`](http://stanford.edu/~mwaskom/software/seaborn/)
 
-They combine theory with implementation using iPython notebooks: 
+Links to iPython notebooks:
 
+* [Intro](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Intro%20and%20Philosophy.ipynb)
 * [Linear Regression](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Linear%20Regression.ipynb) 
 * [Logistic Regression](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Logistic%20Regression.ipynb) 
 * [Linear Discriminant Analysis](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Linear%20Discriminant%20Analysis.ipynb) 
+* [Naive Bayes](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Naive%20Bayes.ipynb)
+* [Support Vector Machines](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/SVMs.ipynb)
+* [Tree-based methods](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Tree-based%20methods.ipynb)
 * [Cross-validation](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Cross-validation.ipynb) 
 * [Dimension Reduction](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Dimension%20Reduction.ipynb) 
-* (Will add more when I have time.)
+* [Unsupervised Learning](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Unsupervised%20learning.ipynb) 
+* [Deep Learning](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Deep%20Learning.ipynb)
+* (Will add more and continue to refine these when I have time.)
