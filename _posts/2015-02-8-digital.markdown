@@ -15,7 +15,7 @@ A war now rages between man and microbe, as resistance threatens the effectivene
 Specifically, we asked whether Next-Generation DNA Sequencing (NGS) can be used to understand viral replication mechanisms. We developed a way to digitize cellular networks using NGS, resulting in huge volumes of data about the specific interactions between human proteins and RNA viral genomes. We then use this data to re-construct a model for how the virus may replicate its genome.
 
 <figure>
-<img src="/assets/digital_1.jpg.jpg" width="100%">
+<img src="/assets/digital_1.jpg" width="100%">
 <figcaption>
 </figcaption>
 </figure>
@@ -40,7 +40,7 @@ hmap_m=pd.merge(hmap,pc_genes,left_on='ENSG_ID',right_on='ENSG_ID',how='inner')
 The pipeline puts the sequenced fragments into bins based upon RNA type and provides statistics and visualizations about the contents of each bin as well as iPython notebooks for interactive exploration (see docs [here](https://github.com/ChangLab/FAST-iCLIP)). It also provides a detailed footprint of binding activity for any protein across any viral RNA genome (shown below for Hepatitis-C virus and poly-C binding protein, PCBP).
 
 <figure>
-<img src="/assets/digital_2.jpg.jpg" width="100%">
+<img src="/assets/digital_2.jpg" width="100%">
 <figcaption>
 </figcaption>
 </figure>
