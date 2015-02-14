@@ -1,10 +1,10 @@
-----
+---
 layout: post
 comments: false
-title: "Machine learning iPython notebooks"
+title:  "Machine learning iPython notebooks"
 excerpt: "iPython notebooks following CS229 and ISL with scikit-learn implementations."
-date: 2015-02-13 10:19:00
-----
+date:   2015-02-13 10:19:00
+---
 
 ####Machine learning iPython notebooks for data hacking
 
