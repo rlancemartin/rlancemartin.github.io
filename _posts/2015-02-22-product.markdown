@@ -100,7 +100,7 @@ Different markets can complicate this. Chamath [talks](https://www.youtube.com/w
 
 Gross revenue has more than doubled for the past three years. This is impressive, but their distribution of revenue is also interesting: apparently the bulk comes from [~ 10 cities](http://www.businessinsider.com/ubers-revenue-2014-11). There's a lot of headroom. 
 
-But, an interesting question is how to localize product or growth strategy, considering demographic or structural differences between the cities and neighborhoods.
+But, an interesting question is how to localize product or growth strategy, considering demographic or structural differences between all these different cities and neighborhoods.
 
 It's possible to simplify this problem if you find a way to compare each market. For example, Uber has used neighborhood-specific [demand patterns](http://www.citylab.com/commute/2012/08/using-uber-ridership-data-compare-cities-and-neighborhoods/2890/) as a handle to compare different areas. 
 
