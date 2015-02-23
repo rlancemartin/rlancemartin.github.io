@@ -51,20 +51,20 @@ For example, Peter Theil [noted](http://blakemasters.com/post/22405055017/peter-
 Acquisition and retention are independent parameters in the growth model. This is key. [Alex Schultz](http://genius.com/Alex-schultz-lecture-6-growth-annotated) explains how retention curves are used for modeling this. A retention curve captures the degradation rate in monthly active users following acquisition. In the worst cast, it flattens out to zero.
  
 <figure>
-<img src="/assets/retention.png" width="100%">
+<img src="/assets/retention.png" width="70%">
 <figcaption>
 </figcaption>
 </figure>
 
 I simulated a few scenarios to convince myself (link to iPython notebook). At best, growth is stifled when users churn. At worst, growth crashes out to zero. The intuition is pretty clear. Leaky buckets don’t need water. They need to be patched. Viral acquisition with a bad product will hemorrhage users.  
 
-###Product
+###Product and growth
 
-It's intreating to consider what underpin these parameters. There's probably a lot of answers to this question. But it seems clear that product is central. Facebook and Uber grew via work of mouth because the products were so good. Unlike Hotmail or Dropbox, there was [no native way](https://www.youtube.com/watch?v=raIUQP71SBU) to contact people from within the app.
+What underpins these parameters? Product is clearly central. Facebook and Uber grew via work of mouth because the products were so good. Unlike Hotmail or Dropbox, there were [no native ways](https://www.youtube.com/watch?v=raIUQP71SBU) to contact people from within these apps.
 
-In some cases, the market size is a function of product quality. This point is lost in typical projections of total available market using historical data. A recent debate between Bill Gurley and Aswath Damodaran about [Uber](http://abovethecrowd.com/2014/07/11/how-to-miss-by-a-mile-an-alternative-look-at-ubers-potential-market-size/) highlights this: in 2012, Uber was 100% of the total historical black car market in San Francisco. It is now several-fold larger.
+Uber has also shown that market size is a function of product quality. A recent debate between Bill Gurley and Aswath Damodaran [highlights](http://abovethecrowd.com/2014/07/11/how-to-miss-by-a-mile-an-alternative-look-at-ubers-potential-market-size/): in 2012, Uber was ~100% of the total historical black car market in San Francisco. With product, it continue to grow the market for ride-sharing.
 
-Similarly, viral user acquisition is [intrinsic to design](http://blakemasters.com/post/22405055017/peter-thiels-cs183-startup-class-9-notes-essay) of the product. Dropbox and Spotify provide native ways to contact users outside of the applications. Ed Baker, head of growth at Uber, developed a [few products](http://michaelrucker.com/thought-leader-interviews/edward-baker-the-viral-factor/) designed for specifically for viral user acquisition. 
+User acquisition is also [intrinsic to product design](http://blakemasters.com/post/22405055017/peter-thiels-cs183-startup-class-9-notes-essay). Dropbox and Hotmail provided native ways to contact users outside of the app and draw them in. Ed Baker, head of growth at Uber, developed a [few products](http://michaelrucker.com/thought-leader-interviews/edward-baker-the-viral-factor/) designed for specifically for viral user acquisition.
 
 ###The case for product science
 
