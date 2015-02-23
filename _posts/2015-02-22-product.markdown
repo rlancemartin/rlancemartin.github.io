@@ -98,11 +98,11 @@ If there is product feature that strongly partitions users based upon a key metr
 
 Different markets can complicate this. Chamath [talks](https://www.youtube.com/watch?v=raIUQP71SBU) about Facebook's international growth and need for localization of the app to specific markets. Uber is doing this now in 150 cities and 46 counties. 
 
-Gross revenue has more than doubled for the past three years. This is impressive, but their distribution of revenue is also interesting: apparently the bulk comes from [~ 10 cities](http://www.businessinsider.com/ubers-revenue-2014-11). There's a lot of headroom. This also shows that the business has high heterogeneity.
+Gross revenue has more than doubled for the past three years. This is impressive, but their distribution of revenue is also interesting: apparently the bulk comes from [~ 10 cities](http://www.businessinsider.com/ubers-revenue-2014-11). There's a lot of headroom. 
 
-Part of the heterogeneity is due to the cities themselves, such as specific demographic or structural features for each one. High-resolution city-specific features are accesible, in some cases. 
+But, this also shows that the business has high heterogeneity due to specific demographic or structural features for each city. To get a handle on this, high-resolution city data is sometimes available. 
 
-For example, I pulled all [311 requests](http://www.sf311.org/index.aspx?page=161) provided by `SF open data`. This contains 1.1 million service requests collected across ~900 request categories over the past few years. What's cool is that each record is geo-tagged. So, I used the [`basemap`](http://matplotlib.org/basemap/) library in `python` to overlay reported `Pavement Defects` on a map of San Francisco. 
+For example, I pulled all [311 requests](http://www.sf311.org/index.aspx?page=161) provided by `SF open data`. This contains 1.1 million service requests that are geo-tagged. I used the [`basemap`](http://matplotlib.org/basemap/) library in `python` to overlay reported `Pavement Defects` on a map of San Francisco, showing a heatmap per neighborhood.
 
 <figure>
 <img src="/assets/context.png" width="100%">
@@ -110,19 +110,19 @@ For example, I pulled all [311 requests](http://www.sf311.org/index.aspx?page=16
 </figcaption>
 </figure>
 
-Along with this available city data, Uber has organized their own data into city- and neighborhood-specific features. For example, neighborhoods have [unique usage patterns](http://www.citylab.com/commute/2012/08/using-uber-ridership-data-compare-cities-and-neighborhoods/2890/). This means that each city and neighborhood can be understood as a potentially broad set of granular features.
+Along with available city data, Uber has organized their own data into city- and neighborhood-specific features. For example, neighborhoods have [unique demand patterns](http://www.citylab.com/commute/2012/08/using-uber-ridership-data-compare-cities-and-neighborhoods/2890/). This means that each city and neighborhood can be understood as a potentially broad set of granular features.
 
-So what? These features provide a handle for organizing the heterogeneity such that it can understood in a few obvious ways.
+These features provide a handle for organizing and comparing the diversity set of cities.
 
-* *** Comparative analysis *** Neighborhoods or cities can be grouped based upon similar features. This grouping isn't necessarily intuitive, which is why algorithms to do this can be useful. Grouping can identify outliers, where to expand next, and it may identify ways to apply insights from one market to similar ones.
+* ***Comparative analysis*** Neighborhoods or cities can be grouped based upon similar features. Grouping can identify outliers, where to expand next based upon similarity to prior successes, and it may identify ways to apply insights gained in one market to others.
 
 <figure>
-<img src="/assets/city_compare.png" width="100%">
+<img src="/assets/city_compare.png" width="70%">
 <figcaption>
 </figcaption>
 </figure>
 
-* *** Localizing growth strategy *** I wonder how much market-specific features explain the variance in key (user or driver) metrics, like acquisition or churn. It's pretty clear that price or ETA are universally important. Including a broader set of market-specific features may reveal insights for expansion. 
+* ***Localizing growth strategy*** I wonder how much market-specific features explain the variance in key (user or driver) metrics, like acquisition or churn. It's pretty clear that price or ETA are universally important. But, including a broader set of market-specific features may reveal insights for growth and product beyond what appears to be universally obvious. 
 
 ####Making new products 
 
