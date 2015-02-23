@@ -126,19 +126,11 @@ These features provide a handle for organizing and comparing the diverse set of 
 
 ####Develop new products
 
-For product optimization, lots of data exists. The other dimension for growth is diversification outside of the core business. Jeff Jordan [calls this](http://jeff.a16z.com/2012/01/18/a-recipe-for-growth-adding-layers-to-the-cake/) "adding layers to the cake.” 
+For product optimization, lots of data exists. The other dimension for growth is diversification outside of the core business. Jeff Jordan [calls this](http://jeff.a16z.com/2012/01/18/a-recipe-for-growth-adding-layers-to-the-cake/) "adding layers to the cake.” Unlike optimization, data typically does not exist for this. Good products tap into something buried within the human psyche and have low cognitive overhead. They are [hard to predict](http://www.dtic.upf.edu/~alozano/innovation/).
 
-Unlike optimization, data typically does not exist for this. Good products tap into something buried within the human psyche and have low cognitive overhead. They are [hard to predict](http://www.dtic.upf.edu/~alozano/innovation/).
+Hypothesis-driven product development has been adopted by many startups searching for a business model, though Steve Blank points out that this is also be relevant for [large corporations](https://hbr.org/2013/05/why-the-lean-start-up-changes-everything). I think this is where [full-stack startups](http://a16z.com/2015/01/22/the-full-stack-startup/) like Uber or Lyft are really interesting. These companies re-built the service stack using modern software.
 
-Hypothesis-driven product development has been adopted by many startups searching for a business model, though Steve Blank points out that this is also be relevant for [large corporations](https://hbr.org/2013/05/why-the-lean-start-up-changes-everything).
-
-I think this is where [full-stack startups](http://a16z.com/2015/01/22/the-full-stack-startup/) like Uber or Lyft are really interesting. These companies re-built the service stack using modern software.
-
-Because they own the stack, they can extend it in new ways. This makes them large-scale experimental machines, capable of testing ideas and generating data that no one else can.
-
-Based upon their blog, Uber has rolled several dozen different products, including on-demand [flu shots](http://blog.uber.com/health), [weddings](http://blog.uber.com/uberwedding), and [logistics](http://blog.uber.com/RUSH). 
-
-Once a digital grid is build, it becomes a pretty significant platform on which you can run experiments that tests ideas for the next iteration of on-demand products. 
+Because they own the stack, they can extend it in new ways. This makes them large-scale experimental machines, capable of testing ideas and generating data that no one else can. Based upon their blog, Uber has rolled several dozen different products, including on-demand [flu shots](http://blog.uber.com/health), [weddings](http://blog.uber.com/uberwedding), and [logistics](http://blog.uber.com/RUSH). Once a digital grid is build, it becomes a pretty significant platform on which you can run experiments that tests ideas for the next iteration of on-demand products. 
 
 ###Summary
 
