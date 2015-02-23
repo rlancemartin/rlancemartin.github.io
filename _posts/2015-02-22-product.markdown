@@ -64,7 +64,7 @@ Product underpins all three growth parameters. Facebook grew through work of mou
 
 Uber has shown that market size can be function of product quality. A debate between Bill Gurley and Aswath Damodaran [highlights this](http://abovethecrowd.com/2014/07/11/how-to-miss-by-a-mile-an-alternative-look-at-ubers-potential-market-size/): in 2012, Uber was ~100% of the total historical black car market in San Francisco. With product and very low prices, it continue to expand the market for ride-sharing.
 
-Viral user acquisition is also [intrinsic to product design](http://blakemasters.com/post/22405055017/peter-thiels-cs183-startup-class-9-notes-essay). Dropbox and Hotmail provided native ways to draw new users into the app. Ed Baker, head of growth at Uber, has developed a [few products](http://michaelrucker.com/thought-leader-interviews/edward-baker-the-viral-factor/) on email, SMS, IM, and Facebook designed specifically for viral growth.
+Viral user acquisition is also [intrinsic to product design](http://blakemasters.com/post/22405055017/peter-thiels-cs183-startup-class-9-notes-essay). Dropbox and Hotmail provided native ways for existing users to draw new users into the app. Ed Baker, head of growth at Uber, has developed a [few products](http://michaelrucker.com/thought-leader-interviews/edward-baker-the-viral-factor/) on email, SMS, IM, and Facebook designed specifically for viral growth.
 
 ###Product science
 
