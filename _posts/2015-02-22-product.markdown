@@ -84,9 +84,9 @@ If product is linked to growth, then how to make product decisions that promote 
 
 Consider churn. Identifying features that drive the likelihood of churn may be intuitive in some cases. In other situations, data science teams have probably used classifiers to figure it out. 
 
-But, the best growth and product teams seem to boil this down to specific features. For Facebook, it was friend count. Zuck talks about getting people to 10 friends in 14 days. Josh Elman, product lead for growth at Twitter, explains that they focused on visits, with [7 times per month](https://medium.com/@joshelman/the-only-metric-that-matters-ab24a585b5ea) the threshold.
+Either way, good growth and product teams seem to boil this down to specific features. For Facebook, it was friend count. Zuck talks about getting people to 10 friends in 14 days. Josh Elman, product lead for growth at Twitter, explains that they focused on visits, with [7 times per month](https://medium.com/@joshelman/the-only-metric-that-matters-ab24a585b5ea) the threshold.
 
-If there is product feature that strongly partitions users based upon a key metric, like churn, then experiments (e.g., A/B testing) for product improvement can be centered around this insight.
+If there is product feature that strongly seperates users based upon a key metric, like churn, then experiments (e.g., A/B testing) for product improvement can be centered around this insight.
 
 <figure>
 <img src="/assets/dist.png" width="70%">
@@ -110,7 +110,7 @@ It's possible to simplify this problem if you find a way to compare each market.
 </figcaption>
 </figure>
 
-Also, a lot of city-specific data is available. For example, I pulled all [311 requests](http://www.sf311.org/index.aspx?page=161) provided by `SF open data`. This contains 1.1 million geo-tagged service requests. I used the [`basemap`](http://matplotlib.org/basemap/) library in `python` to overlay reported `Pavement Defects` on a map of San Francisco, showing a heatmap per neighborhood.
+City data is also available. For example, I pulled all [311 requests](http://www.sf311.org/index.aspx?page=161) provided by `SF open data`. This contains 1.1 million geo-tagged service requests. I used the [`basemap`](http://matplotlib.org/basemap/) library in `python` to overlay reported `Pavement Defects` on a map of San Francisco, showing a heatmap per neighborhood.
 
 <figure>
 <img src="/assets/context.png" width="100%">
@@ -118,7 +118,7 @@ Also, a lot of city-specific data is available. For example, I pulled all [311 r
 </figcaption>
 </figure>
 
-These features are a nice handle for comparing and learning from diverse markets. 
+These city- and app- derived features are a handle for deriving insights across markets.
 
 * ***Mapping insights between markets*** Neighborhoods or cities can be grouped based upon similar features. This could identify outliers, where to expand next based upon similarity to prior successes, and it may identify ways to apply insights gained in one market to others.
 
