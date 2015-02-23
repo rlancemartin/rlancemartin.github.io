@@ -118,7 +118,7 @@ City data is also available. For example, I pulled all [311 requests](http://www
 </figcaption>
 </figure>
 
-These city- and app- derived features are a handle for deriving insights across markets.
+These city- and app- derived features are a handle for generating insights in at least two ways:
 
 * ***Mapping insights between markets*** Neighborhoods or cities can be grouped based upon similar features. This could identify outliers, where to expand next based upon similarity to prior successes, and it may identify ways to apply insights gained in one market to others.
 
