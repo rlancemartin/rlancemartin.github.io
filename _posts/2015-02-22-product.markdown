@@ -6,27 +6,27 @@ excerpt: "Science drives product development and growth."
 date:   2015-02-22 10:19:00
 ---
 
-###What is a startup?
+###Growth
 
-As Paul Graham [explains](http://www.paulgraham.com/growth.html), `a startup is a company designed to grow fast`. Growth is what distinguishes a startup from the millions of service businesses established every year in the US. But, he is referring to a particular kind of growth. If a startup adds a fixed number new users per week, the user count will scale linearly. Over time, the ratio of new users added per week converges to one. This isn’t very interesting. Startups want growth that is proportional to their current size. Over time, a fixed percentage of new users added per week leads to exponential growth in total user count.
+Paul Graham [said](http://www.paulgraham.com/growth.html) that "a startup is a company designed to grow fast". Growth distinguishes startups from the millions of local service businesses launched every year. If a startup adds a fixed number new users per week, the user count will scale linearly. Over time, the ratio of new users added per week approaches one. That isn’t very interesting. Startups want growth that is proportional to their current size. Over time, a fixed percentage of new users added per week leads to a non-linear explosion in total user count (red, below).
 
 <figure>
-<img src="/assets/linear_log.png" width="100%">
+<img src="/assets/linear_log.png" width="90%">
 <figcaption>
 </figcaption>
 </figure>
 
 ###Why is growth important?
 
-Exponential growth behaves in weird ways. Consider two companies, both growing exponentially with a two-fold difference in rate. After one year, the first startup passes the knee of its exponential trajectory. The difference in revenue between the two is more than 10-fold despite the two-fold difference in rate. Many of the iconic internet franchises have enjoyed this kind of run-away growth. 
+Exponential growth behaves in strange ways. Consider two companies, both growing exponentially with a two-fold difference in rate. After one year, the first startup passes the knee of its exponential trajectory. At this time, the difference in revenue between the two is more than 10-fold. Many of the iconic internet franchises have enjoyed this kind of run-away growth. 
  
 <figure>
-<img src="/assets/compare_growth.png" width="100%">
+<img src="/assets/compare_growth.png" width="70%">
 <figcaption>
 </figcaption>
 </figure>
 
-The mechanic underling this is often described as a “network effect.” For marketplace businesses like OpenTable or eBay, this is intuitive. As more buyers enter the system, more sellers are enticed, which in turn attracts more buyers. This sort of flywheel makes it very hard for competition to catch up and has lead to monopoly businesses. OpenTable has over [90 % market share](http://www.gourmetmarketing.net/rezbook-review-new-opentable-competitor/) in online restaurant reservations.
+This is often due to a network effect. For marketplace businesses like OpenTable or eBay, this is intuitive. As more buyers enter the system, more sellers are enter. This attracts more buyers. The resulting flywheel can lead to a monopoly business. For example, OpenTable has over [90 % market share](http://www.gourmetmarketing.net/rezbook-review-new-opentable-competitor/) in online restaurant reservations.
 
 ###Growth parameters
 
