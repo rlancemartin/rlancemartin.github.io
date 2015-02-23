@@ -60,17 +60,17 @@ I simulated a few scenarios to convince myself (link to iPython notebook). At be
 
 ###Product and growth
 
-What underpins these parameters? Product is clearly central. Facebook and Uber grew via work of mouth because the products were so good. Unlike Hotmail or Dropbox, there were [no native ways](https://www.youtube.com/watch?v=raIUQP71SBU) to contact people from within these apps.
+Product underpins all three growth parameters. Facebook grew through work of mouth because the product was so good. Unlike Hotmail, there was [no native way](https://www.youtube.com/watch?v=raIUQP71SBU) to pull-in non-users from the app.
 
-Uber has also shown that market size is a function of product quality. A recent debate between Bill Gurley and Aswath Damodaran [highlights](http://abovethecrowd.com/2014/07/11/how-to-miss-by-a-mile-an-alternative-look-at-ubers-potential-market-size/): in 2012, Uber was ~100% of the total historical black car market in San Francisco. With product, it continue to grow the market for ride-sharing.
+Uber has shown that market size can be function of product quality. A debate between Bill Gurley and Aswath Damodaran [highlights this](http://abovethecrowd.com/2014/07/11/how-to-miss-by-a-mile-an-alternative-look-at-ubers-potential-market-size/): in 2012, Uber was ~100% of the total historical black car market in San Francisco. With product and very low prices, it continue to expand the market for ride-sharing.
 
-User acquisition is also [intrinsic to product design](http://blakemasters.com/post/22405055017/peter-thiels-cs183-startup-class-9-notes-essay). Dropbox and Hotmail provided native ways to contact users outside of the app and draw them in. Ed Baker, head of growth at Uber, developed a [few products](http://michaelrucker.com/thought-leader-interviews/edward-baker-the-viral-factor/) designed for specifically for viral user acquisition.
+Viral user acquisition is also [intrinsic to product design](http://blakemasters.com/post/22405055017/peter-thiels-cs183-startup-class-9-notes-essay). Dropbox and Hotmail provided native ways to draw new users into the app. Ed Baker, head of growth at Uber, has developed a [few products](http://michaelrucker.com/thought-leader-interviews/edward-baker-the-viral-factor/) designed for specifically for viral user acquisition.
 
 ###The case for product science
 
-Jeff Jordan has a blog post [explaining](http://jeff.a16z.com/2012/01/18/a-recipe-for-growth-adding-layers-to-the-cake/) the two ways that product innovation combats what he calls “gravity," the inevitable depression of startup growth rate. Simply, a startup can optimize existing products or it can develop new ones. This is pretty obvious. But it's interesting to drill down on each one.
+If product is a key lever that controls growth, then how to make product decisions to promote growth? Jeff Jordan [explains](http://jeff.a16z.com/2012/01/18/a-recipe-for-growth-adding-layers-to-the-cake/) two types of product innovation that combat slowing growth: optimize the existing product or develop new ones.
 
-####Improving the existing product
+####Optimize the existing product
  
 ***User heterogeneity*** 
 
