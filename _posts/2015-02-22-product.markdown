@@ -8,7 +8,7 @@ date:   2015-02-22 10:19:00
 
 ###Growth
 
-Paul Graham [said](http://www.paulgraham.com/growth.html) that "a startup is a company designed to grow fast". Growth distinguishes startups from the millions of local service businesses launched every year. If a startup adds a fixed number new users per week, the user count will scale linearly. Over time, the ratio of new users added per week approaches one. That isn’t very interesting. Startups want growth that is proportional to their current size. Over time, a fixed percentage of new users added per week leads to a non-linear explosion in total user count (red, below).
+Paul Graham [said](http://www.paulgraham.com/growth.html) that a startup is a company designed to grow fast. Growth distinguishes startups from the millions of local service businesses launched every year. If a startup adds a fixed number new users per week, the user count will scale linearly. Over time, the ratio of new users added per week approaches one. Startups want growth that is proportional to their current size. A fixed percentage of new users added per week leads to a non-linear explosion in total user count (red, below).
 
 <figure>
 <img src="/assets/linear_log.png" width="90%">
@@ -18,7 +18,7 @@ Paul Graham [said](http://www.paulgraham.com/growth.html) that "a startup is a c
 
 ###Why is growth important?
 
-Exponential growth behaves in strange ways. Consider two companies, both growing exponentially with a two-fold difference in rate. After one year, the first startup passes the knee of its exponential trajectory. At this time, the difference in revenue between the two is more than 10-fold. Many of the iconic internet franchises have enjoyed this kind of run-away growth. 
+Consider two companies, both growing exponentially with a two-fold difference in rate. After one year, the first startup passes the knee of its exponential trajectory. At this time, the difference in revenue between the two is more than 10-fold. Many of the iconic internet franchises have enjoyed this kind of run-away growth. 
  
 <figure>
 <img src="/assets/compare_growth.png" width="70%">
