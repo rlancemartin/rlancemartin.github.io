@@ -68,13 +68,13 @@ Viral user acquisition is also [intrinsic to product design](http://blakemasters
 
 ###The case for product science
 
-If product is a key lever that controls growth, then how to make product decisions to promote growth? Simply, product innovation can optimize the existing product or develop new ones.
+If product is a key lever that controls growth, then how to make product decisions that promote growth? Product innovation can do this along two obvious dimensions: optimize the existing product or develop new ones. It's interesting to consider ways that some of the best companies have thought about the science of product innovation along each dimension.  
 
 ####Optimize the existing product
  
-***User heterogeneity*** 
+***User distribution*** 
 
-[Alex Schultz](http://genius.com/Alex-schultz-lecture-6-growth-annotated) made a key point here. There is a distribution of users. Some are about to churn off your app. With the retention curve in mind, it is important to identify product features that influence churn.
+[Alex Schultz](http://genius.com/Alex-schultz-lecture-6-growth-annotated) made a key point here. There are metrics that matter, like churn. The product has a lot of features that might influence the metric (below). The challenge is to isolate features that most strongly explain differences in the metric.
 
 <figure>
 <img src="/assets/user_equ.png" width="60%">
@@ -82,9 +82,9 @@ If product is a key lever that controls growth, then how to make product decisio
 </figcaption>
 </figure>
 
-Identifying the features that classify the likelihood of churn appears to have some black magic. It's intuitive in some cases. In other situations, learning (classification) methods could probably be used. 
+Consider churn. Identifying features that classify the likelihood of churn appears to be intuitive in some cases. In other situations, learning (classification) methods could probably be used. 
 
-But, the best growth and product teams seem to understand and boil this down. For Facebook, it was friend count. Zuck talks about getting people to 10 friends in 14 days. Josh Elman, product lead for growth at Twitter, explained that they focused on visits, with [7 times per month](https://medium.com/@joshelman/the-only-metric-that-matters-ab24a585b5ea) the critical threshold.
+But, the best growth and product teams seem to boil this down to specific features. For Facebook, it was friend count. Zuck talks about getting people to 10 friends in 14 days. Josh Elman, product lead for growth at Twitter, explains that they focused on visits, with [7 times per month](https://medium.com/@joshelman/the-only-metric-that-matters-ab24a585b5ea) the threshold.
 
 If there is product feature that strongly partitions users based upon a key metric, like churn, then experiments (e.g., A/B testing) for product improvement can be centered around this insight.
 
@@ -94,27 +94,15 @@ If there is product feature that strongly partitions users based upon a key metr
 </figcaption>
 </figure>
 
-***Market heterogeneity***
+***Market distribution***
 
 Different markets can complicate this. Chamath [talks](https://www.youtube.com/watch?v=raIUQP71SBU) about Facebook's international growth and need for localization of the app to specific markets. Uber is doing this now in 150 cities and 46 counties. 
 
 Gross revenue has more than doubled for the past three years. This is impressive, but their distribution of revenue is also interesting: apparently the bulk comes from [~ 10 cities](http://www.businessinsider.com/ubers-revenue-2014-11). There's a lot of headroom. 
 
-But, this also shows that the business has high heterogeneity due to specific demographic or structural features for each city. To get a handle on this, high-resolution city data is sometimes available. 
+But, an interesting question is how to localize product or growth strategy, considering demographic or structural differences between the cities and neighborhoods.
 
-For example, I pulled all [311 requests](http://www.sf311.org/index.aspx?page=161) provided by `SF open data`. This contains 1.1 million service requests that are geo-tagged. I used the [`basemap`](http://matplotlib.org/basemap/) library in `python` to overlay reported `Pavement Defects` on a map of San Francisco, showing a heatmap per neighborhood.
-
-<figure>
-<img src="/assets/context.png" width="100%">
-<figcaption>
-</figcaption>
-</figure>
-
-Along with available city data, Uber has organized their own data into city- and neighborhood-specific features (below). For example, neighborhoods have [unique demand patterns](http://www.citylab.com/commute/2012/08/using-uber-ridership-data-compare-cities-and-neighborhoods/2890/). This means that each city and neighborhood can be understood as a potentially broad set of granular features.
-
-These features provide a handle for organizing and comparing the diverse set of cities.
-
-* ***Comparative analysis*** Neighborhoods or cities can be grouped based upon similar features. Grouping can identify outliers, where to expand next based upon similarity to prior successes, and it may identify ways to apply insights gained in one market to others.
+It's possible to simplify this problem if you find a way to compare each market. For example, Uber has used neighborhood-specific [demand patterns](http://www.citylab.com/commute/2012/08/using-uber-ridership-data-compare-cities-and-neighborhoods/2890/) as a handle to compare different areas. 
 
 <figure>
 <img src="/assets/city_compare.png" width="70%">
@@ -122,7 +110,19 @@ These features provide a handle for organizing and comparing the diverse set of 
 </figcaption>
 </figure>
 
-* ***Localizing growth strategy*** I wonder how much market-specific features explain the variance in key (user or driver) metrics, like acquisition or churn. It's pretty clear that price or ETA are universally important. But, including a broader set of market-specific features may reveal insights for growth and product beyond what appears to be universally obvious. 
+Also, a lot of city-specific data is available. For example, I pulled all [311 requests](http://www.sf311.org/index.aspx?page=161) provided by `SF open data`. This contains 1.1 million geo-tagged service requests. I used the [`basemap`](http://matplotlib.org/basemap/) library in `python` to overlay reported `Pavement Defects` on a map of San Francisco, showing a heatmap per neighborhood.
+
+<figure>
+<img src="/assets/context.png" width="100%">
+<figcaption>
+</figcaption>
+</figure>
+
+These features are a nice handle for comparing and learning from diverse markets. 
+
+* ***Mapping insights between markets*** Neighborhoods or cities can be grouped based upon similar features. This could identify outliers, where to expand next based upon similarity to prior successes, and it may identify ways to apply insights gained in one market to others.
+
+* ***Localizing product and growth strategy*** Beyond universal concerns like price or ETA, market-specific features might explain the variance in key (user or driver) metrics (e.g., acquisition or churn). If so, it provides insight into product or growth strategy in specific locales. 
 
 ####Develop new products
 
