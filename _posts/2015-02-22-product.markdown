@@ -89,18 +89,20 @@ But, the best growth and product teams seem to understand and boil this down. Fo
 If there is product feature that strongly partitions users based upon a key metric, like churn, then experiments (e.g., A/B testing) for product improvement can be centered around this insight.
 
 <figure>
-<img src="/assets/dist.png" width="100%">
+<img src="/assets/dist.png" width="70%">
 <figcaption>
 </figcaption>
 </figure>
 
 ***Market heterogeneity***
 
-But, different markets can complicate this. Chamath [talks](https://www.youtube.com/watch?v=raIUQP71SBU) about Facebook's international growth and need for localization of the app to specific markets. Similarly, consider marketplaces like AirBnB, Instacart, and Uber that are operating in hundreds of different cities or dozens of countries simultaneously.
+Different markets can complicate this. Chamath [talks](https://www.youtube.com/watch?v=raIUQP71SBU) about Facebook's international growth and need for localization of the app to specific markets. 
 
-Uber is in 150 cities and its gross revenue has more than doubled each year, for the past three years. This is impressive. But the more interesting point is their distribution of revenue: apparently the bulk comes from [only 10 cities](http://www.businessinsider.com/ubers-revenue-2014-11) today. There's a lot of headroom. City-specific features may be useful for driving growth in each one.
+Uber is doing this now. They are in 150 cities and 46 counties. Gross revenue has more than doubled for the past three years. This is impressive, but their distribution of revenue is also interesting: apparently the bulk comes from [~ 10 cities](http://www.businessinsider.com/ubers-revenue-2014-11). There's a lot of headroom. This also shows that the business has high heterogeneity.
 
-To aid this, cities are releasing their data. For example, I pulled all [311 requests](http://www.sf311.org/index.aspx?page=161) provided by `SF open data`. This contains 1.1 million service requests collected across ~900 categories. Each record is geo-tagged. I used the [`basemap`](http://matplotlib.org/basemap/) library in `python` to overlay reported `Pavement Defects` on a map of San Francisco. 
+Part of the heterogeneity is due to the cities themselves, such as specific demographic or structural features for each one. High-resolution city-specific features are accesible, in some cases. 
+
+For example, I pulled all [311 requests](http://www.sf311.org/index.aspx?page=161) provided by `SF open data`. This contains 1.1 million service requests collected across ~900 request categories over the past few years. What's cool is that each record is geo-tagged. So, I used the [`basemap`](http://matplotlib.org/basemap/) library in `python` to overlay reported `Pavement Defects` on a map of San Francisco. 
 
 <figure>
 <img src="/assets/context.png" width="100%">
@@ -108,11 +110,11 @@ To aid this, cities are releasing their data. For example, I pulled all [311 req
 </figcaption>
 </figure>
 
-It is easy to capture features like road congestion or pavement defects that may affect marketplace businesses like Uber. At the same time, Uber has organized their own data into city-specific features. For example, demand patters from different neighborhoods [can be isolated](http://www.citylab.com/commute/2012/08/using-uber-ridership-data-compare-cities-and-neighborhoods/2890/). Collectively, this means that each city or neighborhood can be understood as a set of granular features.
+Along with this available city data, Uber has organized their own data into city- and neighborhood-specific features. For example, neighborhoods have [unique usage patterns](http://www.citylab.com/commute/2012/08/using-uber-ridership-data-compare-cities-and-neighborhoods/2890/). This means that each city and neighborhood can be understood as a potentially broad set of granular features.
 
-What can be done once your different markets can be organized:
+So what? These features provide a handle for organizing the heterogeneity such that it can understood in a few obvious ways.
 
-* *** Benchmarking **** Neighborhoods or cities can be grouped based upon similar features. Comparing mature to nascent markets within the same group can provides insight for growth. 
+* *** Comparative analysis *** Neighborhoods or cities can be grouped based upon similar features. This grouping isn't necessarily intuitive, which is why algorithms to do this can be useful. Grouping can identify outliers, where to expand next, and it may identify ways to apply insights from one market to similar ones.
 
 <figure>
 <img src="/assets/city_compare.png" width="100%">
@@ -120,7 +122,7 @@ What can be done once your different markets can be organized:
 </figcaption>
 </figure>
 
-* *** Understanding growth **** Before, we considered simple cases: friend count or page visits provides predictive information about whether a user will churn. Similarly, we may expect price or ETA to be universal indicators of churn for consumers on Uber. But what about drivers, which are equally important in the two-sided marketplace. Capturing a broader set of market-specific features could be used to examine whether geographical considerations explain the observed variation user or driver metrics.
+* *** Localizing growth strategy *** I wonder how much market-specific features explain the variance in key (user or driver) metrics, like acquisition or churn. It's pretty clear that price or ETA are universally important. Including a broader set of market-specific features may reveal insights for expansion. 
 
 ####Making new products 
 
