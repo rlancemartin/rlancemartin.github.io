@@ -128,9 +128,13 @@ These city- and app- derived features are a handle for generating insights in at
 
 For product optimization, lots of data exists. The other dimension for growth is diversification outside of the core business. Jeff Jordan [calls this](http://jeff.a16z.com/2012/01/18/a-recipe-for-growth-adding-layers-to-the-cake/) "adding layers to the cake.” Unlike optimization, data typically does not exist for this. Good products tap deep into the human psyche are [hard to predict](http://www.dtic.upf.edu/~alozano/innovation/).
 
-Hypothesis-driven product development has been adopted by young startups searching for a business model, though Steve Blank points out that it is also be relevant for [larger startups](https://hbr.org/2013/05/why-the-lean-start-up-changes-everything). Specifically, [full-stack startups](http://a16z.com/2015/01/22/the-full-stack-startup/) can run experiments and generate data that no one else can.
+Hypothesis-driven product development has been adopted by young startups searching for a business model, though Steve Blank points out that it is also relevant for [larger startups or corperations](https://hbr.org/2013/05/why-the-lean-start-up-changes-everything). 
 
-Based upon their blog, Uber has rolled several dozen different products at pilot-scale, including on-demand [flu shots](http://blog.uber.com/health), [weddings](http://blog.uber.com/uberwedding), and [logistics](http://blog.uber.com/RUSH). Once a digital grid is built-out, then it can be used to run experiments and gather data that inform the next iteration of products. 
+People talk about the importance of data monopoly. But, I think it's equally interesting to consider experimental monopoly. For example, many [full-stack startups](http://a16z.com/2015/01/22/the-full-stack-startup/) have the capacity to test ideas that no one else can test. 
+
+Based upon their blog, Uber has rolled several dozen different products at pilot-scale, including on-demand [flu shots](http://blog.uber.com/health), [weddings](http://blog.uber.com/uberwedding), and [logistics](http://blog.uber.com/RUSH). Once a digital grid is built on top of cities, then it's a massive experimental machine. 
+
+Most of these expariments are probably just for fun or PR. Or they fail. But the point is that it's possible to ask questions and test ideas on a scale that no one else can.
 
 ###Summary
 
