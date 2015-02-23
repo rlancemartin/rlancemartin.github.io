@@ -68,7 +68,7 @@ Viral user acquisition is also [intrinsic to product design](http://blakemasters
 
 ###The case for product science
 
-If product is a key lever that controls growth, then how to make product decisions to promote growth? Jeff Jordan [explains](http://jeff.a16z.com/2012/01/18/a-recipe-for-growth-adding-layers-to-the-cake/) two types of product innovation that combat slowing growth: optimize the existing product or develop new ones.
+If product is a key lever that controls growth, then how to make product decisions to promote growth? Simply, product innovation can optimize the existing product or develop new ones.
 
 ####Optimize the existing product
  
