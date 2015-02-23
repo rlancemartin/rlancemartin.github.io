@@ -38,7 +38,7 @@ Growth runs up against bounds. Consider Facebook’s growth ([data from Ben Fost
 </figcaption>
 </figure>
 
-At the time, no social network had suppressed 100M users. Some doubted whether it was possible. Of course, they did it. Chamath has a good [talk](https://www.youtube.com/watch?v=raIUQP71SBU) about what it took to get past this barrier. The point is that growth bounds exist, but they are not always obvious to identify (more on that later).
+At the time, no social network had surpassed 100M users. Some doubted whether it was possible. Of course, they did it. Chamath has a good [talk](https://www.youtube.com/watch?v=raIUQP71SBU) about what it took to get past this barrier. The point is that growth bounds exist, but they are not always obvious to identify (more on that later).
 
 ***Acquisition*** 
 
@@ -48,7 +48,7 @@ For example, Peter Theil [noted](http://blakemasters.com/post/22405055017/peter-
 
 ***Retention*** 
 
-It's interesting to see that acquisition and retention are independent parameters in the growth model. [Alex Schultz](http://genius.com/Alex-schultz-lecture-6-growth-annotated) explains how retention curves are useful for modeling this. A retention curve captures the degradation rate in monthly user activity following acquisition. In the worst cast, it flattens out to zero. No users remain after some period of time.
+Acquisition and retention are independent parameters in the growth model. This is key. [Alex Schultz](http://genius.com/Alex-schultz-lecture-6-growth-annotated) explains how retention curves are used for modeling this. A retention curve captures the degradation rate in monthly active users following acquisition. In the worst cast, it flattens out to zero.
  
 <figure>
 <img src="/assets/retention.png" width="100%">
@@ -56,7 +56,7 @@ It's interesting to see that acquisition and retention are independent parameter
 </figcaption>
 </figure>
 
-I simulated a few scenarios to convince myself. Here's a link to the iPython notebook. At best, growth is stifled when users churn. At worst, growth crashes out to zero. Of course, it depends upon the assumptions for growth and degradation rate. Nevertheless, the intuition is pretty clear. Leaky buckets don’t need water. They need to be patched. Viral acquisition with a bad product will hemorrhage users.  
+I simulated a few scenarios to convince myself (link to iPython notebook). At best, growth is stifled when users churn. At worst, growth crashes out to zero. The intuition is pretty clear. Leaky buckets don’t need water. They need to be patched. Viral acquisition with a bad product will hemorrhage users.  
 
 ###Product
 
