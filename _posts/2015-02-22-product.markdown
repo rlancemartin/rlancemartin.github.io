@@ -18,15 +18,13 @@ Paul Graham [said](http://www.paulgraham.com/growth.html) that a startup is a co
 
 ###Why is growth important?
 
-Consider two companies, both growing exponentially with a two-fold difference in rate. After one year, the first startup passes the knee of its exponential trajectory. At this time, the difference in revenue between the two is more than 10-fold. Many of the iconic internet franchises have enjoyed this kind of run-away growth. 
- 
+Consider two companies growing with a two-fold difference in rate. After one year, the first startup has passed the knee of its exponential and the difference in revenue between the two is more than 10-fold. Many of the iconic startups have enjoyed this run-away growth, often due to a network effect. For marketplace businesses like OpenTable, this is intuitive. As more restaurants enter the system, more diners follow. This attracts more restaurants. This flywheel has lead to a monopoly business. OpenTable has over [90 % market share](http://www.gourmetmarketing.net/rezbook-review-new-opentable-competitor/) in online restaurant reservations.
+
 <figure>
 <img src="/assets/compare_growth.png" width="70%">
 <figcaption>
 </figcaption>
 </figure>
-
-This is often due to a network effect. For marketplace businesses like OpenTable or eBay, this is intuitive. As more buyers enter the system, more sellers are enter. This attracts more buyers. The resulting flywheel can lead to a monopoly business. For example, OpenTable has over [90 % market share](http://www.gourmetmarketing.net/rezbook-review-new-opentable-competitor/) in online restaurant reservations.
 
 ###Growth parameters
 
