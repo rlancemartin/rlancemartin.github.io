@@ -64,7 +64,7 @@ Product underpins all three growth parameters. Facebook grew through work of mou
 
 Uber has shown that market size can be function of product quality. A debate between Bill Gurley and Aswath Damodaran [highlights this](http://abovethecrowd.com/2014/07/11/how-to-miss-by-a-mile-an-alternative-look-at-ubers-potential-market-size/): in 2012, Uber was ~100% of the total historical black car market in San Francisco. With product and very low prices, it continue to expand the market for ride-sharing.
 
-Viral user acquisition is also [intrinsic to product design](http://blakemasters.com/post/22405055017/peter-thiels-cs183-startup-class-9-notes-essay). Dropbox and Hotmail provided native ways to draw new users into the app. Ed Baker, head of growth at Uber, has developed a [few products](http://michaelrucker.com/thought-leader-interviews/edward-baker-the-viral-factor/) designed for specifically for viral user acquisition.
+Viral user acquisition is also [intrinsic to product design](http://blakemasters.com/post/22405055017/peter-thiels-cs183-startup-class-9-notes-essay). Dropbox and Hotmail provided native ways to draw new users into the app. Ed Baker, head of growth at Uber, has developed a [few products](http://michaelrucker.com/thought-leader-interviews/edward-baker-the-viral-factor/) on email, SMS, IM, and Facebook designed specifically for viral growth.
 
 ###The case for product science
 
@@ -74,7 +74,7 @@ If product is a key lever that controls growth, then how to make product decisio
  
 ***User heterogeneity*** 
 
-[Alex Schultz](http://genius.com/Alex-schultz-lecture-6-growth-annotated) made a key point here. There is a distribution of users and some are about to churn off your app. With the retention curve in mind, it is important to study the marginal users and identify features that influence churn.
+[Alex Schultz](http://genius.com/Alex-schultz-lecture-6-growth-annotated) made a key point here. There is a distribution of users. Some are about to churn off your app. With the retention curve in mind, it is important to identify product features that influence churn.
 
 <figure>
 <img src="/assets/user_equ.png" width="60%">
@@ -82,9 +82,9 @@ If product is a key lever that controls growth, then how to make product decisio
 </figcaption>
 </figure>
 
-Identifying the features that classify the likelihood of churn appears to somewhat black magic. It's intuitive in some cases. In other situations, learning (classification) methods could probably be used. 
+Identifying the features that classify the likelihood of churn appears to have some black magic. It's intuitive in some cases. In other situations, learning (classification) methods could probably be used. 
 
-But, the best growth and product teams keenly understand this and are able to boil it doiwn. For Facebook, it was friend count. Zuck talks about getting people to 10 friends in 14 days. Josh Elman, product lead for growth at Twitter, explained that they focused on visits, with [7 times in a month](https://medium.com/@joshelman/the-only-metric-that-matters-ab24a585b5ea) the critical threshold.
+But, the best growth and product teams seem to understand and boil this down. For Facebook, it was friend count. Zuck talks about getting people to 10 friends in 14 days. Josh Elman, product lead for growth at Twitter, explained that they focused on visits, with [7 times per month](https://medium.com/@joshelman/the-only-metric-that-matters-ab24a585b5ea) the critical threshold.
 
 If there is product feature that strongly partitions users based upon a key metric, like churn, then experiments (e.g., A/B testing) for product improvement can be centered around this insight.
 
