@@ -66,7 +66,7 @@ Uber has shown that market size can be function of product quality. A debate bet
 
 Viral user acquisition is also [intrinsic to product design](http://blakemasters.com/post/22405055017/peter-thiels-cs183-startup-class-9-notes-essay). Dropbox and Hotmail provided native ways to draw new users into the app. Ed Baker, head of growth at Uber, has developed a [few products](http://michaelrucker.com/thought-leader-interviews/edward-baker-the-viral-factor/) on email, SMS, IM, and Facebook designed specifically for viral growth.
 
-###The case for product science
+###Product science
 
 If product is linked to growth, then how to make product decisions that promote growth? I think this question is really interesting. Of course, you can optimize the existing product or develop new ones. It's interesting to examine product innovation along each each of these dimensions.
 
@@ -128,9 +128,11 @@ These city- and app- derived features are a handle for deriving insights across 
 
 For product optimization, lots of data exists. The other dimension for growth is diversification outside of the core business. Jeff Jordan [calls this](http://jeff.a16z.com/2012/01/18/a-recipe-for-growth-adding-layers-to-the-cake/) "adding layers to the cake.” Unlike optimization, data typically does not exist for this. Good products tap deep into the human psyche are [hard to predict](http://www.dtic.upf.edu/~alozano/innovation/).
 
-Hypothesis-driven product development has been adopted by many startups searching for a business model, though Steve Blank points out that this is also be relevant for [large corporations](https://hbr.org/2013/05/why-the-lean-start-up-changes-everything). I think this is where [full-stack startups](http://a16z.com/2015/01/22/the-full-stack-startup/). These companies re-built the service stack using modern software.
+Hypothesis-driven product development has been adopted by young startups searching for a business model, though Steve Blank points out that this is also be relevant for [larger startups](https://hbr.org/2013/05/why-the-lean-start-up-changes-everything). I think this is where [full-stack startups](http://a16z.com/2015/01/22/the-full-stack-startup/) have an interesting advantage.
 
-Because they own the stack, they can extend it in new ways. This makes them large-scale experimental machines, capable of testing ideas and generating data that no one else can. Based upon their blog, Uber has rolled several dozen different products at pilot-scale, including on-demand [flu shots](http://blog.uber.com/health), [weddings](http://blog.uber.com/uberwedding), and [logistics](http://blog.uber.com/RUSH). Once a digital grid is build, it becomes a pretty significant platform on which you can run experiments that tests ideas for the next iteration of on-demand products. 
+Because they own the stack, they can extend it in new ways. They can run experiments and generate data that no one else can.
+
+Based upon their blog, Uber has rolled several dozen different products at pilot-scale, including on-demand [flu shots](http://blog.uber.com/health), [weddings](http://blog.uber.com/uberwedding), and [logistics](http://blog.uber.com/RUSH). Once a digital grid is built, it is can be used to run experiments that inform the next iteration of products. 
 
 ###Summary
 
