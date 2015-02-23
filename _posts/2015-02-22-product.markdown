@@ -134,7 +134,7 @@ People talk about the importance of data monopoly. But, I think it's equally int
 
 Based upon their blog, Uber has rolled several dozen different products at pilot-scale, including on-demand [flu shots](http://blog.uber.com/health), [weddings](http://blog.uber.com/uberwedding), and [logistics](http://blog.uber.com/RUSH). Once a digital grid is built on top of cities, then it's a massive experimental machine. 
 
-Most of these expariments are probably just for fun or PR. Or they fail. But the point is that it's possible to ask questions and test ideas on a scale that no one else can.
+Most of these expariments are probably just for fun or PR. Or they fail. But, the point is that it's possible to ask questions and test ideas on a scale that no one else can.
 
 ###Summary
 
@@ -146,4 +146,4 @@ The other way is to develop new products. This requires experimentation. Full-st
 
 ###Note
 
-I'm a PhD student at Stanford and have no affiliation with any companies mentioned in this article.
+I'm doing a PhD at Stanford and have no affiliation with any companies mentioned in this article.
