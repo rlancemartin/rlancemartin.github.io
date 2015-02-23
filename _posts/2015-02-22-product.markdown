@@ -28,23 +28,23 @@ Consider two companies growing with a two-fold difference in rate. After one yea
 
 ###Growth parameters
 
-***Market*** 
+***Market size*** 
 
-Growth eventually runs up against bounds. Consider Facebook’s impressive user growth, with [data pulled from Ben Foster's blog](http://www.benphoster.com/facebook-user-growth-chart-2004-2010/). A trivial upper-bound for Facebook’s growth is the population of the world. But, it’s more interesting to consider psychological bounds. As explained by [Alex Schultz](http://genius.com/Alex-schultz-lecture-6-growth-annotated), Facebook hit a wall ~50M users (dashed line).
+Growth runs up against bounds. Consider Facebook’s growth ([data from Ben Foster's blog](http://www.benphoster.com/facebook-user-growth-chart-2004-2010/)). A trivial upper-bound is the world population. But, it’s more interesting to consider psychological bounds. As explained by [Alex Schultz](http://genius.com/Alex-schultz-lecture-6-growth-annotated), Facebook hit a wall ~50M users (dashed line).
 
 <figure>
-<img src="/assets/facebook.png" width="100%">
+<img src="/assets/facebook.png" width="70%">
 <figcaption>
 </figcaption>
 </figure>
 
-At the time, no social network had suppressed 100M users and some doubted whether it was possible. Of course, they did it. Chamath has a good [talk](https://www.youtube.com/watch?v=raIUQP71SBU) about what it took to get past this barrier. The point is that growth bounds exist, but they are not always obvious to identify (more on that later).
+At the time, no social network had suppressed 100M users. Some doubted whether it was possible. Of course, they did it. Chamath has a good [talk](https://www.youtube.com/watch?v=raIUQP71SBU) about what it took to get past this barrier. The point is that growth bounds exist, but they are not always obvious to identify (more on that later).
 
 ***Acquisition*** 
 
-A fundamental feature of fast growth is feedback. The number of new users added is ideally proportional to the number of existing users. Viral marketing math captures feedback in a series of specific steps, [a viral loop](http://www.forentrepreneurs.com/lessons-learnt-viral-marketing/), that link existing users to new user acquisition. This model can explain the hyper-growth observed for some startups. 
+Feedback is critical for fast growth: the number of new users should be proportional to the existing user base. Viral marketing math captures this feedback in a [loop](http://www.forentrepreneurs.com/lessons-learnt-viral-marketing/) that links existing users to new user acquisition. The viral loop can explain the hyper-growth observed for some startups. 
 
-For example, Peter Theil [explained](http://blakemasters.com/post/22405055017/peter-thiels-cs183-startup-class-9-notes-essay) that Paypal had growth of 7% daily at one point. This growth began with power sellers and buyers who executed many transactions per unit time. Through cash incentives, Paypal had a high conversion rate. Many who were exposed to the product through power users joined.   
+For example, Peter Theil [noted](http://blakemasters.com/post/22405055017/peter-thiels-cs183-startup-class-9-notes-essay) that Paypal had 7% daily growth at one point. This growth loop began with power sellers and buyers who executed many transactions per unit time. With cash incentives, Paypal also had a high conversion rate among those exposed to the product through power users.   
 
 ***Retention*** 
 
