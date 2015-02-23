@@ -68,13 +68,13 @@ Viral user acquisition is also [intrinsic to product design](http://blakemasters
 
 ###The case for product science
 
-If product is a key lever that controls growth, then how to make product decisions that promote growth? Product innovation can do this along two obvious dimensions: optimize the existing product or develop new ones. It's interesting to consider ways that some of the best companies have thought about the science of product innovation along each dimension.  
+If product is a critical lever that controls growth, then how to make product decisions that promote growth? Product innovation can do this along two obvious dimensions: optimize the existing product or develop new ones. But, it's interesting to examine how some of the best companies have thought about product innovation along each of these dimensions.
 
 ####Optimize the existing product
  
 ***User distribution*** 
 
-[Alex Schultz](http://genius.com/Alex-schultz-lecture-6-growth-annotated) made a key point here. There are metrics that matter, like churn. The product has a lot of features that might influence the metric (below). The challenge is to isolate features that most strongly explain differences in the metric.
+[Alex Schultz](http://genius.com/Alex-schultz-lecture-6-growth-annotated) made a key point here. There are metrics that matter, like churn. The product has a lot of features that might influence the metric (below). The challenge is to isolate features that most strongly explain differences in the metric across the user base; ideally, there is one that stands out.
 
 <figure>
 <img src="/assets/user_equ.png" width="60%">
@@ -82,7 +82,7 @@ If product is a key lever that controls growth, then how to make product decisio
 </figcaption>
 </figure>
 
-Consider churn. Identifying features that classify the likelihood of churn appears to be intuitive in some cases. In other situations, learning (classification) methods could probably be used. 
+Consider churn. Identifying features that drive the likelihood of churn may be intuitive in some cases. In other situations, data science teams have probably used classifiers to figure it out. 
 
 But, the best growth and product teams seem to boil this down to specific features. For Facebook, it was friend count. Zuck talks about getting people to 10 friends in 14 days. Josh Elman, product lead for growth at Twitter, explains that they focused on visits, with [7 times per month](https://medium.com/@joshelman/the-only-metric-that-matters-ab24a585b5ea) the threshold.
 
