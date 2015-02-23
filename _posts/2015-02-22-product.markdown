@@ -110,9 +110,9 @@ For example, I pulled all [311 requests](http://www.sf311.org/index.aspx?page=16
 </figcaption>
 </figure>
 
-Along with available city data, Uber has organized their own data into city- and neighborhood-specific features. For example, neighborhoods have [unique demand patterns](http://www.citylab.com/commute/2012/08/using-uber-ridership-data-compare-cities-and-neighborhoods/2890/). This means that each city and neighborhood can be understood as a potentially broad set of granular features.
+Along with available city data, Uber has organized their own data into city- and neighborhood-specific features (below). For example, neighborhoods have [unique demand patterns](http://www.citylab.com/commute/2012/08/using-uber-ridership-data-compare-cities-and-neighborhoods/2890/). This means that each city and neighborhood can be understood as a potentially broad set of granular features.
 
-These features provide a handle for organizing and comparing the diversity set of cities.
+These features provide a handle for organizing and comparing the diverse set of cities.
 
 * ***Comparative analysis*** Neighborhoods or cities can be grouped based upon similar features. Grouping can identify outliers, where to expand next based upon similarity to prior successes, and it may identify ways to apply insights gained in one market to others.
 
@@ -124,22 +124,30 @@ These features provide a handle for organizing and comparing the diversity set o
 
 * ***Localizing growth strategy*** I wonder how much market-specific features explain the variance in key (user or driver) metrics, like acquisition or churn. It's pretty clear that price or ETA are universally important. But, including a broader set of market-specific features may reveal insights for growth and product beyond what appears to be universally obvious. 
 
-####Making new products 
+####Develop new products
 
-That was all related to product optimization, for which a lot of data exists. The other dimention for growth is diversification outside of the core business. Jeff Jordan [calls this](http://jeff.a16z.com/2012/01/18/a-recipe-for-growth-adding-layers-to-the-cake/) "adding layers to the cake.” Unlike optimization, data typically does not exist for this. 
+For product optimization, lots of data exists. The other dimension for growth is diversification outside of the core business. Jeff Jordan [calls this](http://jeff.a16z.com/2012/01/18/a-recipe-for-growth-adding-layers-to-the-cake/) "adding layers to the cake.” 
 
-Good products tap into something buried within the human psyche, but also have very low cognitive overhead. Traditional tools of product science (e.g., surveys, ad campaigns, email marketing, focus groups) may fail to capture this and projecting growth into Greenfield markets is [famously inaccurate](http://www.dtic.upf.edu/~alozano/innovation/).
+Unlike optimization, data typically does not exist for this. Good products tap into something buried within the human psyche and have low cognitive overhead. They are [hard to predict](http://www.dtic.upf.edu/~alozano/innovation/).
 
-An alternative, hypothesis-driven approach has been largely institutionalized in the lean startup movement. While this has been adopted by startups searching for a business model, Steve Blank points out that this could also be relevant for [large corporations](https://hbr.org/2013/05/why-the-lean-start-up-changes-everything) expanding their business scope.
+Hypothesis-driven product development has been adopted by many startups searching for a business model, though Steve Blank points out that this is also be relevant for [large corporations](https://hbr.org/2013/05/why-the-lean-start-up-changes-everything).
 
-With this in mind, a lot has been said about [the full-stack startup](http://a16z.com/2015/01/22/the-full-stack-startup/). Lyft and Uber are examples of this. They re-built the whole service using modern software. I think one of most interesting outcomes is that companies like this are large-scale experimental machines, a giant lab that interfaces with the physical world.
+I think this is where [full-stack startups](http://a16z.com/2015/01/22/the-full-stack-startup/) like Uber or Lyft are really interesting. These companies re-built the service stack using modern software.
 
-Based upon their blog, Uber has rolled seeral dozen different products, including on-demand [flu shots](http://blog.uber.com/health), [weddings](http://blog.uber.com/uberwedding), and [logistics](http://blog.uber.com/RUSH). Each one is an experiment. Once a digital grid is build, it becomes a pretty significant platform on which you can run experiments and obtain data that no one else can
+Because they own the stack, they can extend it in new ways. This makes them large-scale experimental machines, capable of testing ideas and generating data that no one else can.
+
+Based upon their blog, Uber has rolled several dozen different products, including on-demand [flu shots](http://blog.uber.com/health), [weddings](http://blog.uber.com/uberwedding), and [logistics](http://blog.uber.com/RUSH). 
+
+Once a digital grid is build, it becomes a pretty significant platform on which you can run experiments that tests ideas for the next iteration of on-demand products. 
 
 ###Summary
 
-Startups are companies designed to grow. Fast growth means that startups can overtake finite markets quickly. Growth is driven by market size as well as user acquisition and retention. Product is central for all of these. If product is the lever that controls growth, then the question is how to alter product in order to drive it. 
+Startups are companies designed to grow. Product is central for growth. Given that product is the lever that controls growth, then the question is how to alter product in order to drive it. 
 
-One way is to improve the existing product. All startups are have distribution of user behavior; some users are active and others are soon to churn off the app. The best companies have identified product features that explain this variance in user behavior. Once these features are identified, product improvements can be centered around them. 
+One way is to improve the existing product. The best companies identified product features that explain the variance in user behaviors, such as churn, and target improvements around them. 
 
-The other way is to develop new products. This requires experimentation. One of the most interesting features of full-stack startups is that they are massive experimentation engines. They can run experiments that no one else can and use this to gain insight into the next generation of product. 
+The other way is to develop new products. This requires experimentation. Full-stack startups are massive experimentation engines. Product insights can be gleaned from the resulting data.
+
+###Note
+
+I'm a PhD student at Stanford and have no affiliation with any companies mentioned in this article.
