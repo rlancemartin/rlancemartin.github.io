@@ -96,9 +96,9 @@ If there is product feature that strongly partitions users based upon a key metr
 
 ***Market heterogeneity***
 
-Different markets can complicate this. Chamath [talks](https://www.youtube.com/watch?v=raIUQP71SBU) about Facebook's international growth and need for localization of the app to specific markets. 
+Different markets can complicate this. Chamath [talks](https://www.youtube.com/watch?v=raIUQP71SBU) about Facebook's international growth and need for localization of the app to specific markets. Uber is doing this now in 150 cities and 46 counties. 
 
-Uber is doing this now. They are in 150 cities and 46 counties. Gross revenue has more than doubled for the past three years. This is impressive, but their distribution of revenue is also interesting: apparently the bulk comes from [~ 10 cities](http://www.businessinsider.com/ubers-revenue-2014-11). There's a lot of headroom. This also shows that the business has high heterogeneity.
+Gross revenue has more than doubled for the past three years. This is impressive, but their distribution of revenue is also interesting: apparently the bulk comes from [~ 10 cities](http://www.businessinsider.com/ubers-revenue-2014-11). There's a lot of headroom. This also shows that the business has high heterogeneity.
 
 Part of the heterogeneity is due to the cities themselves, such as specific demographic or structural features for each one. High-resolution city-specific features are accesible, in some cases. 
 
