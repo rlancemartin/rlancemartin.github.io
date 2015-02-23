@@ -74,17 +74,19 @@ If product is a key lever that controls growth, then how to make product decisio
  
 ***User heterogeneity*** 
 
-[Alex Schultz](http://genius.com/Alex-schultz-lecture-6-growth-annotated) made a point that initiated my interested in this: growth requires looking not at the power users, but rather at the marginal users. Users are a mixed pool. Some are about to churn off your app. The likelihood of a user to churn may be a function of obvious features (e.g., freind count). Usually one of these features matters most.
+[Alex Schultz](http://genius.com/Alex-schultz-lecture-6-growth-annotated) made a key point here. There is a distribution of users and some are about to churn off your app. With the retention curve in mind, it is important to study the marginal users and identify features that influence churn.
 
 <figure>
-<img src="/assets/user_equ.png" width="100%">
+<img src="/assets/user_equ.png" width="60%">
 <figcaption>
 </figcaption>
 </figure>
 
-For Facebook growth, it was friend count: they focused on getting people to 10 friends in 14 days. Josh Elman, product lead for growth Twitter, explained that they focused on visits. If a user visited Twitter at least [7 times in a month](https://medium.com/@joshelman/the-only-metric-that-matters-ab24a585b5ea), then it was likely you were going to be visiting Twitter in the next month.
+Identifying the features that classify the likelihood of churn appears to somewhat black magic. It's intuitive in some cases. In other situations, learning (classification) methods could probably be used. 
 
-How to identify the feature that distinguishes users? It's probably intuitive in many cases. In others, simple classification methods could probably be useful. In any case, it's pretty clear that the best growth and product teams keenly understand this. There's a clear feature that partitions users and this can guide experimental design (e.g., A/B testing) for product improvement.
+But, the best growth and product teams keenly understand this and are able to boil it doiwn. For Facebook, it was friend count. Zuck talks about getting people to 10 friends in 14 days. Josh Elman, product lead for growth at Twitter, explained that they focused on visits, with [7 times in a month](https://medium.com/@joshelman/the-only-metric-that-matters-ab24a585b5ea) the critical threshold.
+
+If there is product feature that strongly partitions users based upon a key metric, like churn, then experiments (e.g., A/B testing) for product improvement can be centered around this insight.
 
 <figure>
 <img src="/assets/dist.png" width="100%">
