@@ -68,7 +68,7 @@ Viral user acquisition is also [intrinsic to product design](http://blakemasters
 
 ###The case for product science
 
-If product is linked to growth, then how to make product decisions that promote growth? I think this question is really interesting. Of course, you can optimize the existing product or develop new ones. But, it's interesting to examine the best companies have thought about product innovation along each each of these dimensions.
+If product is linked to growth, then how to make product decisions that promote growth? I think this question is really interesting. Of course, you can optimize the existing product or develop new ones. It's interesting to examine product innovation along each each of these dimensions.
 
 ####Optimize the existing product
  
