@@ -132,7 +132,7 @@ Hypothesis-driven product development has been adopted by young startups searchi
 
 People talk about the importance of data monopoly. But, I think it's interesting to consider experimental monopoly. Many [full-stack startups](http://a16z.com/2015/01/22/the-full-stack-startup/) can test ideas that no one else can. 
 
-Based upon their blog, Uber has rolled several dozen different products at pilot-scale, including on-demand [flu shots](http://blog.uber.com/health), [weddings](http://blog.uber.com/uberwedding), and [logistics](http://blog.uber.com/RUSH). Their digital grid is a massive experimental machine. 
+Based upon their blog, Uber has tried several dozen different products at pilot-scale, including on-demand [flu shots](http://blog.uber.com/health), [weddings](http://blog.uber.com/uberwedding), and [logistics](http://blog.uber.com/RUSH). Their digital grid is a massive experimental machine. 
 
 Most of these experiments are probably just for fun or PR. Or they fail. But, that's not the point. The point is that it's possible to ask questions and get back data on a scale that no one else can.
 
