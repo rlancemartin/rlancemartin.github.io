@@ -8,7 +8,7 @@ date:   2015-02-28 10:19:00
 
 I recently grabbed all crime data captured by the SFPD Crime Incident Reporting system, which is available through [SF open data](https://data.sfgov.org/Public-Safety/Map-Crime-Incidents-from-1-Jan-2003/gxxq-x39z). It has ~1.7 million records from the past 12 years with a temporal and spatial stamp on each one. I've been interested in digging into some GIS data, so this is awesome! 
 
-SF is broken up into 10 police districts. Each record in the data is associated with a district as well as a specific crime category. I show the counts across the general crime categories below and used iPython notebook [linked here](http://nbviewer.ipython.org/github/lmart999/GIS/blob/master/SF_GIS_Crime.ipynb), `Seaborn`, and `pandas` for the work. Welcome others to view or pull it.
+SF is broken up into 10 police districts. Each record in the data is associated with a district as well as a specific crime category. I show the counts across the general crime categories below and used iPython notebook ([linked here](http://nbviewer.ipython.org/github/lmart999/GIS/blob/master/SF_GIS_Crime.ipynb)), `Seaborn`, and `pandas` for the work. Welcome others to view or pull it.
 
 <figure>
 <img src="/assets/crime_dist.png" width="90%">
