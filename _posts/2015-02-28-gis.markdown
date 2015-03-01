@@ -24,7 +24,7 @@ There's a lot to chew on, but I decided to drill down on the `DRUG/NARCOTIC` cat
 </figcaption>
 </figure>
 
-I looked at the drug distribution over time for each district. They look very different. For example, Tenederloin (top) has been historically dominated by CRACK-related incidents (though this is changing, more on that later). Park (which is basically Haight Ashbury) is mostly MARIJUANA-related incidents.
+I looked at the drug distribution over time for each district. They look very different. For example, TENDERLOIN (top) has been historically dominated by CRACK-related incidents (though this is changing, more on that later). PARK (which is basically Haight-Ashbury) is mostly MARIJUANA-related incidents.
 
 <figure>
 <img src="/assets/hood_comp.png" width="100%">
