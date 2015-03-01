@@ -56,7 +56,7 @@ Because this data is timestamped, we can look at the temporal trends as well. Th
 </figcaption>
 </figure>
 
-One way to examine this is to look at the raw GIS data associated with each report. I used python's `Basemap` library to plot the geo-tagged CRACK-related incidents in each interval on a map of SF. Based upon the GIS data, it also appears that CRACK's spatial footprint is getting small as the number of incidents drops. 
+One way to examine this is to look at the raw GIS data associated with each report. I used python's `Basemap` library to plot the geo-tagged CRACK-related incidents in each interval on a map of SF. Based on the GIS data, it CRACK's spatial footprint is getting small as the number of incidents drops. 
 
 <figure>
 <img src="/assets/crack_map.png" width="100%">
