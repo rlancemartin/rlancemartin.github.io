@@ -8,7 +8,7 @@ date:   2015-02-28 10:19:00
 
 I recently grabbed all crime data captured by the SFPD Crime Incident Reporting system, which is available through [SF open data](https://data.sfgov.org/Public-Safety/Map-Crime-Incidents-from-1-Jan-2003/gxxq-x39z). It has ~1.7 million records from the past 12 years with a temporal and spatial stamp on each one. I've been interested in digging into some GIS data, so this is awesome! 
 
-SF is broken up into 10 police districts. Each record in the data is assocated with a district as well as crime category. I show the counts across the general crime categories below. I used iPython notebook [linked here](http://nbviewer.ipython.org/github/lmart999/GIS/blob/master/SF_GIS_Crime.ipynb) for all of the work, so others can view or pull it.
+SF is broken up into 10 police districts. Each record in the data is assocated with a district as well as a specific crime category. I show the counts across the general crime categories below and used iPython notebook [linked here](http://nbviewer.ipython.org/github/lmart999/GIS/blob/master/SF_GIS_Crime.ipynb), `Seaborn`, and `pandas` for the work. Welcome others to view or pull it.
 
 <figure>
 <img src="/assets/crime_dist.png" width="90%">
@@ -16,7 +16,7 @@ SF is broken up into 10 police districts. Each record in the data is assocated w
 </figcaption>
 </figure>
 
-There's a lot to chew on, but I decided to drill down on the `DRUG/NARCOTIC` category. This seemed interesting. So, I grouped incidents based upon drug type (see notebook for details) and partitoned them into 30 day windows ranging from Jan, 2003 to Feb, 2015 (below). The top shows absolute incident counts per window and the bottom normalizes them to show a percentage. 
+There's a lot to chew on, but I decided to drill down on the `DRUG/NARCOTIC` category. I grouped reported incidents based upon drug type (see notebook for details): the ordering in the below chart is HEROIN (blue, on the botton), HALLUCINOGENIC, METH, MARIJUANA, COCAINE, CRACK (red, on top). I partitoned the data into 30 day windows ranging from Jan, 2003 to Feb, 2015 (below). The top shows absolute incident counts per window and the bottom normalizes them to show a percentage. 
 
 <figure>
 <img src="/assets/drug_agg.png" width="100%">
@@ -24,7 +24,7 @@ There's a lot to chew on, but I decided to drill down on the `DRUG/NARCOTIC` cat
 </figcaption>
 </figure>
 
-I also looked the incident distriction in each district over time. Districts actually look very different. For example, Tenederloin looks very different than Park. 
+I looked at the drug distribution over time for each district. They look very different. For example, Tenederloin (top) has been historically dominated by CRACK-related incidents (though this is changing, more on that later). Park (which is basically Haight Ashbury) is mostly MARIJUANA-related incidents. Maybe we can compare different areas based upon this?
 
 <figure>
 <img src="/assets/hood_comp.png" width="100%">
@@ -32,7 +32,7 @@ I also looked the incident distriction in each district over time. Districts act
 </figcaption>
 </figure>
 
-To examine this a bit more, I normalized the total counts for each drug type per district. So, each distrct is a vector of counts for that sums to one. Then, I cluster this (shown on the left). Different areas of the city cluster together into a "drug geography" that somewhat mirrors that actual geography from East to West (SFPD distrct map shown on the right):
+To examine that idea, I counted up incidents in each drug category for each district. Then, I just normalized the data so each distrct is a vector that sums to one. Then, I cluster this (shown below). Each column sums to one, so we can compare the "drug profile" of each district. For example, TARAVAL, PARK, and RICHMOND are enriched in MARIJUANA-related incidents.
 
 <figure>
 <img src="/assets/cluster_gis.png" width="100%">
@@ -40,7 +40,15 @@ To examine this a bit more, I normalized the total counts for each drug type per
 </figcaption>
 </figure>
 
-The most striking temporal trend was a big drop-off in Crack-related incidents. The mean indicent count in the red region (up to 8/2009) is ~4-fold greater than that of the green region (starting in 11/2012). If you go back up to the second figure, you can see that the drug landscale of the city changes over time time as well: crack is a small fraction of the mix. 
+The three obvious clusters that fall out show a "drug geography" that somewhat mirrors that actual geography from East to West (SFPD distrct map shown below). CRACK has historically (remember this data goes back 12 years!) dominated in NORTHERN, MISSION, and TENDERLON. BAYVIEW, SOUTHERN, CENTRAL, and INGLESIDE have been a mix of CRACK, METH, and MARIJUANA.
+
+<figure>
+<img src="/assets/SF_dist.png" width="100%">
+<figcaption>
+</figcaption>
+</figure>
+
+Because this data is timestamped, we can look at the trends as well. The most striking trend I saw was the drop-off in Crack-related incidents. The mean indicent count in the red region is ~5-fold greater than the green region. CRACK is becoming a smaller fraction of the (reported) drug landscape, it appears (based upon this data).
 
 <figure>
 <img src="/assets/crack.png" width="100%">
@@ -48,7 +56,7 @@ The most striking temporal trend was a big drop-off in Crack-related incidents. 
 </figcaption>
 </figure>
 
-To look at this a bit more, I used python's `Basemap` library to plot the geo-tagged crack-related incidents into a map of SF. The crack footprint has clearly gotten smaller. 
+One way to further examine this is to look at the raw GIS data assocaited with the reports. I used python's `Basemap` library to plot the geo-tagged crack-related incidents into a map of SF for the three time intervals highlighted. Based upon this, it appears the crack footprint is getting small as the number of incidents also drop off. 
 
 <figure>
 <img src="/assets/crack_map.png" width="100%">
@@ -56,7 +64,4 @@ To look at this a bit more, I used python's `Basemap` library to plot the geo-ta
 </figcaption>
 </figure>
 
-
-
-
-
+There's a lot more to look at with this data and invite folks to pull the [notebook](http://nbviewer.ipython.org/github/lmart999/GIS/blob/master/SF_GIS_Crime.ipynb) and explore for themselves!
