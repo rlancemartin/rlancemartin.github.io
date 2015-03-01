@@ -1,0 +1,62 @@
+---
+layout: post
+comments: false
+title:  "San Francisco's Drug Geography "
+excerpt: "GIS data can be used to map the drug geography of SF."
+date:   2015-02-28 10:19:00
+---
+
+I recently grabbed all crime data captured by the SFPD Crime Incident Reporting system, which is available through [SF open data](https://data.sfgov.org/Public-Safety/Map-Crime-Incidents-from-1-Jan-2003/gxxq-x39z). It has ~1.7 million records from the past 12 years with a temporal and spatial stamp on each one. I've been interested in digging into some GIS data, so this is awesome! 
+
+SF is broken up into 10 police districts. Each record in the data is assocated with a district as well as crime category. I show the counts across the general crime categories below. I used iPython notebook [linked here](http://nbviewer.ipython.org/github/lmart999/GIS/blob/master/SF_GIS_Crime.ipynb) for all of the work, so others can view or pull it.
+
+<figure>
+<img src="/assets/crime_dist.png" width="90%">
+<figcaption>
+</figcaption>
+</figure>
+
+There's a lot to chew on, but I decided to drill down on the `DRUG/NARCOTIC` category. This seemed interesting. So, I grouped incidents based upon drug type (see notebook for details) and partitoned them into 30 day windows ranging from Jan, 2003 to Feb, 2015 (below). The top shows absolute incident counts per window and the bottom normalizes them to show a percentage. 
+
+<figure>
+<img src="/assets/drug_agg.png" width="100%">
+<figcaption>
+</figcaption>
+</figure>
+
+I also looked the incident distriction in each district over time. Districts actually look very different. For example, Tenederloin looks very different than Park. 
+
+<figure>
+<img src="/assets/hood_comp.png" width="100%">
+<figcaption>
+</figcaption>
+</figure>
+
+To examine this a bit more, I normalized the total counts for each drug type per district. So, each distrct is a vector of counts for that sums to one. Then, I cluster this (shown on the left). Different areas of the city cluster together into a "drug geography" that somewhat mirrors that actual geography from East to West (SFPD distrct map shown on the right):
+
+<figure>
+<img src="/assets/cluster_gis.png" width="100%">
+<figcaption>
+</figcaption>
+</figure>
+
+The most striking temporal trend was a big drop-off in Crack-related incidents. The mean indicent count in the red region (up to 8/2009) is ~4-fold greater than that of the green region (starting in 11/2012). If you go back up to the second figure, you can see that the drug landscale of the city changes over time time as well: crack is a small fraction of the mix. 
+
+<figure>
+<img src="/assets/crack.png" width="100%">
+<figcaption>
+</figcaption>
+</figure>
+
+To look at this a bit more, I used python's `Basemap` library to plot the geo-tagged crack-related incidents into a map of SF. The crack footprint has clearly gotten smaller. 
+
+<figure>
+<img src="/assets/crack_map.png" width="100%">
+<figcaption>
+</figcaption>
+</figure>
+
+
+
+
+
