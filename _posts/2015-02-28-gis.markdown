@@ -64,4 +64,4 @@ One way to examine this is to look at the raw GIS data associated with each repo
 </figcaption>
 </figure>
 
-If you back to the data at top, it the total number of drug-related incidents has been dropping. The mix is becoming more equally distributed between CRACK, MARIJUANA, and METH. But, there's a lot more to look at with this data. I invite folks to pull the [notebook](http://nbviewer.ipython.org/github/lmart999/GIS/blob/master/SF_GIS_Crime.ipynb) and explore for themselves!
+If you back to the data at top, the total number of drug-related incidents has been dropping. The mix is becoming more equally distributed between CRACK, MARIJUANA, and METH. But, there's a lot more to look at with this data. I invite folks to pull the [notebook](http://nbviewer.ipython.org/github/lmart999/GIS/blob/master/SF_GIS_Crime.ipynb) and explore for themselves!
