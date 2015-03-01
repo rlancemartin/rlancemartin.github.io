@@ -24,7 +24,7 @@ There's a lot to chew on, but I decided to drill down on the `DRUG/NARCOTIC` cat
 </figcaption>
 </figure>
 
-I looked at the drug distribution over time for each district. They look very different. For example, Tenederloin (top) has been historically dominated by CRACK-related incidents (though this is changing, more on that later). Park (which is basically Haight Ashbury) is mostly MARIJUANA-related incidents. Maybe we can compare different areas based upon this?
+I looked at the drug distribution over time for each district. They look very different. For example, Tenederloin (top) has been historically dominated by CRACK-related incidents (though this is changing, more on that later). Park (which is basically Haight Ashbury) is mostly MARIJUANA-related incidents.
 
 <figure>
 <img src="/assets/hood_comp.png" width="100%">
@@ -32,7 +32,7 @@ I looked at the drug distribution over time for each district. They look very di
 </figcaption>
 </figure>
 
-To examine that idea, I counted up incidents in each drug category for each district. Then, I just normalized the data so each distrct is a vector that sums to one. Then, I cluster this (shown below). Each column sums to one, so we can compare the "drug profile" of each district. For example, TARAVAL, PARK, and RICHMOND are enriched in MARIJUANA-related incidents.
+To examine that idea, I counted up incidents in each drug category for each district. Then, I just normalized the data so each distrct is a vector that sums to one. Then, I cluster this (shown below). Each column (district) sums to one, so we can compare the normalized "drug profile" of each district. For example, TARAVAL, PARK, and RICHMOND have mostly MARIJUANA-related incidents.
 
 <figure>
 <img src="/assets/cluster_gis.png" width="100%">
@@ -40,7 +40,7 @@ To examine that idea, I counted up incidents in each drug category for each dist
 </figcaption>
 </figure>
 
-The three obvious clusters that fall out show a "drug geography" that somewhat mirrors that actual geography from East to West (SFPD distrct map shown below). CRACK has historically (remember this data goes back 12 years!) dominated in NORTHERN, MISSION, and TENDERLON. BAYVIEW, SOUTHERN, CENTRAL, and INGLESIDE have been a mix of CRACK, METH, and MARIJUANA.
+The three clusters that fall out seem to show that drug similarity seems to mirror that actual geography of the city from East to West (SFPD distrct map shown below). CRACK has historically (remember this data goes back 12 years!) dominated in NORTHERN, MISSION, and TENDERLON. BAYVIEW, SOUTHERN, CENTRAL, and INGLESIDE have been a mix of CRACK, METH, and MARIJUANA.
 
 <figure>
 <img src="/assets/SF_dist.png" width="100%">
@@ -48,7 +48,7 @@ The three obvious clusters that fall out show a "drug geography" that somewhat m
 </figcaption>
 </figure>
 
-Because this data is timestamped, we can look at the trends as well. The most striking trend I saw was the drop-off in Crack-related incidents. The mean indicent count in the red region is ~5-fold greater than the green region. CRACK is becoming a smaller fraction of the (reported) drug landscape, it appears (based upon this data).
+Because this data is timestamped, we can look at the temporal trends as well. The most striking trend I saw was the drop-off in CRACK-related incidents. Below is a timeseries of crack-related incidents with three equally long windows: the mean indicent count in the red window is ~5-fold greater than the green. It looks like CRACK is becoming a smaller fraction of the drug landscape.
 
 <figure>
 <img src="/assets/crack.png" width="100%">
@@ -56,7 +56,7 @@ Because this data is timestamped, we can look at the trends as well. The most st
 </figcaption>
 </figure>
 
-One way to further examine this is to look at the raw GIS data assocaited with the reports. I used python's `Basemap` library to plot the geo-tagged crack-related incidents into a map of SF for the three time intervals highlighted. Based upon this, it appears the crack footprint is getting small as the number of incidents also drop off. 
+One way to examine this is to look at the raw GIS data assocaited with each report. I used python's `Basemap` library to plot the geo-tagged CRACK-related incidents in each interval on a map of SF. Based upon the GIS data, it also appears that CRACK's spatial footprint is getting small as the number of incidents drops. 
 
 <figure>
 <img src="/assets/crack_map.png" width="100%">
@@ -64,4 +64,4 @@ One way to further examine this is to look at the raw GIS data assocaited with t
 </figcaption>
 </figure>
 
-There's a lot more to look at with this data and invite folks to pull the [notebook](http://nbviewer.ipython.org/github/lmart999/GIS/blob/master/SF_GIS_Crime.ipynb) and explore for themselves!
+I have no idea why this is. It if you back to the data at top, it the total number of drug-related incidents has been dropping and the mix is becoming more equally distributed between CRACK, MARIJUANA, and METH. There's a lot more to look at with this data and invite folks to pull the [notebook](http://nbviewer.ipython.org/github/lmart999/GIS/blob/master/SF_GIS_Crime.ipynb) and explore for themselves!
