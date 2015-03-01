@@ -35,7 +35,7 @@ I looked at the drug distribution over time for each district. They look differe
 To examine that idea, I counted up incidents in each drug category for each district. Then, I just normalized the data so each district is a vector that sums to one. Then, I cluster this (shown below). Each column (district) sums to one, so we can compare the normalized "drug profile" of each district. For example, TARAVAL, PARK, and RICHMOND have mostly MARIJUANA-related incidents.
 
 <figure>
-<img src="/assets/cluster_gis.png" width="85%">
+<img src="/assets/cluster_gis.png" width="75%">
 <figcaption>
 </figcaption>
 </figure>
