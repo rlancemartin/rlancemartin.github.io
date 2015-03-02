@@ -1,12 +1,12 @@
 ---
 layout: post
 comments: false
-title:  "Machine learning notebooks"
-excerpt: "iPython notebooks following CS229 and ISL with scikit-learn implementations."
+title:  "Data science notebooks"
+excerpt: "iPython notebooks following CS229, ISL, scikit-learn implementations."
 date:   2015-02-13 10:19:00
 ---
 
-####Machine learning iPython notebooks for data hacking
+####iPython notebooks for data hacking
 
 Several notebooks that I use that include theory (mainly CS229) and practice from:
 
@@ -14,7 +14,7 @@ Several notebooks that I use that include theory (mainly CS229) and practice fro
 * An Introduction to Statistical Learning by G. James, D. Witten, T. Hastie and R. Tibshirani
 * [`scikit-learn`](http://scikit-learn.org/stable/) and [`Seaborn`](http://stanford.edu/~mwaskom/software/seaborn/)
 
-Still very much in development, but links to the notebooks here:
+Still in development, but links to the notebooks here:
 
 * [Some introductory notes](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Intro%20and%20Philosophy.ipynb)
 * [Data exploration with Pandas and Seaborn](http://nbviewer.ipython.org/github/lmart999/GIS/blob/master/SF_GIS_Crime.ipynb)
