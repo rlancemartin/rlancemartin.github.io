@@ -16,7 +16,11 @@ Several notebooks that I use that include theory (mainly CS229) and practice fro
 
 Still very much in development, but links to the notebooks here:
 
-* [Intro](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Intro%20and%20Philosophy.ipynb)
+* [Some introductory notes](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Intro%20and%20Philosophy.ipynb)
+* [Data exploration with Pandas and Seaborn](http://nbviewer.ipython.org/github/lmart999/GIS/blob/master/SF_GIS_Crime.ipynb)
+* [SQL and SQLAlchemy](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/SQL.ipynb)
+* [Statistics](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Statistics.ipynb)
+* [Probability](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Probability.ipynb)
 * [Linear Regression](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Linear%20Regression.ipynb)
 * [Logistic Regression](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Logistic%20Regression.ipynb)
 * [Linear Discriminant Analysis](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Linear%20Discriminant%20Analysis.ipynb)
@@ -28,4 +32,4 @@ Still very much in development, but links to the notebooks here:
 * [Unsupervised Learning](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Unsupervised%20learning.ipynb)
 * [Deep Learning](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Deep%20Learning.ipynb)
 
-(Will add more and continue to refine these when I have time!)
+(Will add more and continue to refine these when I have time; a few are not finished.)
