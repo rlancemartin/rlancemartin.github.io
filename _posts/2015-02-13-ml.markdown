@@ -1,26 +1,29 @@
 ---
 layout: post
 comments: false
-title:  "Data science notebooks"
+title:  "Data hacking notebooks"
 excerpt: "iPython notebooks following CS229, ISL, scikit-learn implementations."
 date:   2015-02-13 10:19:00
 ---
 
 ####iPython notebooks for data hacking
 
-Several notebooks that I use that include theory (mainly CS229) and practice from:
+Several notebooks that collate tools/notes for data hacking in one place:
 
-* CS229 (Machine Learning), an excellent Stanford course
-* An Introduction to Statistical Learning by G. James, D. Witten, T. Hastie and R. Tibshirani
-* [`scikit-learn`](http://scikit-learn.org/stable/) and [`Seaborn`](http://stanford.edu/~mwaskom/software/seaborn/)
+* CS229 (Machine Learning), an excellent Stanford course taught by Andrew Ng.
+* An Introduction to Statistical Learning by G. James, D. Witten, T. Hastie and R. Tibshirani.
+* [`scikit-learn`](http://scikit-learn.org/stable/).
+* [`Seaborn`](http://stanford.edu/~mwaskom/software/seaborn/).
+* [`Pandas`](http://pandas.pydata.org/).
+* [`Apache Spark`](https://spark.apache.org/).
 
-Still in development, but links to the notebooks here:
+Still in development. Links to the notebooks here:
 
-* [Some introductory notes](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Intro%20and%20Philosophy.ipynb)
-* [Data exploration with Pandas and Seaborn](http://nbviewer.ipython.org/github/lmart999/GIS/blob/master/SF_GIS_Crime.ipynb)
-* [SQL and SQLAlchemy](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/SQL.ipynb)
-* [Statistics](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Statistics.ipynb)
-* [Probability](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Probability.ipynb)
+* [Pandas and Seaborn for exploring data](http://nbviewer.ipython.org/github/lmart999/GIS/blob/master/SF_GIS_Crime.ipynb)
+* [SQL, Postgres, and SQLAlchemy](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/SQL.ipynb)
+* [Basic statistics review](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Statistics.ipynb)
+* [Basic probability review](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Probability.ipynb)
+* [Introductory machine learning notes](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Intro%20and%20Philosophy.ipynb)
 * [Linear Regression](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Linear%20Regression.ipynb)
 * [Logistic Regression](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Logistic%20Regression.ipynb)
 * [Linear Discriminant Analysis](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Linear%20Discriminant%20Analysis.ipynb)
