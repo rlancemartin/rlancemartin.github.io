@@ -33,6 +33,5 @@ Still in development. Links to the notebooks here:
 * [Cross-validation](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Cross-validation.ipynb)
 * [Dimension Reduction](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Dimension%20Reduction.ipynb)
 * [Unsupervised Learning](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Unsupervised%20learning.ipynb)
+* [Scikit-learn pipelines](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Learning%20Pipelines.ipynb)
 * [Deep Learning](http://nbviewer.ipython.org/github/lmart999/CS229_ISL/blob/master/Deep%20Learning.ipynb)
-
-(Will add more and continue to refine these when I have time; a few are not finished.)
