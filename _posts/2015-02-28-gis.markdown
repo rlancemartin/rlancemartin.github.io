@@ -40,7 +40,7 @@ To examine that idea, I counted up incidents in each drug category for each dist
 </figcaption>
 </figure>
 
-The three clusters that fall out seem to show that drug similarity seems to mirror that actual geography of the city from East to West (SFPD district map shown below). CRACK has historically (remember this data goes back 12 years!) dominated in NORTHERN, MISSION, and TENDERLON. BAYVIEW, SOUTHERN, CENTRAL, and INGLESIDE have been a mix of CRACK, METH, and MARIJUANA.
+The three clusters that fall out seem to show that drug similarity mirrors the actual geography of the city from East to West (SFPD district map shown below). CRACK has historically (remember this data goes back 12 years!) dominated in NORTHERN, MISSION, and TENDERLON. BAYVIEW, SOUTHERN, CENTRAL, and INGLESIDE have been a mix of CRACK, METH, and MARIJUANA.
 
 <figure>
 <img src="/assets/SF_dist.png" width="100%">
@@ -64,4 +64,4 @@ One way to examine this is to look at the raw GIS data associated with each repo
 </figcaption>
 </figure>
 
-If you back to the data at top, the total number of drug-related incidents has been dropping. The mix is becoming more equally distributed between CRACK, MARIJUANA, and METH. But, there's a lot more to look at with this data. I invite folks to pull the [notebook](http://nbviewer.ipython.org/github/lmart999/GIS/blob/master/SF_GIS_Crime.ipynb) and explore for themselves!
+If you go back to the data at top, the total number of drug-related incidents has been dropping. The mix is becoming more equally distributed between CRACK, MARIJUANA, and METH. But, there's a lot more to look at with this data. I invite folks to pull the [notebook](http://nbviewer.ipython.org/github/lmart999/GIS/blob/master/SF_GIS_Crime.ipynb) and explore for themselves!
