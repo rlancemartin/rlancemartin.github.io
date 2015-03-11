@@ -157,7 +157,7 @@ For batch processing, storage systems like [`HDFS`, `HBase`,](http://smartdataco
 
 For real-time processing, steam data processing services like `Storm` or `Spark streaming` are [comparable](http://www.slideshare.net/ptgoetz/apache-storm-vs-spark-streaming) and may connect to real-time data storage, such as [`HBase`](https://www.xplenty.com/blog/2014/05/hive-vs-hbase/), a NoSQL key-value store, or `MemSQL` for real-time databases for transactions and analytics.
 
-For process coordination, [`Mesos`](http://www.slideshare.net/charmalloc/apache-kafka-hdfs-accumuloonmesos) joins multiple physical resources into a single virtual resource. It schedules CPU and memory resources across the cluster using `Zookeeper`, a centralized configuration manager. Frameworks, such as Hadoop, manage (e.g., start / stop) applications on `Mesos`.
+For process coordination, [`Mesos`](http://www.slideshare.net/charmalloc/apache-kafka-hdfs-accumuloonmesos) joins multiple physical resources into a single virtual resource. It schedules CPU and memory resources across the cluster using `Zookeeper`, a configuration manager. Frameworks, such as Hadoop, manage applications on `Mesos`.
 
 <figure>
 <img src="/assets/architecture.png" width="70%">
@@ -167,7 +167,7 @@ For process coordination, [`Mesos`](http://www.slideshare.net/charmalloc/apache-
 
 ###Pipelines
 
-These building blocks for experimental pipelines are largely open-source and un-bundled into a collection of services. Companies can mix and match this instrumentation in different ways. For example, [Pinterest](http://engineering.pinterest.com/post/95378137929/scalable-a-b-experiments-at-pinterest) has a nice overview of their experimental `A/B test` pipeline that merges different log types to group metrics per experimental group, segmentation (e.g., gender), and days-in the experiment.
+These building blocks for experimental pipelines are largely open-source and un-bundled into a collection of services. Companies can mix and match them in different ways. For example, [Pinterest](http://engineering.pinterest.com/post/95378137929/scalable-a-b-experiments-at-pinterest) has a nice overview of their experimental `A/B test` pipeline that merges different log types to group metrics per experimental group, segmentation (e.g., gender), and days-in the experiment.
 
 The scale of the data (`20TB` of experiment metric data every six months) requires a large-scale system (`HBase`) for batch processing. The `HBase` keys contain the schema needed to perform the required segmentation and different metrics are just captured in different column families.
 
@@ -181,11 +181,11 @@ Batch processing on the data in `HBase` is done daily and results are pushed to 
 
 ###Controlled Expariments
 
-Let's assume everything above has been done: we've designed an experiment, split into test and control cohorts, and captured logs with our metrics / schema using instrumentation described above. What now? We need a testing framework to rigorously evaluate whether there is a difference in the metric between the two.
+Once we've designed an experiment, split into test and control cohorts, and captured logs with our metrics / schema using instrumentation described above, we need a testing framework to rigorously evaluate whether there is a difference in the metric between the two.
 
-Many metrics are binary: a user did something or they didn't. There are a few different kinds of statistical tests for binary data (`Chi-Squared`, `Z-test`, or `N-1 Chi-Squared test`). These tests assume a null-hypothesis (no difference between cohorts) and compute the probability of observing the observed effect assuming the null-hypothesis is true (a `p-value`).
+It's worth noting that many metrics are binary: a user did something or they didn't. So, statistical tests for binary data (`Chi-Squared`, `Z-test`, or `N-1 Chi-Squared test`) are common in A/B testing frameworks. These tests assume a null-hypothesis (no difference between cohorts) and compute the probability of observing the observed effect assuming the null-hypothesis is true (a `p-value`).
 
-But, P-values are poorly understood. Here's the problem: they are a function of sample size and effect size. [Jan Overgoor](http://nerds.airbnb.com/experiments-airbnb/) shows this nicely. They ran a test that computes a rolling P-value (bottom) for the treatment effect (top). Large effects ***randomly*** observed early on are called "significant," but the sample size is small. Over time, the effect curve converges to zero.
+But, P-values are poorly understood. They are a function of sample size and effect size. [Jan Overgoor](http://nerds.airbnb.com/experiments-airbnb/) shows this nicely. They ran a test that computes a rolling P-value (bottom) for the treatment effect (top). Large effects ***randomly*** observed early on are called significant given the p-value cutoff of 0.05. But the sample size is small in these early timepoints. Over time, the effect converges to zero!
 
 <figure>
 <img src="/assets/airbnb_test.png" width="100%">
@@ -193,13 +193,13 @@ But, P-values are poorly understood. Here's the problem: they are a function of 
 </figcaption>
 </figure>
 
-As shown, tests can fail by identifying false positives (early timepoints above, Type I error) or false negative (Type II error). There's a few free parameters to combat these issues, including [Power](http://meera.snre.umich.edu/plan-an-evaluation/related-topics/power-analysis-statistical-significance-effect-size) (probability that you will reject the null hypothesis and avoid Type II error), sample size, expected effect size, and `p-value` threshold.
+Tests can fail by identifying false positives (above, Type I error) or false negative (Type II error). But, there's a few free parameters to combat these, such as [Power](http://meera.snre.umich.edu/plan-an-evaluation/related-topics/power-analysis-statistical-significance-effect-size) (probability that you will avoid Type II errors), sample size, expected effect size, and `p-value` threshold.
 
-The ideal approach is to pre-determine the expected effect size, desired power, and P-value threshold prior to the experiment. If we fix power (0.8) and `p-value` threshold (0.05), then we just need to sweep across a range of expected effect sizes and compute the required sample sizes needed for enrollment (e.g., using [calculators](http://www.evanmiller.org/ab-testing/sample-size.html)).
+The ideal approach is to pre-determine the expected effect size, desired power, and P-value threshold prior to the experiment. If we fix power (0.8) and `p-value` threshold (0.05), then we can sweep across a range of effect sizes to compute required sample sizes (e.g., via [calculators](http://www.evanmiller.org/ab-testing/sample-size.html)).
 
-Given an expected effect size, we can also compute a binomial parameter with confidence intervals using the cohort data. This parameter indicates the probability of conversion for each cohort. We expect that our feature influences changes this parameter. We can simply compare computed parameters between cohorts in order to test this.
+Given an expected effect size, we can also compute a binomial parameter, which indicates the probability of conversion for each cohort. We can simply compare computed parameters (with confidence intervals) between cohorts in order to test the difference.
 
-Using data provided by Jason Davis, [a software/data engineer Etsy](http://people.stern.nyu.edu/ja1517/data/dsatetsy.pdf), I ran a simulation below: given an expected effective size (conversion goes from 2% to 2.04%) and user enrollment of 500k per day, the time needed to see the effect is 7 days (> 3.5M visits).
+Using data provided by Jason Davis, [a software/data engineer Etsy](http://people.stern.nyu.edu/ja1517/data/dsatetsy.pdf), I ran a simulation below: given an expected effective size for a new feature (conversion goes from 2% to 2.04%) and user enrollment of 500k per day, the time needed to see the effect is 7 days (> 3.5M visits).
 
 <figure>
 <img src="/assets/ci.png" width="100%">
@@ -213,7 +213,7 @@ An [intuitive and inverse](http://www.measuringu.com/blog/ab-testing.php) relati
 
 ***(1) Free experiments to develop ideas***
 
-My favorite kind of experiments are the ones that cost nothing: that is, quick data mining or back-of-the-envelope work at the experimental design phase in order to help clarify the hypothesis! For example, if we want to build a feature to reduce churn, we might be challenged by the fact that there are many things that may influence the metric.
+My favorite kind of experiments are the ones that cost nothing: quick data mining at the experimental design phase can clarify the hypothesis! For example, if we want to build a feature to reduce churn, we might be challenged by the fact that there are many things that may influence the metric.
 
 <figure>
 <img src="/assets/user_equ.png" width="60%">
@@ -221,7 +221,7 @@ My favorite kind of experiments are the ones that cost nothing: that is, quick d
 </figcaption>
 </figure>
 
-Examining historical data (that already exists) may be one way to suss this out rather quickly and improve clarity. And clarity is something that seems to unite successful product and growth teams. For Facebook, it was friend count. Zuck talks about getting people to 10 friends in 14 days. Josh Elman, product lead for growth at Twitter, explains that they focused on visits, with [7 times per month](https://medium.com/@joshelman/the-only-metric-that-matters-ab24a585b5ea) the threshold.
+Examining existing historical data may be one way to suss this out and improve clarity. And clarity seems common to most successful product and growth teams. For Facebook, the key metric to avoid churn was friend count; Zuck talks about getting people to 10 friends in 14 days. Josh Elman, product lead for growth at Twitter, explains that they focused on visits, with [7 times per month](https://medium.com/@joshelman/the-only-metric-that-matters-ab24a585b5ea) the threshold.
 
 Once a team understands the product feature that strongly separates users based upon a key metric, then controlled experiments (as explained above) can be centered around this core insight.
 
