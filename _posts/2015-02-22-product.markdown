@@ -6,15 +6,13 @@ excerpt: "Science drives product development and growth."
 date:   2015-02-22 10:19:00
 ---
 
+###Preface
+
+I’m interested in product science: the tools and thinking that hyper-growth technology companies use to design, and measure the success of, products. This covers the most interesting points that I’ve come across from reading everything I can find about product management and experimentation within the product development cycle. 
+
 ###Growth
 
-Paul Graham [said](http://www.paulgraham.com/growth.html) that a startup is a company designed to grow fast. Growth distinguishes startups from the millions of local service businesses launched every year. If a startup adds a fixed number new users per week, the user count will scale linearly. Over time, the ratio of new users added per week approaches one. Startups want growth that is proportional to their current size. A fixed percentage of new users added per week leads to a non-linear explosion in total user count (red, below).
-
-<figure>
-<img src="/assets/linear_log.png" width="90%">
-<figcaption>
-</figcaption>
-</figure>
+First, I wanted to review the first principles: what is a startup? Paul Graham [defines a startup](http://www.paulgraham.com/growth.html) as a company designed to grow fast. Growth distinguishes startups from the millions of local service businesses launched every year. Startups typically aim for growth that is proportional to their current size: a fixed percentage of new users added per week will lead to a non-linear explosion in total user count over time.
 
 ###Why is growth important?
 
@@ -38,7 +36,7 @@ Growth runs up against bounds. Consider Facebook’s growth ([data from Ben Fost
 </figcaption>
 </figure>
 
-At the time, no social network had surpassed 100M users. Some doubted whether it was possible. Of course, they did it. Chamath has a good [talk](https://www.youtube.com/watch?v=raIUQP71SBU) about what it took to get past this barrier. The point is that growth bounds exist, but they are not always obvious to identify (more on that later).
+At the time, no social network had surpassed 100M users. Some doubted whether it was possible. Of course, they did it. Chamath has a good [talk](https://www.youtube.com/watch?v=raIUQP71SBU) about what it took to get past this barrier. The point is that growth bounds exist, but they are not always obvious to identify.
 
 ***Acquisition*** 
 
@@ -56,25 +54,164 @@ Acquisition and retention are independent parameters in the growth model. This i
 </figcaption>
 </figure>
 
-I simulated a few scenarios to convince myself (link to iPython notebook). At best, growth is stifled when users churn. At worst, growth crashes out to zero. The intuition is pretty clear. Leaky buckets don’t need water. They need to be patched. Viral acquisition with a bad product will hemorrhage users.  
+I simulated a few scenarios to convince myself (I will link to iPython notebook). At best, growth is stifled when users churn. At worst, growth crashes out to zero. The intuition is pretty clear. Leaky buckets don’t need water. They need to be patched. Viral acquisition with a bad product will hemorrhage users.  
+
+###Metrics
+
+These growth parameters are often broken into more granular metrics. There are some [heuristics](http://engineering.pinterest.com/post/112720487359/4-steps-to-better-goals-and-metrics) for picking metrics (e.g., they should be MMOM - Meaningful, Measurable, Operational, and Motivational). Two general classes appear to be talked about most often:
+
+* [Engagement metrics:](http://www.slideshare.net/adamnash/be-a-great-product-leader-airbnb-2013) These are ratios such as MAU/total, DAU/MAU, and Action/DAU).
+* [Conversion or funnel completion metrics:](http://abovethecrowd.com/2013/10/02/conversion-the-most-important-internet-metric-of-all-revisited/) The number of customers that achieve some desired action or activity divided by the total. 
 
 ###Product and growth
 
-Product underpins all three growth parameters. Facebook grew through work of mouth because the product was so good. Unlike Hotmail, there was [no native way](https://www.youtube.com/watch?v=raIUQP71SBU) to pull-in non-users from the app.
+After reading everything I could find about growth, a key point emerged: product is the lever that moves the metrics. This is obvious, but actually really interesting to think about carefully. Product is a free parameter that a startup can play with in order to drive growth. So, I wanted to understand the process that startups use to develop product.
 
-Uber has shown that market size can be function of product quality. A debate between Bill Gurley and Aswath Damodaran [highlights this](http://abovethecrowd.com/2014/07/11/how-to-miss-by-a-mile-an-alternative-look-at-ubers-potential-market-size/): in 2012, Uber was ~100% of the total historical black car market in San Francisco. With product and very low prices, it continue to expand the market for ride-sharing.
+This question brought me to some great writing on product management. [Adam Nash](http://blog.adamnash.com/2012/03/06/top-10-product-leadership-lessons/), CEO at Wealthfront, distills lessons on product leadership, which I further compress into a few steps: picking a metric, developing a hypothesis, prioritizing product features based upon the hypothesis, executing, and measuring success.
 
-Viral user acquisition is also [intrinsic to product design](http://blakemasters.com/post/22405055017/peter-thiels-cs183-startup-class-9-notes-essay). Dropbox and Hotmail provided native ways for existing users to draw new users into the app. Ed Baker, head of growth at Uber, has developed a [few products](http://michaelrucker.com/thought-leader-interviews/edward-baker-the-viral-factor/) on email, SMS, IM, and Facebook designed specifically for viral growth.
+There's a lot of interesting writing about what metric to measure. Good product teams seem effective at boiling product down to the [one thing](https://medium.com/@dunn/get-one-thing-right-89390244c553) they want the user to do and finding the [one metric that matters](https://medium.com/@joshelman/the-only-metric-that-matters-ab24a585b5ea) for success. For example, the success metric at AirBnB is the [overall conversion rate](http://nerds.airbnb.com/experiments-at-airbnb/) between searching and booking.
 
-###Product science
+With a metric, how to develop a thesis and product plan? Amazon [does this by working backwards](http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management) from the customer. They write the press release prior to starting any product development. [Adam Nash](http://blog.adamnash.com/2009/07/22/guide-to-product-planning-three-feature-buckets/) and [Ian McAllister](http://www.quora.com/What-are-the-best-ways-to-prioritize-a-list-of-product-features) also have some good writing product feature types and prioritization strategy. 
 
-If product is linked to growth, then how to make product decisions that promote growth? I think this question is really interesting. Of course, you can optimize the existing product or develop new ones. It's interesting to examine product innovation along each each of these dimensions.
+I found this process surprisingly familiar: (1) Spend time thinking through the thesis on the front-end of a project, (2) [don't rely on costly experiments](https://medium.com/the-year-of-the-looking-glass/the-agony-and-ecstasy-of-building-with-data-56215764d67c) to lead the way, (3) pick the minimum number of experiments and simple analyses to test your thesis, (4) build re-useable analysis pipelines.  
 
-####Optimize the existing product
- 
-***User distribution*** 
+<figure>
+<img src="/assets/product_cycle.png" width="100%">
+<figcaption>
+</figcaption>
+</figure>
 
-[Alex Schultz](http://genius.com/Alex-schultz-lecture-6-growth-annotated) made a key point here. There are metrics that matter, like churn. The product has a lot of features that might influence the metric (below). The challenge is to isolate features that most strongly explain differences in the metric across the user base; ideally, there is one that stands out.
+Feedback is especially important. In the sciences, iteration and learning on across projects leads to what they call a ***taste*** for good problems. This is analogous to product management instincts or "spidey sense". So, what are the experimental learning systems built around the product cycle? And are they needed? It the coupling between product features and metrics just obvious?
+
+###Exparimental Schema and Design
+
+These questions lead me to the systems that startups use to make product decisions. But first, I wanted to understand the case for product science.
+
+***External factors***
+
+The feedback loop between product/features and metric is not always obvious. The outside world also has an effect on metrics. Controlled expariments isolate the effects of a product/features on a metric from all of the external factors that could also influence the metric.
+
+<figure>
+<img src="/assets/cycle.png" width="100%">
+<figcaption>
+</figcaption>
+</figure>
+
+The confounding (exteral) factors pretty clearly specify what to measure in a controlled expariment. In other words, this sets the schema for the logs that we capture as the expariment proceeds. Once the expariment is done, users in test (subject to a feature) and control (not) cohorts can be aggregated by these attributes (see below).
+
+<figure>
+<img src="/assets/schema.png" width="100%">
+<figcaption>
+</figcaption>
+</figure>
+
+***The funnel***
+
+The other challenge is that the user process from entry to conversion may have many steps. Each step may introduce frictions that affect the metric! [Jan Overgoor](http://nerds.airbnb.com/experiments-airbnb/), a data scientist at AirBnB, has a great blog post that discusses this: in addition to capturing external factors, expariments can also be partitioned by specific steps in the funnel.
+
+<figure>
+<img src="/assets/funnel_airbnb.png" width="100%">
+<figcaption>
+</figcaption>
+</figure>
+
+Dan McKinley, an Engineering at Etsy and now Stripe, has a great talk on [product design for continuous experimentation](http://www.slideshare.net/danmckinley/design-for-continuous-experimentation) that extends this point: it's hard to interpret experiments if (1) many feature changes are made simultaneously or (2) if a feature change affects many parts of the funnel simultaneously. 
+
+He talks about a failed experiment at Etsy: it involved lots of up-front work and a "monolithic" roll-out of a new features (the infinite scroll - or automated loading of new items). Surprisingly, this lead to fewer impressions, fewer items seen, and fewer purchases. When it failed, it was hard to de-bug because so much had been changed at once. 
+
+A set of smaller, carefully designed experiments showed that the basic premises (e.g., more and faster results are good) were wrong. He goes on to discuss to discuss a more successful product launch (removing search dropdown) in which carefully staged experiments gave them clear opportunity to test hypotheses and, if needed, alter course after each one.
+
+<figure>
+<img src="/assets/funnel.png" width="100%">
+<figcaption>
+</figcaption>
+</figure>
+
+###Instrumentation
+
+The rationale, schema design, and staging for experiments is clear to me. I'm curious to understand the mechanics: how are experiments physically done? Logs are the substrate of experiments. They capture information specified by the schema. For example, [this blog post from Pinterest](http://engineering.pinterest.com/post/95378137929/scalable-a-b-experiments-at-pinterest) nicely explains how the schema is  captured in different log files and later aggregated accordingly.
+
+Experimental pipelines are built around logs. Logs are so central that [Jay Kreps](http://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying), data scientist and engineering at LinkedIN (now CEO at Confluent), has an excellent and detailed post about the log and evolution of pipelines to process them. Data pipelines have producers and consumers. Producers write logs that may contain web events or physical data (e.g., RFID and IoT). Consumers process the logs. Because event data tends to be several orders of magnitude larger than traditional database uses, the structure of data pipelines have become [complex](http://www.slideshare.net/charmalloc/current-and-future-of-apache-kafka).
+
+<figure>
+<img src="/assets/datapipeline_complex.png" width="100%">
+<figcaption>
+</figcaption>
+</figure>
+
+At LinkedIN, Jay and colleagues developed a central log that (1) acts as a buffer between producers and consumers, (2) allows for real-time subscription by systems (e.g., Hadoop) that consume data at different rates, and (3) means that new data systems (source or destination) only requires a single pipeline.
+
+The outputs from the central node are suitable for batch ETL: system-specific non-sense is removed and the data is restructured for for warehousing (e.g., [STAR](http://en.wikipedia.org/wiki/Star_schema) schema) and admits to experimental analysis (simple counting, aggregation, and filtering). 
+
+<figure>
+<img src="/assets/log.png" width="100%">
+<figcaption>
+</figcaption>
+</figure>
+
+Logging agents, such as [`Singer`](http://www.slideshare.net/DiscoverPinterest/singer-pinterests-logging-infrastructure), sit on application servers. They collect event logs and ship them to a centralized repository. The centralized repository, such as [`Kafka`](http://engineering.linkedin.com/kafka/kafka-linkedin-current-and-future), consumes events and moves them to subscribers. `Kafka` powers event stream pipeline for [many companies](https://cwiki.apache.org/confluence/display/KAFKA/Powered+By).
+
+For batch processing, storage systems like [`HDFS`, `HBase`,](http://smartdatacollective.com/mtariq/120791/hadoop-toolbox-when-use-what) and `S3` can be tied to relational databases such as `Hive`, which provides [scalable](http://www.quora.com/What-makes-Amazon-Redshift-faster-than-Hive) SQL-like functionality on top of a Hadoop cluster, and [`Redshift`](http://aws.amazon.com/redshift/), which provides a parallel SQL database on `S3` and [can](http://engineering.pinterest.com/post/75186894499/powering-interactive-data-analysis-by-redshift) have better performance than `Hive`).
+
+For real-time processing, steam data processing services like `Storm` or `Spark streaming` are [comparable](http://www.slideshare.net/ptgoetz/apache-storm-vs-spark-streaming) and may connect to real-time data storage, such as [`HBase`](https://www.xplenty.com/blog/2014/05/hive-vs-hbase/), a NoSQL key-value store, or `MemSQL` for real-time databases for transactions and analytics.
+
+For process coordination, [`Mesos`](http://www.slideshare.net/charmalloc/apache-kafka-hdfs-accumuloonmesos) will joins multiple physical resources into a single virtual resource. It schedules CPU and memory resources across the cluster using `Zookeeper`, a centralized configuration manager. Frameworks, such as Hadoop, are used to manage (start, stop, and scale) applications on `Mesos`.
+
+<figure>
+<img src="/assets/architecture.png" width="100%">
+<figcaption>
+</figcaption>
+</figure>
+
+###Pipelines
+
+The above building blocks for experimental pipelines are largely open-source. The infrastructure can be un-bundled into a collection of services and companies can mix and match this instrumentation in different ways. [Pinterest](http://engineering.pinterest.com/post/95378137929/scalable-a-b-experiments-at-pinterest) has a nice overview of their exparimental `A/B test` pipeline. As mentioned above, they merge several different log types in order to group metric per experimental group, per segmentation (e.g., gender), per days-in the expariment.
+
+The scale of the data (`20TB` of experiment metric data every six months) requires a large-scale system (`HBase`) for batch processing. The `HBase` keys contain the schema needed to perform the required segmentation and different metrics are just captured in different column families.
+
+Batch processing on the data in `HBase` is done daily and results are pushed to Dashboards for visualization. In order to improve the success rate of experiments, they also have a real-time pipeline (using `Storm` and, more recently, [`Spark`](http://engineering.pinterest.com/post/111380432054/real-time-analytics-at-pinterest)) to figure out experiment group allocations as the expariment is running.
+
+<figure>
+<img src="/assets/pinterest_overall.png" width="100%">
+<figcaption>
+</figcaption>
+</figure>
+
+###Controlled Expariments
+
+Let's assume everything above has been done: we've designed an experiment, split into test and control cohorts, and captured logs with our metrics / schema using instrumentation described above. What now? We need a testing framework to rigorously evaluate whether there is a difference in the metric between the two.
+
+Many metrics are binary: a user did something or they didn't. There are a few different kinds of statistical tests for binary data (`Chi-Squared`, `Z-test`, or `N-1 Chi-Squared test`). These tests assume a null-hypothesis (no difference between cohorts) and compute the probability of observing the observed effect assuming the null-hypothesis is true (a `p-value`).
+
+But, P-values are poorly understood. Here's the problem: they are a function of sample size and effect size. [Jan Overgoor](http://nerds.airbnb.com/experiments-airbnb/) shows this nicely. They ran a test that computes a rolling P-value (bottom) for the treatment effect (top). Large effects ***randomly*** observed early on are called "significant," but the sample size is small. Over time, the effect curve converges to zero.
+
+<figure>
+<img src="/assets/airbnb_test.png" width="100%">
+<figcaption>
+</figcaption>
+</figure>
+
+As shown, tests can fail by identifying false positives (early timepoints above, Type I error) or false negative (Type II error). There's a few free parameters to combat these issues, including [Power](http://meera.snre.umich.edu/plan-an-evaluation/related-topics/power-analysis-statistical-significance-effect-size) (probability that you will reject the null hypothesis and avoid Type II error), sample size, expected effect size, and `p-value` threshold.
+
+The ideal approach is to pre-determine the expected effect size, desired power, and P-value threshold prior to the experiment. If we fix power (0.8) and `p-value` threshold (0.05), then we just need to sweep across a range of expected effect sizes and compute the required sample sizes needed for enrollment (e.g., using [calculators](http://www.evanmiller.org/ab-testing/sample-size.html)).
+
+Given an expected effect size, we can also compute a binomial parameter with confidence intervals using the cohort data. This parameter indicates the probability of conversion for each cohort. We expect that our feature influences changes this parameter. We can simply compare computed parameters between cohorts in order to test this.
+
+Using data provided by Jason Davis, [a software/data engineer Etsy](http://people.stern.nyu.edu/ja1517/data/dsatetsy.pdf), I ran a simulation below: given an expected effective size (conversion goes from 2% to 2.04%) and user enrollment of 500k per day, the time needed to see the effect is 7 days (> 3.5M visits).
+
+<figure>
+<img src="/assets/ci.png" width="100%">
+<figcaption>
+</figcaption>
+</figure>
+
+An [intuitive and inverse](http://www.measuringu.com/blog/ab-testing.php) relationship between effect size and sample size falls out: you need more data to observe subtle effects! And for cases in which the effect size is unknown, [Jan](http://nerds.airbnb.com/experiments-airbnb/) mentions how dynamic (in time) p-value thresholds can be to determine whether or not an early result is worth investigating.
+
+###Framework for Controlled Expariments
+
+***(1) Free experiments to develop ideas***
+
+My favorite kind of experiments are the ones that cost nothing: that is, quick data mining or back-of-the-envelope work at the experimental design phase in order to help clarify the hypothesis! For example, if we want to build a feature to reduce churn, we might be challenged by the fact that there are many things that may influence the metric.
 
 <figure>
 <img src="/assets/user_equ.png" width="60%">
@@ -82,11 +219,9 @@ If product is linked to growth, then how to make product decisions that promote 
 </figcaption>
 </figure>
 
-Consider churn. Identifying features that drive the likelihood of churn may be intuitive in some cases. In other situations, data science teams have probably used classifiers to figure it out. 
+Examining historical data (that already exists) may be one way to suss this out rather quickly and improve clarity. And clarity is something that seems to unite successful product and growth teams. For Facebook, it was friend count. Zuck talks about getting people to 10 friends in 14 days. Josh Elman, product lead for growth at Twitter, explains that they focused on visits, with [7 times per month](https://medium.com/@joshelman/the-only-metric-that-matters-ab24a585b5ea) the threshold.
 
-Either way, good growth and product teams seem to boil this down to specific features. For Facebook, it was friend count. Zuck talks about getting people to 10 friends in 14 days. Josh Elman, product lead for growth at Twitter, explains that they focused on visits, with [7 times per month](https://medium.com/@joshelman/the-only-metric-that-matters-ab24a585b5ea) the threshold.
-
-If there is product feature that strongly seperates users based upon a key metric, like churn, then experiments (e.g., A/B testing) for product improvement can be centered around this insight.
+Once a team understands the product feature that strongly separates users based upon a key metric, then controlled experiments (as explained above) can be centered around this core insight.
 
 <figure>
 <img src="/assets/dist.png" width="70%">
@@ -94,55 +229,35 @@ If there is product feature that strongly seperates users based upon a key metri
 </figcaption>
 </figure>
 
-***Market distribution***
+***(2) Exparimental Design***
 
-Different markets can complicate this. Chamath [talks](https://www.youtube.com/watch?v=raIUQP71SBU) about Facebook's international growth and need for localization of the app to specific markets. Uber is doing this now in 150 cities and 46 counties. 
+* Define the metric.
+* Define the (product/feature) hypothesis.
+* Define schema to capture metric and confouding factors.
+* Stage expariments based upon the conversion funnel.
 
-Gross revenue has more than doubled for the past three years. This is impressive, but their distribution of revenue is also interesting: apparently the bulk comes from [~ 10 cities](http://www.businessinsider.com/ubers-revenue-2014-11). There's a lot of headroom. 
+***(3) Instrumentation***
 
-But, an interesting question is how to localize product or growth strategy, considering demographic or structural differences between all these different cities and neighborhoods.
+* Design the simplest possible instrumentation scheme. 
+* Make it re-usable so that it can be applied to many expariments.
 
-It's possible to simplify this problem if you find a way to compare each market. For example, Uber has used neighborhood-specific [demand patterns](http://www.citylab.com/commute/2012/08/using-uber-ridership-data-compare-cities-and-neighborhoods/2890/) as a handle to compare different areas. 
+***(4) Data collection, analysis, and reporting***
 
-<figure>
-<img src="/assets/city_compare.png" width="70%">
-<figcaption>
-</figcaption>
-</figure>
+* In order to isolate feature effects, group on schema attributes.
+* Ensure grouped samples are large enough to resolve the effect size.
+* If computing a rolling P-value, use dynamic cutoffs.
+* Also consider regression (generalized linear models) to avoid data slicing.
+* Build intuitive reporting [dashboards](http://nerds.airbnb.com/experiment-reporting-framework/) and [visualizations](http://engineering.pinterest.com/post/86533331849/how-pinterest-drives-sustainable-growth
 
-City data is also available. For example, I pulled all [311 requests](http://www.sf311.org/index.aspx?page=161) provided by `SF open data`. This contains 1.1 million geo-tagged service requests. I used the [`basemap`](http://matplotlib.org/basemap/) library in `python` to overlay reported `Pavement Defects` on a map of San Francisco, showing a heatmap per neighborhood.
+###Final Comments
 
-<figure>
-<img src="/assets/context.png" width="100%">
-<figcaption>
-</figcaption>
-</figure>
+Controlled expariments have been used for centries to better understand our physical world. But they have been largely directed at "model systems," which can be easily manipulated. For larger-scale phenomea, controlled expariments have been very hard to do. Scientists have relied on (econometric) frameworks (e.g., difference in differences) to approximate controlled experiments in these cases.
 
-These city- and app- derived features are a handle for generating insights in at least two ways:
+The advent of the web made it possible to conduct massive controlled expariments to improve our virtual experinces. The injection of software into [nearly every category](http://www.wsj.com/articles/SB10001424053111903480904576512250915629460) and means that it's possible to build learning loops that improve product and user experinces across a broader array of virual activity. 
 
-* ***Mapping insights between markets*** Neighborhoods or cities can be grouped based upon similar features. This could identify outliers, where to expand next based upon similarity to prior successes, and it may identify ways to apply insights gained in one market to others.
+The recent emergence of mobile extended the reach of the web. [Now, full-stack startups](http://a16z.com/2015/01/22/the-full-stack-startup/) are injecting software deep into the physical world. For the first time, it's possible to run massive controlled expariments to improve physical experinces. Companies like Uber have proven that focus on product can vastly grow markets for services and [alter the flow of cities](http://blog.uber.com/city-future). 
 
-* ***Localizing product and growth strategy*** Beyond universal concerns like price or ETA, market-specific features might explain the variance in key (user or driver) metrics (e.g., acquisition or churn). If so, it provides insight into product or growth strategy in specific locales. 
-
-####Develop new products
-
-For product optimization, lots of data exists. The other dimension for growth is diversification outside of the core business. Jeff Jordan [calls this](http://jeff.a16z.com/2012/01/18/a-recipe-for-growth-adding-layers-to-the-cake/) "adding layers to the cake.” Unlike optimization, data typically does not exist for this. Good products tap deep into the human psyche are [hard to predict](http://www.dtic.upf.edu/~alozano/innovation/).
-
-Hypothesis-driven product development has been adopted by young startups searching for a business model, though Steve Blank points out that it is also relevant for [larger startups or corporations](https://hbr.org/2013/05/why-the-lean-start-up-changes-everything). 
-
-People talk about the importance of data monopoly. But, I think it's interesting to consider experimental monopoly. Many [full-stack startups](http://a16z.com/2015/01/22/the-full-stack-startup/) can test ideas that no one else can. 
-
-Based upon their blog, Uber has tried several dozen different products at pilot-scale, including on-demand [flu shots](http://blog.uber.com/health), [weddings](http://blog.uber.com/uberwedding), and [logistics](http://blog.uber.com/RUSH). Their digital grid is a massive experimental machine. 
-
-Most of these experiments are probably just for fun or PR. Or they fail. But, that's not the point. The point is that it's possible to ask questions and get back data on a scale that no one else can.
-
-###Summary
-
-Startups are companies designed to grow. Product is central for growth. Given that product is the lever that controls growth, then how to make product decisions that promote growth? 
-
-One way is to improve the existing product. The best companies identified product features that explain the variance in key user behaviors - such as churn - and target improvements around them. 
-
-The other way is to develop new products. This requires experimentation. Full-stack startups are massive experimentation engines that generate product insights from the resulting data.
+In the case of Uber, their full-stack digital grid is an unprecedented experimental machine. Using product science to improve the existing services (specifically POOL) has [interesting knock-on effects for cities](http://abovethecrowd.com/2015/01/30/ubers-new-bhag-uberpool/). Controlled exparimentation will also likely usher in new experinces; their exparimentation with on-demand [flu shots](http://blog.uber.com/health), [weddings](http://blog.uber.com/uberwedding), and [logistics](http://blog.uber.com/RUSH) all point to the fact that it's possible ask questions on a scale that no one else can.
 
 ###Note
 
