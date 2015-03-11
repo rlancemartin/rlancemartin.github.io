@@ -129,11 +129,11 @@ A set of smaller, carefully designed experiments showed that the basic premises 
 
 ###Instrumentation
 
-With all of that in mind, how are experiments actually performed? Logs are the substrate of experiments. They capture information specified by the schema. For example, [this blog post from Pinterest](http://engineering.pinterest.com/post/95378137929/scalable-a-b-experiments-at-pinterest) nicely explains how the schema is captured in different log files and later aggregated accordingly.
+With that in mind, how are experiments done? Logs are the substrate of experiments. They capture information specified by the schema. For example, [this blog post from Pinterest](http://engineering.pinterest.com/post/95378137929/scalable-a-b-experiments-at-pinterest) nicely explains how the schema is captured in different log files and later aggregated accordingly.
 
 Logs are so central that [Jay Kreps](http://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying), data scientist / engineering at LinkedIN (now CEO at Confluent), has an excellent post about the log and pipelines to process them. 
 
-Data pipelines have producers and consumers. Producers write logs that may contain web events or physical data (e.g., RFID and IoT). Consumers process the logs. Because event data tends to be several orders of magnitude larger than traditional database uses, the structure of data pipelines have become [complex](http://www.slideshare.net/charmalloc/current-and-future-of-apache-kafka).
+Data pipelines have producers and consumers. Producers write logs that may contain web events or physical data (e.g., RFID and IoT). Consumers process the logs. But because event data can be orders of magnitude larger than traditional database uses, the structure of data pipelines can be [complex](http://www.slideshare.net/charmalloc/current-and-future-of-apache-kafka).
 
 <figure>
 <img src="/assets/datapipeline_complex.png" width="100%">
@@ -141,7 +141,7 @@ Data pipelines have producers and consumers. Producers write logs that may conta
 </figcaption>
 </figure>
 
-To address this, Jay and colleagues developed a central log that (1) acts as a buffer between producers and consumers, (2) allows for subscription by systems (e.g., Hadoop) that consume data at different rates, and (3) means that new data systems (source or destination) can be connected with a single pipeline.
+To address this, Jay and colleagues developed a central log that (1) is as a buffer between producers and consumers, (2) allows for subscription by systems (e.g., Hadoop) that consume data at different rates, and (3) allows new data systems to connect to all others with a single pipeline.
 
 The outputs from the central log are then suitable for batch ETL into systems that allow analysis: system-specific non-sense is removed and the data is restructured for for warehousing (e.g., [STAR](http://en.wikipedia.org/wiki/Star_schema) schema) and admits to experimental analysis (simple counting, aggregation, and filtering). 
 
