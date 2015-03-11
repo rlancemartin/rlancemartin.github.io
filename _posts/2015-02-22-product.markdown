@@ -157,7 +157,7 @@ For batch processing, storage systems like [`HDFS`, `HBase`,](http://smartdataco
 
 For real-time processing, steam data processing services like `Storm` or `Spark streaming` are [comparable](http://www.slideshare.net/ptgoetz/apache-storm-vs-spark-streaming) and may connect to real-time data storage, such as [`HBase`](https://www.xplenty.com/blog/2014/05/hive-vs-hbase/), a NoSQL key-value store, or `MemSQL` for real-time databases for transactions and analytics.
 
-For process coordination, [`Mesos`](http://www.slideshare.net/charmalloc/apache-kafka-hdfs-accumuloonmesos) joins multiple physical resources into a single virtual resource. It schedules CPU and memory resources across the cluster using `Zookeeper`, a centralized configuration manager. Frameworks, such as Hadoop, manage (start, stop, and scale) applications on `Mesos`.
+For process coordination, [`Mesos`](http://www.slideshare.net/charmalloc/apache-kafka-hdfs-accumuloonmesos) joins multiple physical resources into a single virtual resource. It schedules CPU and memory resources across the cluster using `Zookeeper`, a centralized configuration manager. Frameworks, such as Hadoop, manage (e.g., start / stop) applications on `Mesos`.
 
 <figure>
 <img src="/assets/architecture.png" width="70%">
@@ -167,11 +167,11 @@ For process coordination, [`Mesos`](http://www.slideshare.net/charmalloc/apache-
 
 ###Pipelines
 
-The above building blocks for experimental pipelines are largely open-source. The infrastructure can be un-bundled into a collection of services and companies can mix and match this instrumentation in different ways. [Pinterest](http://engineering.pinterest.com/post/95378137929/scalable-a-b-experiments-at-pinterest) has a nice overview of their exparimental `A/B test` pipeline. As mentioned above, they merge several different log types in order to group metric per experimental group, per segmentation (e.g., gender), per days-in the expariment.
+These building blocks for experimental pipelines are largely open-source and un-bundled into a collection of services. Companies can mix and match this instrumentation in different ways. For example, [Pinterest](http://engineering.pinterest.com/post/95378137929/scalable-a-b-experiments-at-pinterest) has a nice overview of their experimental `A/B test` pipeline that merges different log types to group metrics per experimental group, segmentation (e.g., gender), and days-in the experiment.
 
 The scale of the data (`20TB` of experiment metric data every six months) requires a large-scale system (`HBase`) for batch processing. The `HBase` keys contain the schema needed to perform the required segmentation and different metrics are just captured in different column families.
 
-Batch processing on the data in `HBase` is done daily and results are pushed to Dashboards for visualization. In order to improve the success rate of experiments, they also have a real-time pipeline (using `Storm` and, more recently, [`Spark`](http://engineering.pinterest.com/post/111380432054/real-time-analytics-at-pinterest)) to figure out experiment group allocations as the expariment is running.
+Batch processing on the data in `HBase` is done daily and results are pushed to Dashboards for visualization. In order to improve the success rate of experiments, they also have a real-time pipelines (with `Storm` and [`Spark`](http://engineering.pinterest.com/post/111380432054/real-time-analytics-at-pinterest)) that can perform operations as the experiment is running.
 
 <figure>
 <img src="/assets/pinterest_overall.png" width="100%">
