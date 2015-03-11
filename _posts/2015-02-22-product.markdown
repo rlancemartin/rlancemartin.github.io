@@ -209,9 +209,9 @@ Using data provided by Jason Davis, [a software/data engineer Etsy](http://peopl
 
 An [intuitive and inverse](http://www.measuringu.com/blog/ab-testing.php) relationship between effect size and sample size falls out: you need more data to observe subtle effects! And for cases in which the effect size is unknown, [Jan](http://nerds.airbnb.com/experiments-airbnb/) mentions how dynamic (in time) p-value thresholds can be to determine whether or not an early result is worth investigating.
 
-###Framework for Controlled Expariments
+###Framework for Controlled Experiments 
 
-***(1) Free experiments to develop ideas***
+***(1) "Free experiments" to develop ideas***
 
 My favorite kind of experiments are the ones that cost nothing: quick data mining at the experimental design phase can clarify the hypothesis! For example, if we want to build a feature to reduce churn, we might be challenged by the fact that there are many things that may influence the metric.
 
@@ -231,7 +231,7 @@ Once a team understands the product feature that strongly separates users based 
 </figcaption>
 </figure>
 
-***(2) Exparimental Design***
+***(2) Experimental Design***
 
 * Define the metric.
 * Define the (product/feature) hypothesis.
@@ -249,17 +249,19 @@ Once a team understands the product feature that strongly separates users based 
 * Ensure grouped samples are large enough to resolve the effect size.
 * If computing a rolling P-value, use dynamic cutoffs.
 * Also consider regression (generalized linear models) to avoid data slicing.
-* Build intuitive reporting [dashboards](http://nerds.airbnb.com/experiment-reporting-framework/) and [visualizations](http://engineering.pinterest.com/post/86533331849/how-pinterest-drives-sustainable-growth
+* Build intuitive reporting [dashboards](http://nerds.airbnb.com/experiment-reporting-framework/) and [visualizations](http://engineering.pinterest.com/post/86533331849/how-pinterest-drives-sustainable-growth)
 
 ###Final Comments
 
-Controlled expariments have been used for centries to better understand our physical world. But they have been largely directed at "model systems," which can be easily manipulated. For larger-scale phenomea, controlled expariments have been very hard to do. Scientists have relied on (econometric) frameworks (e.g., difference in differences) to approximate controlled experiments in these cases.
+Controlled experiments have been used for centuries to better understand the physical world. But they have been largely directed at "model systems," which can be easily manipulated. For larger-scale phenomena, controlled experiments have been very hard to do. Scientists have relied on (econometric) frameworks (e.g., difference in differences) to approximate controlled experiments in these cases.
 
-The advent of the web made it possible to conduct massive controlled expariments to improve our virtual experinces. The injection of software into [nearly every category](http://www.wsj.com/articles/SB10001424053111903480904576512250915629460) and means that it's possible to build learning loops that improve product and user experinces across a broader array of virual activity. 
+The advent of the web made it possible to conduct massive controlled experiments to improve our virtual experiences. The injection of software into [nearly every category](http://www.wsj.com/articles/SB10001424053111903480904576512250915629460) and means that it's possible to build learning loops that improve product and user experiences across a broader array of virtual activities. 
 
-The recent emergence of mobile extended the reach of the web. [Now, full-stack startups](http://a16z.com/2015/01/22/the-full-stack-startup/) are injecting software deep into the physical world. For the first time, it's possible to run massive controlled expariments to improve physical experinces. Companies like Uber have proven that focus on product can vastly grow markets for services and [alter the flow of cities](http://blog.uber.com/city-future). 
+Mobile extended the reach of the web. [Now, full-stack startups](http://a16z.com/2015/01/22/the-full-stack-startup/) built on top of mobile are injecting software deep into the physical world. For the first time, it's possible to run massive controlled experiments to improve physical experiences, not just virtual. Companies like Uber have proven that focus on product can vastly grow markets for physical services and, at the same time, [alter the flow of cities](http://blog.uber.com/city-future). 
 
-In the case of Uber, their full-stack digital grid is an unprecedented experimental machine. Using product science to improve the existing services (specifically POOL) has [interesting knock-on effects for cities](http://abovethecrowd.com/2015/01/30/ubers-new-bhag-uberpool/). Controlled exparimentation will also likely usher in new experinces; their exparimentation with on-demand [flu shots](http://blog.uber.com/health), [weddings](http://blog.uber.com/uberwedding), and [logistics](http://blog.uber.com/RUSH) all point to the fact that it's possible ask questions on a scale that no one else can.
+Full-stack digital grid are unprecedented experimental machines. In the case of Uber, product science will improve the existing services (specifically POOL), which has many [interesting knock-on effects for cities](http://abovethecrowd.com/2015/01/30/ubers-new-bhag-uberpool/). 
+
+Controlled experimentation on top of this grid will also guide the development of new experiences and products; their experimentation with on-demand [flu shots](http://blog.uber.com/health), [weddings](http://blog.uber.com/uberwedding), and [logistics](http://blog.uber.com/RUSH) all point to the fact that it's possible ask questions on a scale that no one else can.
 
 ###Note
 
