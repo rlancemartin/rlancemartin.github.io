@@ -65,31 +65,31 @@ These growth parameters are often broken into more granular metrics. There are s
 
 ###Product and growth
 
-After reading everything I could find about growth, a key point emerged: product is the lever that moves the metrics. This is obvious, but actually really interesting to think about carefully. Product is a free parameter that a startup can play with in order to drive growth. So, I wanted to understand the process that startups use to develop product.
+After reading everything I could find about growth, a key point emerged: product is the lever that moves the metrics. Product is a free parameter that a startup can play with in order to drive growth. With that in mind, it's interesting to understand the process that startups use to build products.
 
-This question brought me to some great writing on product management. [Adam Nash](http://blog.adamnash.com/2012/03/06/top-10-product-leadership-lessons/), CEO at Wealthfront, distills lessons on product leadership, which I further compress into a few steps: picking a metric, developing a hypothesis, prioritizing product features based upon the hypothesis, executing, and measuring success.
+This brought me to some great writing on product management. [Adam Nash](http://blog.adamnash.com/2012/03/06/top-10-product-leadership-lessons/), CEO at Wealthfront, distills lessons on product leadership, which I further compress into picking a metric, developing a hypothesis, prioritizing product features based upon the hypothesis, executing, and measuring success.
 
-There's a lot of interesting writing about what metric to measure. Good product teams seem effective at boiling product down to the [one thing](https://medium.com/@dunn/get-one-thing-right-89390244c553) they want the user to do and finding the [one metric that matters](https://medium.com/@joshelman/the-only-metric-that-matters-ab24a585b5ea) for success. For example, the success metric at AirBnB is the [overall conversion rate](http://nerds.airbnb.com/experiments-at-airbnb/) between searching and booking.
+Good product teams seem effective at boiling a product down to the [one thing](https://medium.com/@dunn/get-one-thing-right-89390244c553) they want the user to do and finding the [one metric that matters](https://medium.com/@joshelman/the-only-metric-that-matters-ab24a585b5ea) for success. For example, the success metric at AirBnB is the [overall conversion rate](http://nerds.airbnb.com/experiments-at-airbnb/) between searching and booking.
 
 With a metric, how to develop a thesis and product plan? Amazon [does this by working backwards](http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management) from the customer. They write the press release prior to starting any product development. [Adam Nash](http://blog.adamnash.com/2009/07/22/guide-to-product-planning-three-feature-buckets/) and [Ian McAllister](http://www.quora.com/What-are-the-best-ways-to-prioritize-a-list-of-product-features) also have some good writing product feature types and prioritization strategy. 
 
 I found this process surprisingly familiar: (1) Spend time thinking through the thesis on the front-end of a project, (2) [don't rely on costly experiments](https://medium.com/the-year-of-the-looking-glass/the-agony-and-ecstasy-of-building-with-data-56215764d67c) to lead the way, (3) pick the minimum number of experiments and simple analyses to test your thesis, (4) build re-useable analysis pipelines.  
 
 <figure>
-<img src="/assets/product_cycle.png" width="100%">
+<img src="/assets/product_cycle.png" width="90%">
 <figcaption>
 </figcaption>
 </figure>
 
-Feedback is especially important. In the sciences, iteration and learning on across projects leads to what they call a ***taste*** for good problems. This is analogous to product management instincts or "spidey sense". So, what are the experimental learning systems built around the product cycle? And are they needed? It the coupling between product features and metrics just obvious?
+Feedback is especially important. In the sciences, iteration and learning across projects leads to what they call a ***taste for good problems***. This is analogous to good product management instincts or "spidey sense". So, what are the experimental learning systems built around the product cycle? And are they needed? Is the coupling between product/features and metrics just obvious?
 
-###Exparimental Schema and Design
+###Experimental Schema and Design
 
-These questions lead me to the systems that startups use to make product decisions. But first, I wanted to understand the case for product science.
+There are at least two important considerations for experimental design.
 
 ***External factors***
 
-The feedback loop between product/features and metric is not always obvious. The outside world also has an effect on metrics. Controlled expariments isolate the effects of a product/features on a metric from all of the external factors that could also influence the metric.
+A key challenge is that the feedback loop between product/features and the metrics is not always obvious. The outside world also has an effect on metrics! Controlled experiments can be used to isolate the effects of a product/features on a metric from all of the external factors that could also influence the metric.
 
 <figure>
 <img src="/assets/cycle.png" width="100%">
@@ -97,7 +97,7 @@ The feedback loop between product/features and metric is not always obvious. The
 </figcaption>
 </figure>
 
-The confounding (exteral) factors pretty clearly specify what to measure in a controlled expariment. In other words, this sets the schema for the logs that we capture as the expariment proceeds. Once the expariment is done, users in test (subject to a feature) and control (not) cohorts can be aggregated by these attributes (see below).
+In addition to the metric of interest, external factors should also be logged in a controlled experiment. With this schema captured, users in both test (subject to a feature change) and control cohorts can be aggregated by these attributes to isolate effects of the feature change from the external factors.
 
 <figure>
 <img src="/assets/schema.png" width="100%">
@@ -107,19 +107,19 @@ The confounding (exteral) factors pretty clearly specify what to measure in a co
 
 ***The funnel***
 
-The other challenge is that the user process from entry to conversion may have many steps. Each step may introduce frictions that affect the metric! [Jan Overgoor](http://nerds.airbnb.com/experiments-airbnb/), a data scientist at AirBnB, has a great blog post that discusses this: in addition to capturing external factors, expariments can also be partitioned by specific steps in the funnel.
+It's also critical to consider the funnel from user entry to conversion, which may have many steps. Each step may introduce frictions that affect the metric! [Jan Overgoor](http://nerds.airbnb.com/experiments-airbnb/), a data scientist at AirBnB, has a great blog post that discusses this: in addition to capturing external factors, experiments can be partitioned by specific steps in the funnel.
 
 <figure>
-<img src="/assets/funnel_airbnb.png" width="100%">
+<img src="/assets/funnel_airbnb.png" width="80%">
 <figcaption>
 </figcaption>
 </figure>
 
 Dan McKinley, an Engineering at Etsy and now Stripe, has a great talk on [product design for continuous experimentation](http://www.slideshare.net/danmckinley/design-for-continuous-experimentation) that extends this point: it's hard to interpret experiments if (1) many feature changes are made simultaneously or (2) if a feature change affects many parts of the funnel simultaneously. 
 
-He talks about a failed experiment at Etsy: it involved lots of up-front work and a "monolithic" roll-out of a new features (the infinite scroll - or automated loading of new items). Surprisingly, this lead to fewer impressions, fewer items seen, and fewer purchases. When it failed, it was hard to de-bug because so much had been changed at once. 
+He talks about a failed experiment at Etsy: it involved a "monolithic" roll-out of a new features (the infinite scroll that automates loading of new items). Surprisingly, this lead to fewer impressions, fewer items seen, and fewer purchases. When it failed, it was hard to de-bug because so much had been changed at once. 
 
-A set of smaller, carefully designed experiments showed that the basic premises (e.g., more and faster results are good) were wrong. He goes on to discuss to discuss a more successful product launch (removing search dropdown) in which carefully staged experiments gave them clear opportunity to test hypotheses and, if needed, alter course after each one.
+A set of smaller, carefully designed experiments showed that the basic premises (e.g., more and faster results are good) were wrong. He goes on to discuss to discuss a more successful product launch in which carefully staged experiments gave them clear opportunity to test hypotheses and, if needed, alter course after each one.
 
 <figure>
 <img src="/assets/funnel.png" width="100%">
