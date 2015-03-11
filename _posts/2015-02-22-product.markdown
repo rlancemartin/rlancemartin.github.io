@@ -153,14 +153,14 @@ The outputs from the central log are then suitable for batch ETL into systems th
 
 Logging agents, such as [`Singer`](http://www.slideshare.net/DiscoverPinterest/singer-pinterests-logging-infrastructure), sit on application servers. They collect event logs and ship them to a centralized repository. The centralized repository, such as [`Kafka`](http://engineering.linkedin.com/kafka/kafka-linkedin-current-and-future), consumes events and moves them to subscribers. `Kafka` powers event stream pipeline for [many companies](https://cwiki.apache.org/confluence/display/KAFKA/Powered+By).
 
-For batch processing, storage systems like [`HDFS`, `HBase`,](http://smartdatacollective.com/mtariq/120791/hadoop-toolbox-when-use-what) and `S3` can be tied to relational databases such as `Hive`, which provides [scalable](http://www.quora.com/What-makes-Amazon-Redshift-faster-than-Hive) SQL-like functionality on top of a Hadoop cluster, and [`Redshift`](http://aws.amazon.com/redshift/), which provides a parallel SQL database on `S3` and [can](http://engineering.pinterest.com/post/75186894499/powering-interactive-data-analysis-by-redshift) have better performance than `Hive`).
+For batch processing, storage systems like [`HDFS`, `HBase`,](http://smartdatacollective.com/mtariq/120791/hadoop-toolbox-when-use-what) and `S3` can be tied to relational databases such as `Hive`, which provides [scalable](http://www.quora.com/What-makes-Amazon-Redshift-faster-than-Hive) SQL-like functionality on top of a Hadoop cluster, and [`Redshift`](http://aws.amazon.com/redshift/), a SQL database on `S3` that [can](http://engineering.pinterest.com/post/75186894499/powering-interactive-data-analysis-by-redshift) have better performance than `Hive`).
 
 For real-time processing, steam data processing services like `Storm` or `Spark streaming` are [comparable](http://www.slideshare.net/ptgoetz/apache-storm-vs-spark-streaming) and may connect to real-time data storage, such as [`HBase`](https://www.xplenty.com/blog/2014/05/hive-vs-hbase/), a NoSQL key-value store, or `MemSQL` for real-time databases for transactions and analytics.
 
-For process coordination, [`Mesos`](http://www.slideshare.net/charmalloc/apache-kafka-hdfs-accumuloonmesos) will joins multiple physical resources into a single virtual resource. It schedules CPU and memory resources across the cluster using `Zookeeper`, a centralized configuration manager. Frameworks, such as Hadoop, are used to manage (start, stop, and scale) applications on `Mesos`.
+For process coordination, [`Mesos`](http://www.slideshare.net/charmalloc/apache-kafka-hdfs-accumuloonmesos) joins multiple physical resources into a single virtual resource. It schedules CPU and memory resources across the cluster using `Zookeeper`, a centralized configuration manager. Frameworks, such as Hadoop, manage (start, stop, and scale) applications on `Mesos`.
 
 <figure>
-<img src="/assets/architecture.png" width="100%">
+<img src="/assets/architecture.png" width="70%">
 <figcaption>
 </figcaption>
 </figure>
