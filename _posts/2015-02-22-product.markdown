@@ -107,7 +107,7 @@ In addition to the metric of interest, external factors should also be logged in
 
 ***The funnel***
 
-It's also critical to consider the user funnel from user entry to conversion. Each step may introduce frictions that affect the metric! [Jan Overgoor](http://nerds.airbnb.com/experiments-airbnb/), a data scientist at AirBnB, has a great blog post that discusses this: in addition to capturing external factors, experiments can be partitioned by specific steps in the funnel.
+It's also critical to consider the funnel to conversion. Each step may introduce frictions that affect the metric! [Jan Overgoor](http://nerds.airbnb.com/experiments-airbnb/), a data scientist at AirBnB, has a great blog post that discusses this: in addition to capturing external factors, experiments can be partitioned by specific steps in the funnel.
 
 <figure>
 <img src="/assets/funnel_airbnb.png" width="70%">
@@ -129,9 +129,11 @@ A set of smaller, carefully designed experiments showed that the basic premises 
 
 ###Instrumentation
 
-The rationale, schema design, and staging for experiments is clear to me. I'm curious to understand the mechanics: how are experiments physically done? Logs are the substrate of experiments. They capture information specified by the schema. For example, [this blog post from Pinterest](http://engineering.pinterest.com/post/95378137929/scalable-a-b-experiments-at-pinterest) nicely explains how the schema is  captured in different log files and later aggregated accordingly.
+With all of that in mind, how are experiments actually performed? Logs are the substrate of experiments. They capture information specified by the schema. For example, [this blog post from Pinterest](http://engineering.pinterest.com/post/95378137929/scalable-a-b-experiments-at-pinterest) nicely explains how the schema is captured in different log files and later aggregated accordingly.
 
-Experimental pipelines are built around logs. Logs are so central that [Jay Kreps](http://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying), data scientist and engineering at LinkedIN (now CEO at Confluent), has an excellent and detailed post about the log and evolution of pipelines to process them. Data pipelines have producers and consumers. Producers write logs that may contain web events or physical data (e.g., RFID and IoT). Consumers process the logs. Because event data tends to be several orders of magnitude larger than traditional database uses, the structure of data pipelines have become [complex](http://www.slideshare.net/charmalloc/current-and-future-of-apache-kafka).
+Logs are so central that [Jay Kreps](http://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying), data scientist / engineering at LinkedIN (now CEO at Confluent), has an excellent post about the log and pipelines to process them. 
+
+Data pipelines have producers and consumers. Producers write logs that may contain web events or physical data (e.g., RFID and IoT). Consumers process the logs. Because event data tends to be several orders of magnitude larger than traditional database uses, the structure of data pipelines have become [complex](http://www.slideshare.net/charmalloc/current-and-future-of-apache-kafka).
 
 <figure>
 <img src="/assets/datapipeline_complex.png" width="100%">
@@ -139,9 +141,9 @@ Experimental pipelines are built around logs. Logs are so central that [Jay Krep
 </figcaption>
 </figure>
 
-At LinkedIN, Jay and colleagues developed a central log that (1) acts as a buffer between producers and consumers, (2) allows for real-time subscription by systems (e.g., Hadoop) that consume data at different rates, and (3) means that new data systems (source or destination) only requires a single pipeline.
+To address this, Jay and colleagues developed a central log that (1) acts as a buffer between producers and consumers, (2) allows for subscription by systems (e.g., Hadoop) that consume data at different rates, and (3) means that new data systems (source or destination) can be connected with a single pipeline.
 
-The outputs from the central node are suitable for batch ETL: system-specific non-sense is removed and the data is restructured for for warehousing (e.g., [STAR](http://en.wikipedia.org/wiki/Star_schema) schema) and admits to experimental analysis (simple counting, aggregation, and filtering). 
+The outputs from the central log are then suitable for batch ETL into systems that allow analysis: system-specific non-sense is removed and the data is restructured for for warehousing (e.g., [STAR](http://en.wikipedia.org/wiki/Star_schema) schema) and admits to experimental analysis (simple counting, aggregation, and filtering). 
 
 <figure>
 <img src="/assets/log.png" width="100%">
