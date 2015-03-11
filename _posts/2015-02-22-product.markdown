@@ -67,7 +67,7 @@ These growth parameters are often broken into more granular metrics. There are s
 
 After reading everything I could find about growth, a key point emerged: product is the lever that moves the metrics. Product is a free parameter that a startup can play with in order to drive growth. With that in mind, it's interesting to understand the process that startups use to build products.
 
-This brought me to some great writing on product management. [Adam Nash](http://blog.adamnash.com/2012/03/06/top-10-product-leadership-lessons/), CEO at Wealthfront, distills lessons on product leadership, which I further compress into picking a metric, developing a hypothesis, prioritizing product features based upon the hypothesis, executing, and measuring success.
+This brought me to some great writing on product management. [Adam Nash](http://blog.adamnash.com/2012/03/06/top-10-product-leadership-lessons/), CEO at Wealthfront, distills lessons on product leadership, which I further compress into picking a metric, developing a hypothesis, prioritizing features based upon the hypothesis, executing, and measuring success.
 
 Good product teams seem effective at boiling a product down to the [one thing](https://medium.com/@dunn/get-one-thing-right-89390244c553) they want the user to do and finding the [one metric that matters](https://medium.com/@joshelman/the-only-metric-that-matters-ab24a585b5ea) for success. For example, the success metric at AirBnB is the [overall conversion rate](http://nerds.airbnb.com/experiments-at-airbnb/) between searching and booking.
 
@@ -89,7 +89,7 @@ There are at least two important considerations for experimental design.
 
 ***External factors***
 
-A key challenge is that the feedback loop between product/features and the metrics is not always obvious. The outside world also has an effect on metrics! Controlled experiments can be used to isolate the effects of a product/features on a metric from all of the external factors that could also influence the metric.
+A key challenge is that the feedback loop between product/features and the metrics is not always obvious. The outside world has an effect on metrics! Controlled experiments can be used to isolate the effects of a features on a metric from all of the external factors that could also influence the metric.
 
 <figure>
 <img src="/assets/cycle.png" width="100%">
@@ -107,19 +107,19 @@ In addition to the metric of interest, external factors should also be logged in
 
 ***The funnel***
 
-It's also critical to consider the funnel from user entry to conversion, which may have many steps. Each step may introduce frictions that affect the metric! [Jan Overgoor](http://nerds.airbnb.com/experiments-airbnb/), a data scientist at AirBnB, has a great blog post that discusses this: in addition to capturing external factors, experiments can be partitioned by specific steps in the funnel.
+It's also critical to consider the user funnel from user entry to conversion. Each step may introduce frictions that affect the metric! [Jan Overgoor](http://nerds.airbnb.com/experiments-airbnb/), a data scientist at AirBnB, has a great blog post that discusses this: in addition to capturing external factors, experiments can be partitioned by specific steps in the funnel.
 
 <figure>
-<img src="/assets/funnel_airbnb.png" width="80%">
+<img src="/assets/funnel_airbnb.png" width="70%">
 <figcaption>
 </figcaption>
 </figure>
 
 Dan McKinley, an Engineering at Etsy and now Stripe, has a great talk on [product design for continuous experimentation](http://www.slideshare.net/danmckinley/design-for-continuous-experimentation) that extends this point: it's hard to interpret experiments if (1) many feature changes are made simultaneously or (2) if a feature change affects many parts of the funnel simultaneously. 
 
-He talks about a failed experiment at Etsy: it involved a "monolithic" roll-out of a new features (the infinite scroll that automates loading of new items). Surprisingly, this lead to fewer impressions, fewer items seen, and fewer purchases. When it failed, it was hard to de-bug because so much had been changed at once. 
+He talks about a failed experiment at Etsy: it involved a "monolithic" roll-out of a new features (the infinite scroll that automates loading of new items). This lead to fewer impressions and fewer purchases. When the feature failed, de-bugging was challenging because so much had been changed at once. 
 
-A set of smaller, carefully designed experiments showed that the basic premises (e.g., more and faster results are good) were wrong. He goes on to discuss to discuss a more successful product launch in which carefully staged experiments gave them clear opportunity to test hypotheses and, if needed, alter course after each one.
+A set of smaller, carefully designed experiments showed that the basic premises (e.g., more and faster results are good) were wrong. He goes on to discuss to discuss a more successful product launch: staged experiments gave them clear opportunity to test each hypotheses and, if needed, alter course.
 
 <figure>
 <img src="/assets/funnel.png" width="100%">
