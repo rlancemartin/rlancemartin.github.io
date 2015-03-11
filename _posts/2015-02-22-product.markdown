@@ -8,11 +8,11 @@ date:   2015-02-22 10:19:00
 
 ###Preface
 
-I’m interested in product science: the tools and thinking that hyper-growth technology companies use to design, and measure the success of, products. This covers the most interesting points that I’ve come across from reading everything I can find about product management and experimentation within the product development cycle. 
+I’m interested in the tools that technology startups use to design, and measure the success of, products. This covers the most interesting points that I’ve come across from reading everything I can find about product management and experimentation within the product development cycle.
 
 ###Growth
 
-First, I wanted to review the first principles: what is a startup? Paul Graham [defines a startup](http://www.paulgraham.com/growth.html) as a company designed to grow fast. Growth distinguishes startups from the millions of local service businesses launched every year. Startups typically aim for growth that is proportional to their current size: a fixed percentage of new users added per week will lead to a non-linear explosion in total user count over time.
+What defines a technology startup? Paul Graham [defines a startup](http://www.paulgraham.com/growth.html) as a company designed to grow fast. Growth distinguishes startups from the millions of local service businesses launched every year. Startups typically aim for growth that is proportional to their current size: a fixed percentage of new users added per week will lead to a non-linear explosion in total user count over time.
 
 ###Why is growth important?
 
@@ -58,10 +58,10 @@ I simulated a few scenarios to convince myself (I will link to iPython notebook)
 
 ###Metrics
 
-These growth parameters are often broken into more granular metrics. There are some [heuristics](http://engineering.pinterest.com/post/112720487359/4-steps-to-better-goals-and-metrics) for picking metrics (e.g., they should be MMOM - Meaningful, Measurable, Operational, and Motivational). Two general classes appear to be talked about most often:
+These growth parameters are often broken into more granular metrics. There are some [heuristics](http://engineering.pinterest.com/post/112720487359/4-steps-to-better-goals-and-metrics) for picking metrics (e.g., they should be MMOM - Meaningful, Measurable, Operational, and Motivational). Two general metric classes appear frequently in everything I've read:
 
-* [Engagement metrics:](http://www.slideshare.net/adamnash/be-a-great-product-leader-airbnb-2013) These are ratios such as MAU/total, DAU/MAU, and Action/DAU).
-* [Conversion or funnel completion metrics:](http://abovethecrowd.com/2013/10/02/conversion-the-most-important-internet-metric-of-all-revisited/) The number of customers that achieve some desired action or activity divided by the total. 
+* [Engagement metrics:](http://www.slideshare.net/adamnash/be-a-great-product-leader-airbnb-2013) These are ratios such as monthly active users (MAU)/total or DAU/MAU.
+* [Conversion:](http://abovethecrowd.com/2013/10/02/conversion-the-most-important-internet-metric-of-all-revisited/) Users that perform a desired action divided by the total. 
 
 ###Product and growth
 
