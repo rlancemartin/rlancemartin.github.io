@@ -6,7 +6,7 @@ excerpt: "iPython notebooks following CS229, ISL, scikit-learn implementations."
 date:   2015-02-13 10:19:00
 ---
 
-####iPython notebooks for data hacking
+# iPython notebooks for data hacking
 
 Several notebooks that collate tools/notes for data hacking in one place:
 
