@@ -3,7 +3,7 @@ layout: post
 comments: false
 title:  "Context Engineering for Agents"
 excerpt: "Patterns for managing the context needed for agents to perform their tasks."
-date:   2025-06-24 
+date:   2025-06-23 
 ---
 
 [Lance Martin](https://x.com/RLanceMartin)
