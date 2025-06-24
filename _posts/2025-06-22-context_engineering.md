@@ -16,7 +16,7 @@ Context enters an LLM in several ways, including prompting (e.g., user instructi
 
 Just like RAM, the LLM context window has limited [“communication bandwidth](https://lilianweng.github.io/posts/2023-06-23-agent/)” to handle these various sources of context.
 
-And just as an operating system curates what fits into a CPU’s RAM, we can think about “context engineering” as packaging and managing the context needed for an LLM [to solve a task](https://x.com/tobi/status/1935533422589399127).
+And just as an operating system curates what fits into a CPU’s RAM, we can think about “context engineering” as packaging and managing the context needed for an LLM [to perform a task](https://x.com/tobi/status/1935533422589399127).
 
 <figure>
 <img src="/assets/context_types.png" width="90%">
@@ -26,11 +26,11 @@ And just as an operating system curates what fits into a CPU’s RAM, we can thi
 
 ### Phases of Context Engineering
 
-With the rise of chatbots, [prompt engineering](https://www.promptingguide.ai/) emerged as to help better steer the behavior of LLMs.
+With the rise of chatbots, [prompt engineering](https://www.promptingguide.ai/) emerged as to help steer the behavior of LLMs.
 
 As interest grew in connecting LLMs to external datasources, [retrieval augmented generation](https://github.com/langchain-ai/rag-from-scratch) (RAG) marked the second phase of context engineering.
 
-As LLMs get better at tool calling, [agents](https://www.anthropic.com/engineering/building-effective-agents) are becoming feasible. Agents interleave [LLM and tool calls](https://www.anthropic.com/engineering/building-effective-agents) for [long-running tasks](https://blog.langchain.com/introducing-ambient-agents/), and motivate what we can consider the third phase of context engineering. 
+As LLMs get better at tool calling, [agents](https://www.anthropic.com/engineering/building-effective-agents) are becoming feasible. Agents interleave [LLM and tool calls](https://www.anthropic.com/engineering/building-effective-agents) for [long-running tasks](https://blog.langchain.com/introducing-ambient-agents/), and motivate a third phase of context engineering. 
 
 <figure>
 <img src="/assets/agent_flow.png" width="90%">
@@ -52,7 +52,7 @@ This post is aims to break down some common strategies — **curate**, **persist
 
 ### Context Engineering for Agents
 
-The agent context is populated by feedback from tool calls, which presents a challenge. It can [exceed the size of the context window](https://cognition.ai/blog/kevin-32b), and balloon the cost and latency. 
+The agent context may be populated by accumulating feedback from tool calls, which can [exceed the size of the context window](https://cognition.ai/blog/kevin-32b) and balloon the cost / latency. 
 
 <figure>
 <img src="/assets/tool_context.png" width="90%">
@@ -64,7 +64,7 @@ I’ve been bitten by this many times. One incarnation of a [deep research agent
 
 Long context may also degrade agent performance. [Google](https://research.google/blog/chain-of-agents-large-language-models-collaborating-on-long-context-tasks/#:~:text=example%2C%20Gemini%20is%20able%20to,architecture%20that%20underlies%20most%20LLMs) and [Percy Liang’s group](https://arxiv.org/abs/2307.03172) have described different types of “[context degradation syndrome](https://jameshoward.us/2024/11/26/context-degradation-syndrome-when-large-language-models-lose-the-plot)” since a long context can limit an LLMs ability to recall facts or follow instructions.  
 
-There are many ways to combat this problem, which I group into 3 buckets: curating, persisting, and isolating context. 
+There are many ways to combat this problem, which I group into 3 buckets and describe below: curating, persisting, and isolating context. 
 
 <figure>
 <img src="/assets/context_eng_overview.png" width="90%">
@@ -90,7 +90,7 @@ Summarization can be used in different places, such as the [full agent trajector
 </figcaption>
 </figure>
 
-It's also common to [add summarization](https://github.com/langchain-ai/open_deep_research/blob/e5a5160a398a3699857d00d8569cb7fd0ac48a4f/src/open_deep_research/utils.py#L1407) to post-process tool calls (e.g., a token-heavy search tool) or after specific steps (e.g.,[Anthropic’s multi-agent researcher](https://www.anthropic.com/engineering/built-multi-agent-research-system) uses summarization on completed work phases).
+It's also common to [summarize](https://github.com/langchain-ai/open_deep_research/blob/e5a5160a398a3699857d00d8569cb7fd0ac48a4f/src/open_deep_research/utils.py#L1407)  tool call feedback (e.g., a token-heavy search tool) or specific steps (e.g.,[Anthropic’s multi-agent researcher](https://www.anthropic.com/engineering/built-multi-agent-research-system) applies summarization on completed work phases).
 
 [Cognition](https://cognition.ai/blog/dont-build-multi-agents#a-theory-of-building-long-running-agents) called out that summarization can be tricky if specific events or decisions from agent trajectories are needed. They use a fine-tuned model for this in Devin, which underscores how much work can go into refining this step. 
 
@@ -131,7 +131,7 @@ The simplest approach is just to pull all memories into the agent’s context wi
 
 But, mechanisms to fetch select memories are important if the collection is large. The store (e.g., embedding-based search or graph retrieval) will determine the approach. 
 
-[In practice this can be a deep topic](https://x.com/_mohansolo/status/1899630246862966837). Retrieval can be tricky. For example, [Generative Agents](https://ar5iv.labs.arxiv.org/html/2304.03442) scored memories on similarity, recency, and importance. [Simon Willison recently shared](https://simonwillison.net/2025/Jun/6/six-months-in-llms/) an example of memory retrieval gone wrong. GPT-4o injected location into an image based upon his memories, which was not desired. Users can feel that the context window “no longer belongs to them” if this is not done right!
+[In practice this can be a deep topic](https://x.com/_mohansolo/status/1899630246862966837). Retrieval can be tricky. For example, [Generative Agents](https://ar5iv.labs.arxiv.org/html/2304.03442) scored memories on similarity, recency, and importance. [Simon Willison shared](https://simonwillison.net/2025/Jun/6/six-months-in-llms/) an example of memory retrieval gone wrong. GPT-4o injected location into an image based upon his memories, which was not desired. Poor memory retrieval can make users feel like the context window “no longer belongs to them”!
 
 ### Isolating Context
 
@@ -160,7 +160,7 @@ Anthropic’s [multi-agent researcher](https://www.anthropic.com/engineering/bui
 > *[Subagents operate] in parallel with their own context windows, exploring different aspects of the question simultaneously.*
 > 
 
-The problems with multi-agent include token use (e.g., [15× more tokens](https://www.anthropic.com/engineering/built-multi-agent-research-system) than chat), the need for careful [prompting]](https://www.anthropic.com/engineering/built-multi-agent-research-system) and [context](https://cognition.ai/blog/dont-build-multi-agents) for sub-agent planning, and sub-agent coordination. Cognition argues [against](https://cognition.ai/blog/dont-build-multi-agents) multi-agent for these reasons.
+The problems with multi-agent include token use (e.g., [15× more tokens](https://www.anthropic.com/engineering/built-multi-agent-research-system) than chat), the need for careful [prompting](https://www.anthropic.com/engineering/built-multi-agent-research-system) and [context](https://cognition.ai/blog/dont-build-multi-agents) for sub-agent planning, and sub-agent coordination. Cognition argues [against](https://cognition.ai/blog/dont-build-multi-agents) multi-agent for these reasons.
 
 I’ve also been bitten by this: one iteration of my deep research agent had a team of agents write sections of the report. Sometimes the final report was disjointed because the agents did not communicate with one another while writing.
 
@@ -168,7 +168,7 @@ One way to reconcile this is to ensure the task is parallelizable. A subtle poin
 
 **Context Isolation with Environments**
 
-HuggingFace’s [deep researcher](https://huggingface.co/blog/open-deep-research#:~:text=From%20building%20,it%20can%20still%20use%20it) is an interesting example context isolation. Most agents use [tool calling APIs](https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview), which return JSON objects (tool arguments) that can be passed to tools (e.g., a search API) to get tool feedback (e.g., search results).
+HuggingFace’s [deep researcher](https://huggingface.co/blog/open-deep-research#:~:text=From%20building%20,it%20can%20still%20use%20it) is a good example of context isolation. Most agents use [tool calling APIs](https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview), which return JSON objects (arguments) that can be passed to tools (e.g., a search API) to get tool feedback (e.g., search results).
 
 <figure>
 <img src="/assets/isolation.png" width="90%">
@@ -188,7 +188,7 @@ The sandbox stores objects generated during execution (e.g., images), isolating 
 General principles for building agents are still in their infancy. Models are changing quickly and the [Bitter Lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html) warns us to avoid scaffolding that will become irrelevant LLMs improve. 
 For example, [continual learning](https://www.dwarkesh.com/p/timelines-june-2025) may let LLMs to [learn from feedback](https://www.wired.com/story/this-ai-model-never-stops-learning/?utm_source=chatgpt.com), limiting some of the need for external memory. With this and the patterns above in mind, here are some general lessons ordered roughly by the amount of effort required to use them.
 
-- **Instrument first:** Always [look at your data](https://hamel.dev/blog/posts/evals/). Ensure you have a way to track token-usage and cost when building agents. This has allowed me to catch various cases of excessive token-usage and isolate token-heavy tool calls, and sets the stage for any context engineering efforts.
+- **Instrument first:** Always [look at your data](https://hamel.dev/blog/posts/evals/). Ensure you have a way to track tokens when building agents. This has allowed me to catch various cases of excessive token-usage and isolate token-heavy tool calls, and sets the stage for any context engineering efforts.
 - **Consider an agent state schema to isolate context:** Anthropic called out the idea of “[thinking like your agent](https://www.youtube.com/watch?v=D7_ipDqhtwk).” One way to do this is to think through the information your agent needs to collect and use at runtime. A state object is easy to define and lets you control what is exposed to the LLM during the agent's trajectory. I use this with nearly every agent I build, rather than just saving all context to a message list.
 - **Curate at tool boundaries:** Tools boundaries are a natural place to add curation, if needed. The output of token-heavy tool calls can be easily summarized, for example, using a small LLM with straightforward prompting. This lets you quickly limit runaway context growth at the source without the need for compression over the full agent trajectory.
 - **Start simple with memory**: Memory can be a powerful way to personalize an agent. But, it can be challenging to get right. I [often use](https://github.com/langchain-ai/agents-from-scratch) simple, file-based memory that tracks a narrow set of agent preferences that I want to save and improve. I load these preferences into context every time my agent runs. Based upon human-in-the-loop feedback, I use an LLM to update these preferences (see [here](https://github.com/langchain-ai/agents-from-scratch)). This is a simple but effective way to use memory.
