@@ -12,7 +12,7 @@ date:   2025-06-23
 
 As Andrej Karpathy puts it, LLMs are like a [new kind of operating system](https://www.youtube.com/watch?si=-aKY-x57ILAmWTdw&t=620&v=LCEmiRjPEtQ&feature=youtu.be). The LLM is like the CPU and its [context window](https://docs.anthropic.com/en/docs/build-with-claude/context-windows) is like RAM, representing a “working memory” for the model. 
 
-Context enters an LLM in several ways, including prompting (e.g., user instructions), retrieval (e.g., documents), and tool calls (e.g., APIs).
+Context enters an LLM in several ways, including prompts (e.g., user instructions), retrieval (e.g., documents), and tool calls (e.g., APIs).
 
 Just like RAM, the LLM context window has limited [“communication bandwidth](https://lilianweng.github.io/posts/2023-06-23-agent/)” to handle these various sources of context.
 
@@ -52,7 +52,7 @@ This post is aims to break down some common strategies — **curate**, **persist
 
 ### Context Engineering for Agents
 
-The agent context may be populated by accumulating feedback from tool calls, which can [exceed the size of the context window](https://cognition.ai/blog/kevin-32b) and balloon the cost / latency. 
+The agent context is populated with feedback from tool calls, which can [exceed the size of the context window](https://cognition.ai/blog/kevin-32b) and balloon the cost / latency. 
 
 <figure>
 <img src="/assets/tool_context.png" width="90%">
@@ -102,7 +102,7 @@ Persisting context involves systems to store, save, and retrieve context over ti
 
 Files are a simple way to store context. Many popular agents use this: Claude Code uses [`CLAUDE.md`](http://CLAUDE.md). [Cursor](https://docs.cursor.com/context/rules) and [Windsurf](https://windsurf.com/editor/directory) use rules files, and some plugins (e.g., [Cursor Memory Bank](https://forum.cursor.com/t/managing-chat-context-in-cursor-ide-for-large-repositories-what-s-working-for-you/76391/2)) / [MCP servers](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem) manage collections of memory files.
 
-Some agents need to store information that can’t be easily be captured in a few files. For example, we may want to store large [collections](https://langchain-ai.github.io/langgraph/concepts/memory/#collection) of facts and / or relationships. A few libraries emerged to support this and showcase some common patterns. 
+Some agents need to store information that can’t be easily be captured in a few files. For example, we may want to store large [collections](https://langchain-ai.github.io/langgraph/concepts/memory/#collection) of facts and / or relationships. A few tools emerged to support this and showcase some common patterns. 
 
 [Letta](https://docs.letta.com/concepts/memgpt), [Mem0](https://mem0.ai/research), and [LangGraph](https://langchain-ai.github.io/langgraph/concepts/memory/#long-term-memory) / [Mem](https://langchain-ai.github.io/langmem/) store embedded documents. [Zep](https://arxiv.org/html/2501.13956v1#:~:text=In%20Zep%2C%20memory%20is%20powered,subgraph%2C%20and%20a%20community%20subgraph) and [Neo4J](https://neo4j.com/blog/developer/graphiti-knowledge-graph-memory/#:~:text=changes%20since%20updates%20can%20trigger,and%20holistic%20memory%20for%20agentic) use knowledge graphs for continuous / temporal indexing of facts or relationships.
 
@@ -117,7 +117,6 @@ These concepts made their way into popular products like [ChatGPT,](https://help
 <figure>
 <img src="/assets/email_agent.png" width="90%">
 <figcaption>
-Agents can create or update memories based upon user feedback. 
 </figcaption>
 </figure>
 
@@ -129,9 +128,9 @@ For example, human-in-the-loop review of tool calls is a good way to build confi
 
 The simplest approach is just to pull all memories into the agent’s context window. For example, Claude Code just reads all [`CLAUDE.md`](http://CLAUDE.md) files into context at the start of each session. In my [email assistant](https://github.com/langchain-ai/agents-from-scratch), I always load a set memories that provide email triage and response instructions into context.
 
-But, mechanisms to fetch select memories are important if the collection is large. The store (e.g., embedding-based search or graph retrieval) will determine the approach. 
+But, mechanisms to fetch select memories are important if the collection is large. The store will help determine the approach (e.g., embedding-based search or graph retrieval). 
 
-[In practice this can be a deep topic](https://x.com/_mohansolo/status/1899630246862966837). Retrieval can be tricky. For example, [Generative Agents](https://ar5iv.labs.arxiv.org/html/2304.03442) scored memories on similarity, recency, and importance. [Simon Willison shared](https://simonwillison.net/2025/Jun/6/six-months-in-llms/) an example of memory retrieval gone wrong. GPT-4o injected location into an image based upon his memories, which was not desired. Poor memory retrieval can make users feel like the context window “no longer belongs to them”!
+[In practice this is a deep topic](https://x.com/_mohansolo/status/1899630246862966837). Retrieval can be tricky. For example, [Generative Agents](https://ar5iv.labs.arxiv.org/html/2304.03442) scored memories on similarity, recency, and importance. [Simon Willison shared](https://simonwillison.net/2025/Jun/6/six-months-in-llms/) an example of memory retrieval gone wrong. GPT-4o injected location into an image based upon his memories, which was not desired. Poor memory retrieval can make users feel like the context window "doesn't belong to them"!
 
 ### Isolating Context
 
@@ -143,7 +142,7 @@ Oftentimes, [messages](https://python.langchain.com/docs/concepts/messages/) are
 
 The problem is that a list can get bloated with token-heavy tool calls. A structured runtime state - defined via a [schema](https://langchain-ai.github.io/langgraph/concepts/low_level/#schema) (e.g., a [Pydantic](https://docs.pydantic.dev/latest/concepts/models/) model) - can often be more effective. 
 
-Then, you can control what fields are passed to the LLM at each agent turn. For example, in one version of a deep research agent, I [save token-heavy completed sections](https://github.com/langchain-ai/open_deep_research/blob/e5a5160a398a3699857d00d8569cb7fd0ac48a4f/src/open_deep_research/multi_agent.py#L428) in one field of my schema, isolated from the LLM. When all sections are done, I fetch them from state and pass to the LLM for final writing.  
+Then, you can control what fields are passed to the LLM at each agent turn. For example, in one version of a deep research agent, I [save completed sections](https://github.com/langchain-ai/open_deep_research/blob/e5a5160a398a3699857d00d8569cb7fd0ac48a4f/src/open_deep_research/multi_agent.py#L428) in one field of my schema, isolated from the LLM. When all sections are done, I fetch them and pass to the LLM for any final writing.  
 
 **Multi-agent**
 
@@ -176,7 +175,7 @@ HuggingFace’s [deep researcher](https://huggingface.co/blog/open-deep-research
 </figcaption>
 </figure>
 
-HuggingFace uses a [CodeAgent](https://huggingface.co/papers/2402.01030), which outputs code to use tools. The code runs in a [sandbox](https://e2b.dev/) and select context (e.g., stdout) from code execution is passed back to the LLM. 
+HuggingFace uses a [CodeAgent](https://huggingface.co/papers/2402.01030), which outputs code to execute tools. The code runs in a [sandbox](https://e2b.dev/) and select tool feedback from code execution is passed back to the LLM. 
 
 > *[Code Agents allow for] a better handling of state … Need to store this image / audio / other for later use? No problem, just assign it as a variable in your state and you [use it later].*
 > 
