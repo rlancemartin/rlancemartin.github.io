@@ -90,7 +90,7 @@ Summarization can be used in different places, such as the [full agent trajector
 </figcaption>
 </figure>
 
-It's also common to [summarize](https://github.com/langchain-ai/open_deep_research/blob/e5a5160a398a3699857d00d8569cb7fd0ac48a4f/src/open_deep_research/utils.py#L1407)  tool call feedback (e.g., a token-heavy search tool) or specific steps (e.g.,[Anthropic’s multi-agent researcher](https://www.anthropic.com/engineering/built-multi-agent-research-system) applies summarization on completed work phases).
+It's also common to [summarize](https://github.com/langchain-ai/open_deep_research/blob/e5a5160a398a3699857d00d8569cb7fd0ac48a4f/src/open_deep_research/utils.py#L1407)  tool call feedback (e.g., a token-heavy search tool) or specific steps (e.g., [Anthropic’s multi-agent researcher](https://www.anthropic.com/engineering/built-multi-agent-research-system) applies summarization on completed work phases).
 
 [Cognition](https://cognition.ai/blog/dont-build-multi-agents#a-theory-of-building-long-running-agents) called out that summarization can be tricky if specific events or decisions from agent trajectories are needed. They use a fine-tuned model for this in Devin, which underscores how much work can go into refining this step. 
 
@@ -120,7 +120,7 @@ These concepts made their way into popular products like [ChatGPT,](https://help
 </figcaption>
 </figure>
 
-Memory creation can also be done at specific points. One pattern I like: create / update memories based upon user feedback.
+Memory creation can also be done at specific points in an agent's trajectory. One pattern I like: update memories based upon user feedback.
 
 For example, human-in-the-loop review of tool calls is a good way to build confidence in your agent. But if you pair this with memory updating, then the agent can learn from your feedback over time. My [email assistant](https://github.com/langchain-ai/agents-from-scratch) does this with file based memory.
 
@@ -138,11 +138,11 @@ Isolating context involves approaches to partition it across agents or environme
 
 **Context Schema**
 
-Oftentimes, [messages](https://python.langchain.com/docs/concepts/messages/) are used to structure agent context. The message list is just passed to the LLM at each agent turn. 
+Oftentimes, [messages](https://python.langchain.com/docs/concepts/messages/) are used to structure agent context. Tool feedback is appended to a message list. The full list is then passed to the LLM at each agent turn. 
 
 The problem is that a list can get bloated with token-heavy tool calls. A structured runtime state - defined via a [schema](https://langchain-ai.github.io/langgraph/concepts/low_level/#schema) (e.g., a [Pydantic](https://docs.pydantic.dev/latest/concepts/models/) model) - can often be more effective. 
 
-Then, you can control what fields are passed to the LLM at each agent turn. For example, in one version of a deep research agent, I [save completed sections](https://github.com/langchain-ai/open_deep_research/blob/e5a5160a398a3699857d00d8569cb7fd0ac48a4f/src/open_deep_research/multi_agent.py#L428) in one field of my schema, isolated from the LLM. When all sections are done, I fetch them and pass to the LLM for any final writing.  
+Then, you can better control what the LLM sees at each agent turn. For example, in one version of a deep research agent, my schema both `messages` and [`sections`](https://github.com/langchain-ai/open_deep_research/blob/e5a5160a398a3699857d00d8569cb7fd0ac48a4f/src/open_deep_research/multi_agent.py#L428). `messages` is passed to the LLM at each turn, but I isolate token-heavy sections in `sections` and fetch them selectively.  
 
 **Multi-agent**
 
@@ -167,7 +167,7 @@ One way to reconcile this is to ensure the task is parallelizable. A subtle poin
 
 **Context Isolation with Environments**
 
-HuggingFace’s [deep researcher](https://huggingface.co/blog/open-deep-research#:~:text=From%20building%20,it%20can%20still%20use%20it) is a good example of context isolation. Most agents use [tool calling APIs](https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview), which return JSON objects (arguments) that can be passed to tools (e.g., a search API) to get tool feedback (e.g., search results).
+HuggingFace’s [deep researcher](https://huggingface.co/blog/open-deep-research#:~:text=From%20building%20,it%20can%20still%20use%20it) is another good example of context isolation. Most agents use [tool calling APIs](https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview), which return JSON objects (arguments) that can be passed to tools (e.g., a search API) to get tool feedback (e.g., search results).
 
 <figure>
 <img src="/assets/isolation.png" width="90%">
@@ -184,11 +184,12 @@ The sandbox stores objects generated during execution (e.g., images), isolating 
 
 ### Lessons
 
-General principles for building agents are still in their infancy. Models are changing quickly and the [Bitter Lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html) warns us to avoid scaffolding that will become irrelevant LLMs improve. 
+General principles for building agents are still in their infancy. Models are changing quickly and the [Bitter Lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html) warns us to avoid context engineering that will become irrelevant as LLMs improve. 
+
 For example, [continual learning](https://www.dwarkesh.com/p/timelines-june-2025) may let LLMs to [learn from feedback](https://www.wired.com/story/this-ai-model-never-stops-learning/?utm_source=chatgpt.com), limiting some of the need for external memory. With this and the patterns above in mind, here are some general lessons ordered roughly by the amount of effort required to use them.
 
-- **Instrument first:** Always [look at your data](https://hamel.dev/blog/posts/evals/). Ensure you have a way to track tokens when building agents. This has allowed me to catch various cases of excessive token-usage and isolate token-heavy tool calls, and sets the stage for any context engineering efforts.
-- **Consider an agent state schema to isolate context:** Anthropic called out the idea of “[thinking like your agent](https://www.youtube.com/watch?v=D7_ipDqhtwk).” One way to do this is to think through the information your agent needs to collect and use at runtime. A state object is easy to define and lets you control what is exposed to the LLM during the agent's trajectory. I use this with nearly every agent I build, rather than just saving all context to a message list.
-- **Curate at tool boundaries:** Tools boundaries are a natural place to add curation, if needed. The output of token-heavy tool calls can be easily summarized, for example, using a small LLM with straightforward prompting. This lets you quickly limit runaway context growth at the source without the need for compression over the full agent trajectory.
-- **Start simple with memory**: Memory can be a powerful way to personalize an agent. But, it can be challenging to get right. I [often use](https://github.com/langchain-ai/agents-from-scratch) simple, file-based memory that tracks a narrow set of agent preferences that I want to save and improve. I load these preferences into context every time my agent runs. Based upon human-in-the-loop feedback, I use an LLM to update these preferences (see [here](https://github.com/langchain-ai/agents-from-scratch)). This is a simple but effective way to use memory.
-- **Consider multi-agent for easily parallelizable tasks**: Agent-agent communication is still early, so it's hard to coordinate multi-agent teams. But that doesn’t mean you should abandon the idea of multi-agent. Instead, consider multi-agent in cases where the problem can be easily parallelized and tight coordination between sub-agents is not strictly required, as shown in the case of [Anthropic's multi-agent researcher](https://www.anthropic.com/engineering/built-multi-agent-research-system).
+- **Instrument first:** Always [look at your data](https://hamel.dev/blog/posts/evals/). Ensure you have a way to track tokens when building agents. This has allowed me to catch various cases of excessive token-usage and isolate token-heavy tool calls. It sets the stage for any context engineering efforts.
+- **Think about your agent state:** Anthropic called out the idea of “[thinking like your agent](https://www.youtube.com/watch?v=D7_ipDqhtwk).” One way to do this is to think through the information your agent needs to collect and use at runtime. A well defined state schema is an easy way to better control what is exposed to the LLM during the agent's trajectory. I use this with nearly every agent I build, rather than just saving all context to a message list. [Anthropic] also called this out in their researcher where they save the research plan for future use.
+- **Curate at tool boundaries:** Tools boundaries are a natural place to add curation, if needed. The output of token-heavy tool calls can be summarized, for example, using a small LLM with straightforward prompting. This lets you quickly limit runaway context growth at the source without the need for compression over the full agent trajectory.
+- **Start simple with memory**: Memory can be a powerful way to personalize an agent. But, it can be challenging to get right. I [often use](https://github.com/langchain-ai/agents-from-scratch) simple, file-based memory that tracks a narrow set of agent preferences that I want to save and improve over time. I load these preferences into context every time my agent runs. Based upon human-in-the-loop feedback, I use an LLM to update these preferences (see [here](https://github.com/langchain-ai/agents-from-scratch)). This is a simple but effective way to use memory, but obviously the complexity of memory can be increased significantly if needed.
+- **Consider multi-agent for easily parallelizable tasks**: Agent-agent communication is still early, and it's hard to coordinate multi-agent teams. But that doesn’t mean you should abandon the idea of multi-agent. Instead, consider multi-agent in cases where the problem can be easily parallelized and tight coordination between sub-agents is not strictly required, as shown in the case of [Anthropic's multi-agent researcher](https://www.anthropic.com/engineering/built-multi-agent-research-system).
