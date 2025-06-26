@@ -28,7 +28,7 @@ And just as an operating system curates what fits into a CPU’s RAM, we can thi
 
 Context engineering is an [umbrella discipline](https://x.com/dexhorthy/status/1933283008863482067) that captures a few different focus areas:
 
-- **Instructional context** – prompts (see: [prompt engineering](https://www.promptingguide.ai/)) or few‑shot exemplars
+- **Instructional context** – prompts (see: [prompt engineering](https://www.promptingguide.ai/)) or few‑shot examples
 - **Knowledge context** – retrieval to extend the model’s world‑knowledge (see: [RAG](https://github.com/langchain-ai/rag-from-scratch))
 - **Operational context** – context flowing in from the environment via tools
 
@@ -50,7 +50,7 @@ As LLMs get better at tool calling, [agents](https://www.anthropic.com/engineeri
 > *Agents often engage in conversations spanning hundreds of turns, requiring careful context management strategies.*
 > 
 
-This post is aims to break down some common strategies — **curate**, **persist**, and **isolate —** for agent context engineering.
+This post is aims to break down some common strategies — **compress**, **persist**, and **isolate —** for agent context engineering.
 
 ### Context Engineering for Agents
 
@@ -66,7 +66,7 @@ I’ve been bitten by this many times. One incarnation of a [deep research agent
 
 Long context may also degrade agent performance. [Google](https://research.google/blog/chain-of-agents-large-language-models-collaborating-on-long-context-tasks/#:~:text=example%2C%20Gemini%20is%20able%20to,architecture%20that%20underlies%20most%20LLMs) and [Percy Liang’s group](https://arxiv.org/abs/2307.03172) have described different types of “[context degradation syndrome](https://jameshoward.us/2024/11/26/context-degradation-syndrome-when-large-language-models-lose-the-plot)” since a long context can limit an LLMs ability to recall facts or follow instructions.  
 
-There are many ways to combat this problem, which I group into 3 buckets and describe below: curating, persisting, and isolating context. 
+There are many ways to combat this problem, which I group into 3 buckets and describe below: compressing, persisting, and isolating context. 
 
 <figure>
 <img src="/assets/context_eng_overview.png" width="90%">
@@ -74,9 +74,9 @@ There are many ways to combat this problem, which I group into 3 buckets and des
 </figcaption>
 </figure>
 
-### Curating Context
+### Compressing Context
 
-Curating context involves managing the tokens that the agent sees at each turn.
+Compressing context involves keeping only the highest-value tokens at each turn.
 
 **Context Summarization**
 
@@ -192,6 +192,6 @@ For example, [continual learning](https://www.dwarkesh.com/p/timelines-june-2025
 
 - **Instrument first:** Always [look at your data](https://hamel.dev/blog/posts/evals/). Ensure you have a way to track tokens when building agents. This has allowed me to catch various cases of excessive token-usage and isolate token-heavy tool calls. It sets the stage for any context engineering efforts.
 - **Think about your agent state:** Anthropic called out the idea of “[thinking like your agent](https://www.youtube.com/watch?v=D7_ipDqhtwk).” One way to do this is to think through the information your agent needs to collect and use at runtime. A well defined state schema is an easy way to better control what is exposed to the LLM during the agent's trajectory. I use this with nearly every agent I build, rather than just saving all context to a message list. [Anthropic] also called this out in their researcher where they save the research plan for future use.
-- **Curate at tool boundaries:** Tools boundaries are a natural place to add curation, if needed. The output of token-heavy tool calls can be summarized, for example, using a small LLM with straightforward prompting. This lets you quickly limit runaway context growth at the source without the need for compression over the full agent trajectory.
+- **Compress at tool boundaries:** Tools boundaries are a natural place to add compression, if needed. The output of token-heavy tool calls can be summarized, for example, using a small LLM with straightforward prompting. This lets you quickly limit runaway context growth at the source without the need for compression over the full agent trajectory.
 - **Start simple with memory**: Memory can be a powerful way to personalize an agent. But, it can be challenging to get right. I [often use](https://github.com/langchain-ai/agents-from-scratch) simple, file-based memory that tracks a narrow set of agent preferences that I want to save and improve over time. I load these preferences into context every time my agent runs. Based upon human-in-the-loop feedback, I use an LLM to update these preferences (see [here](https://github.com/langchain-ai/agents-from-scratch)). This is a simple but effective way to use memory, but obviously the complexity of memory can be increased significantly if needed.
 - **Consider multi-agent for easily parallelizable tasks**: Agent-agent communication is still early, and it's hard to coordinate multi-agent teams. But that doesn’t mean you should abandon the idea of multi-agent. Instead, consider multi-agent in cases where the problem can be easily parallelized and tight coordination between sub-agents is not strictly required, as shown in the case of [Anthropic's multi-agent researcher](https://www.anthropic.com/engineering/built-multi-agent-research-system).
