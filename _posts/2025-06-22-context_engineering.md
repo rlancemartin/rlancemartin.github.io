@@ -16,7 +16,7 @@ Context enters an LLM in several ways, including prompts (e.g., user instruction
 
 Just like RAM, the LLM context window has limited [“communication bandwidth](https://lilianweng.github.io/posts/2023-06-23-agent/)” to handle these various sources of context.
 
-And just as an operating system curates what fits into a CPU’s RAM, we can think about “context engineering” as packaging and managing the context needed for an LLM [to perform a task](https://x.com/tobi/status/1935533422589399127).
+And just as an operating system curates what fits into a CPU’s RAM, we can think about “context engineering” the [art and science](https://x.com/karpathy/status/1937902205765607626) of filling the context window with the information needed [to perform a task](https://x.com/tobi/status/1935533422589399127).
 
 <figure>
 <img src="/assets/context_types.png" width="90%">
@@ -24,13 +24,15 @@ And just as an operating system curates what fits into a CPU’s RAM, we can thi
 </figcaption>
 </figure>
 
-### Phases of Context Engineering
+### The Rise of Context Engineering
 
-With the rise of chatbots, [prompt engineering](https://www.promptingguide.ai/) emerged as to help steer the behavior of LLMs.
+Context engineering is an [umbrella discipline](https://x.com/dexhorthy/status/1933283008863482067) that captures a few different focus areas:
 
-As interest grew in connecting LLMs to external datasources, [retrieval augmented generation](https://github.com/langchain-ai/rag-from-scratch) (RAG) marked the second phase of context engineering.
+- **Instructional context** – prompts (see: [prompt engineering](https://www.promptingguide.ai/)) or few‑shot exemplars
+- **Knowledge context** – retrieval to extend the model’s world‑knowledge (see: [RAG](https://github.com/langchain-ai/rag-from-scratch))
+- **Operational context** – context flowing in from the environment via tools
 
-As LLMs get better at tool calling, [agents](https://www.anthropic.com/engineering/building-effective-agents) are becoming feasible. Agents interleave [LLM and tool calls](https://www.anthropic.com/engineering/building-effective-agents) for [long-running tasks](https://blog.langchain.com/introducing-ambient-agents/), and motivate a third phase of context engineering. 
+As LLMs get better at tool calling, [agents](https://www.anthropic.com/engineering/building-effective-agents) are now feasible. Agents interleave [LLM and tool calls](https://www.anthropic.com/engineering/building-effective-agents) for [long-running tasks](https://blog.langchain.com/introducing-ambient-agents/), and motivate the need for engineering across all three types of context.
 
 <figure>
 <img src="/assets/agent_flow.png" width="90%">
