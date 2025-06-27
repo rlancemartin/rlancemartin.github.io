@@ -28,9 +28,9 @@ And just as an operating system curates what fits into a CPU’s RAM, we can thi
 
 Context engineering is an [umbrella discipline](https://x.com/dexhorthy/status/1933283008863482067) that captures a few different focus areas:
 
-- **Instructional context** – prompts (see: [prompt engineering](https://www.promptingguide.ai/)), memories, few‑shot examples
-- **Knowledge context** – retrieval or memories to extend the model’s world‑knowledge (see: [RAG](https://github.com/langchain-ai/rag-from-scratch))
-- **Operational context** – context flowing in from the environment via tools
+- **Instructions** – prompts (see: [prompt engineering](https://www.promptingguide.ai/)), memories, few‑shot examples
+- **Knowledge** – retrieval or memories to extend the model’s world‑knowledge (see: [RAG](https://github.com/langchain-ai/rag-from-scratch))
+- **Tool feedback** – context flowing in from the environment via tools
 
 As LLMs get better at tool calling, [agents](https://www.anthropic.com/engineering/building-effective-agents) are now feasible. Agents interleave [LLM and tool calls](https://www.anthropic.com/engineering/building-effective-agents) for [long-running tasks](https://blog.langchain.com/introducing-ambient-agents/), and motivate the need for engineering across all three types of context.
 
