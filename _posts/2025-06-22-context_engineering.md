@@ -10,7 +10,7 @@ date:   2025-06-23
 
 ### TL;DR 
 
-Agents need context (e.g., instructions, external knowledge, tool feedback) to perform tasks. Context engineering is the art and science of filling the context window with just the right information at each step of an agent’s trajectory. In this post, I break down some common strategies — write, select, compress, and isolate — for agent context engineering by reviewing various popular agents and papers.
+Agents need context (e.g., instructions and tool feedback) to perform tasks. Context engineering is the art and science of filling the context window with just the right information at each step of an agent’s trajectory. In this post, I group context engineering into a few common strategies seen across many popular agents today.
 
 <figure>
 <img src="/assets/context_eng_overview.png" width="90%">
@@ -19,8 +19,6 @@ Agents need context (e.g., instructions, external knowledge, tool feedback) to p
 </figure>
 
 ### Context Engineering
-
-### 
 
 As Andrej Karpathy puts it, LLMs are like a [new kind of operating system](https://www.youtube.com/watch?si=-aKY-x57ILAmWTdw&t=620&v=LCEmiRjPEtQ&feature=youtu.be). The LLM is like the CPU and its [context window](https://docs.anthropic.com/en/docs/build-with-claude/context-windows) is like the RAM, serving as the model’s working memory. Just like RAM, the LLM context window has limited [capacity](https://lilianweng.github.io/posts/2023-06-23-agent/) to handle various sources of context. And just as an operating system curates what fits into a CPU’s RAM, “context engineering” plays a similar role. [Karpathy summarizes this well](https://x.com/karpathy/status/1937902205765607626):
 
@@ -65,7 +63,7 @@ With this in mind, [Cognition](https://cognition.ai/blog/dont-build-multi-agents
 > *Agents often engage in conversations spanning hundreds of turns, requiring careful context management strategies.*
 > 
 
-In this post, I break down some common strategies — **write, select, compress, and isolate —** for agent context engineering by reviewing various popular agents and papers.
+In this post, I break down some common strategies — **write, select, compress, and isolate —** for agent context engineering.
 
 <figure>
 <img src="/assets/context_eng_overview.png" width="90%">
