@@ -10,7 +10,7 @@ date:   2025-06-23
 
 ### TL;DR 
 
-Agents need context (e.g., instructions and tool feedback) to perform tasks. Context engineering is the art and science of filling the context window with just the right information at each step of an agent’s trajectory. In this post, I group context engineering into a few common strategies seen across many popular agents today.
+Agents need context to perform tasks. Context engineering is the art and science of filling the context window with just the right information at each step of an agent’s trajectory. In this post, I group context engineering into a few common strategies seen across many popular agents today.
 
 <figure>
 <img src="/assets/context_eng_overview.png" width="90%">
@@ -53,7 +53,7 @@ However, long-running tasks and accumulating feedback from tool calls mean that 
 - [Context Confusion: When superfluous context influences the response](https://www.dbreunig.com/2025/06/22/how-contexts-fail-and-how-to-fix-them.html#context-confusion)
 - [Context Clash: When parts of the context disagree](https://www.dbreunig.com/2025/06/22/how-contexts-fail-and-how-to-fix-them.html#context-clash)
 
-With this in mind, [Cognition](https://cognition.ai/blog/dont-build-multi-agents) called out the importance of context engineering when building agents:
+With this in mind, [Cognition](https://cognition.ai/blog/dont-build-multi-agents) called out the importance of context engineering:
 
 > *“Context engineering” … is effectively the #1 job of engineers building AI agents.*
 > 
@@ -63,7 +63,7 @@ With this in mind, [Cognition](https://cognition.ai/blog/dont-build-multi-agents
 > *Agents often engage in conversations spanning hundreds of turns, requiring careful context management strategies.*
 > 
 
-In this post, I break down some common strategies — **write, select, compress, and isolate —** for agent context engineering.
+So, how are people tackling this challenge today? I group approaches into 4 buckets — **write, select, compress, and isolate —** and give some examples of each one below.
 
 <figure>
 <img src="/assets/context_eng_overview.png" width="90%">
@@ -77,16 +77,16 @@ In this post, I break down some common strategies — **write, select, compress,
 
 **Scratchpads**
 
-When humans solve tasks, we take notes and remember things for future, related tasks. Agents are also gaining these capabilities! Note-taking via a “[scratchpad](https://www.anthropic.com/engineering/claude-think-tool)” is one approach to persist information while an agent is performing a task. The central idea is to save information outside of the context window so that it’s available to the agent on-demand. [Anthropic’s multi-agent researcher](https://www.anthropic.com/engineering/built-multi-agent-research-system) illustrates a clear example of this: 
+When humans solve tasks, we take notes and remember things for future, related tasks. Agents are also gaining these capabilities! Note-taking via a “[scratchpad](https://www.anthropic.com/engineering/claude-think-tool)” is one approach to persist information while an agent is performing a task. The central idea is to save information outside of the context window so that it’s available to the agent. [Anthropic’s multi-agent researcher](https://www.anthropic.com/engineering/built-multi-agent-research-system) illustrates a clear example of this: 
 
 > *The LeadResearcher begins by thinking through the approach and saving its plan to Memory to persist the context, since if the context window exceeds 200,000 tokens it will be truncated and it is important to retain the plan.*
 > 
 
-It’s worth noting that this scratchpad can be implemented in a few different ways. It could be a [tool call](https://www.anthropic.com/engineering/claude-think-tool) that [writes to a file](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem). It could also just be a field in a runtime [state object](https://langchain-ai.github.io/langgraph/concepts/low_level/#state) that persists during the session. In either case, the intuition is clear: scratchpads let agents save useful information during a session to help them accomplish tasks.
+Scratchpads can be implemented in a few different ways. They can be a [tool call](https://www.anthropic.com/engineering/claude-think-tool) that simply [writes to a file](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem). It could also just be a field in a runtime [state object](https://langchain-ai.github.io/langgraph/concepts/low_level/#state) that persists during the session. In either case, scratchpads let agents save useful information to help them accomplish a task.
 
 **Memories**
 
-Scratchpads help agents solve a task within a given session, but sometimes agents benefit from remembering things across *many* sessions! [Reflexion](https://arxiv.org/abs/2303.11366) introduced the idea of reflection following each agent turn and re-using these self-generated hints. [Generative Agents](https://ar5iv.labs.arxiv.org/html/2304.03442) created memories synthesized periodically from collections of past agent feedback.
+Scratchpads help agents solve a task within a given session, but sometimes agents benefit from remembering things across *many* sessions. [Reflexion](https://arxiv.org/abs/2303.11366) introduced the idea of reflection following each agent turn and re-using these self-generated memories. [Generative Agents](https://ar5iv.labs.arxiv.org/html/2304.03442) created memories synthesized periodically from collections of past agent feedback.
 
 These concepts made their way into popular products like [ChatGPT](https://help.openai.com/en/articles/8590148-memory-faq), [Cursor](https://forum.cursor.com/t/0-51-memories-feature/98509), and [Windsurf](https://docs.windsurf.com/windsurf/cascade/memories), which all have mechanisms to auto-generate long-term memories based on user-agent interactions.
 
@@ -102,7 +102,7 @@ These concepts made their way into popular products like [ChatGPT](https://help.
 
 **Scratchpad**
 
-The mechanism for selecting context from a scratchpad depends upon how the scratchpad is implemented. If it’s a [tool](https://www.anthropic.com/engineering/claude-think-tool), then an agent can simply read it by making a tool call. If it’s part of the agent’s runtime state, then the developer can choose what parts of state to expose to an agent each step. This provides a fine-grained level of control for exposing context to an agent.
+The mechanism for selecting context from a scratchpad depends upon how the scratchpad is implemented. If it’s a [tool](https://www.anthropic.com/engineering/claude-think-tool), then an agent can simply read it by making a tool call. If it’s part of the agent’s runtime state, then the developer can choose what parts of state to expose to an agent each step. This provides a fine-grained level of control for exposing scratchpad context to the LLM at later turns.
 
 **Memories**
 
@@ -114,17 +114,20 @@ If agents have the ability to save memories, they also need the ability to selec
 </figcaption>
 </figure>
 
-One challenge is ensure that relevant memories are selected. Some popular agents simply use a narrow set of files to store memories. For example, many code agent use “rules” files to save instructions (”procedural” memories) or, in some cases, examples (”episodic” memories). Claude Code uses [`CLAUDE.md`](http://CLAUDE.md). [Cursor](https://docs.cursor.com/context/rules) and [Windsurf](https://windsurf.com/editor/directory) use rules files. These are always pulled into context.
+One challenge is ensuring that relevant memories are selected. Some popular agents simply use a narrow set of files that are *always* pulled into context. For example, many code agent use files to save instructions (”procedural” memories) or, in some cases, examples (”episodic” memories). Claude Code uses [`CLAUDE.md`](http://CLAUDE.md). [Cursor](https://docs.cursor.com/context/rules) and [Windsurf](https://windsurf.com/editor/directory) use rules files.
 
-But, if an agent is storing a larger [collection](https://langchain-ai.github.io/langgraph/concepts/memory/#collection) of facts and / or relationships ([semantic](https://langchain-ai.github.io/langgraph/concepts/memory/#memory-types) memories), selection is harder. [ChatGPT](https://help.openai.com/en/articles/8590148-memory-faq) is a good example of this. At the AIEngineer World’s Fair, [Simon Willison shared](https://simonwillison.net/2025/Jun/6/six-months-in-llms/) a good example of memory selection gone wrong: ChatGPT fetched his location and injected it into an image that he requested. This type of erroneous memory retrieval can make users feel like the context winder “*no longer belongs to them*”! Use of embeddings and / or [knowledge](https://arxiv.org/html/2501.13956v1#:~:text=In%20Zep%2C%20memory%20is%20powered,subgraph%2C%20and%20a%20community%20subgraph) [graphs](https://neo4j.com/blog/developer/graphiti-knowledge-graph-memory/#:~:text=changes%20since%20updates%20can%20trigger,and%20holistic%20memory%20for%20agentic) for indexing of memories have been used to assist with selection.
+But, if an agent is storing a larger [collection](https://langchain-ai.github.io/langgraph/concepts/memory/#collection) of facts and / or relationships (e.g., [semantic](https://langchain-ai.github.io/langgraph/concepts/memory/#memory-types) memories), selection is harder. [ChatGPT](https://help.openai.com/en/articles/8590148-memory-faq) is a good example of a popular product that stores and selects from a large collection of user-specific memories. 
+
+Eembeddings and / or [knowledge](https://arxiv.org/html/2501.13956v1#:~:text=In%20Zep%2C%20memory%20is%20powered,subgraph%2C%20and%20a%20community%20subgraph) [graphs](https://neo4j.com/blog/developer/graphiti-knowledge-graph-memory/#:~:text=changes%20since%20updates%20can%20trigger,and%20holistic%20memory%20for%20agentic) for memory indexing are commonly used to assist with selection. Still, memory selection is challenging. At the AIEngineer World’s Fair, [Simon Willison shared](https://simonwillison.net/2025/Jun/6/six-months-in-llms/) an example of memory selection gone wrong: CChatGPT fetched his location from memories and unexpectedly injected it into a requested image. This type of unexpected or undesired memory retrieval can make some users feel like the context winder “no longer belongs to them”! 
+
 
 **Tools**
 
-Agents use tools, but can become overloaded if they are provided with too many. This is often because the tool descriptions can overlap, causing model confusion about which tool to use. One approach is to apply RAG to tool descriptions in order to fetch the most relevant tools for a task based upon semantic similarity, an idea that Drew Breunig calls “[tool loadout](https://www.dbreunig.com/2025/06/26/how-to-fix-your-context.html).” Some [recent papers](https://arxiv.org/abs/2505.03275) have shown that this improve tool selection accuracy by 3-fold.
+Agents use tools, but can become overloaded if they are provided with too many. This is often because the tool descriptions can overlap, causing model confusion about which tool to use. One approach is [to apply RAG (retrieval augmented generation) to tool descriptions](https://arxiv.org/abs/2410.14594) in order to fetch the most relevant tools for a task based upon semantic similarity. Some [recent papers](https://arxiv.org/abs/2505.03275) have shown that this improves tool selection accuracy by 3-fold.
 
 **Knowledge**
 
-[RAG](https://github.com/langchain-ai/rag-from-scratch) (retrieval augmented generation) is an extremely rich topic. Code agents are some of the best examples of agentic RAG in large-scale production. [In practice, RAG is can be a central context engineering challenge](https://x.com/_mohansolo/status/1899630246862966837). Varun from Windsurf captures some of these challenges well:
+[RAG](https://github.com/langchain-ai/rag-from-scratch) is a rich topic and [can be a central context engineering challenge](https://x.com/_mohansolo/status/1899630246862966837). Code agents are some of the best examples of RAG in large-scale production. Varun from Windsurf captures some of these challenges well:
 
 > *Indexing code ≠ context retrieval … [We are doing indexing & embedding search … [with] AST parsing code and chunking along semantically meaningful boundaries … embedding search becomes unreliable as a retrieval heuristic as the size of the codebase grows … we must rely on a combination of techniques like grep/file search, knowledge graph based retrieval, and … a re-ranking step where [context] is ranked in order of relevance.*
 >
@@ -143,11 +146,11 @@ Agent interactions can span [hundreds of turns](https://www.anthropic.com/engine
 </figcaption>
 </figure>
 
-It can also be useful to [add summarization](https://github.com/langchain-ai/open_deep_research/blob/e5a5160a398a3699857d00d8569cb7fd0ac48a4f/src/open_deep_research/utils.py#L1407) at points in an agent’s trajectory. For example, it can be used to post-process certain tool calls (e.g., token-heavy search tools). As a second example, [Cognition](https://cognition.ai/blog/dont-build-multi-agents#a-theory-of-building-long-running-agents) mentioned summarization at agent-agent boundaries to knowledge hand-off. They also the challenge if specific events or decisions to be captured. They use a fine-tuned model for this in Devin, which underscores how much work can go into this step.
+It can also be useful to [add summarization](https://github.com/langchain-ai/open_deep_research/blob/e5a5160a398a3699857d00d8569cb7fd0ac48a4f/src/open_deep_research/utils.py#L1407) at points in an agent’s design. For example, it can be used to post-process certain tool calls (e.g., token-heavy search tools). As a second example, [Cognition](https://cognition.ai/blog/dont-build-multi-agents#a-theory-of-building-long-running-agents) mentioned summarization at agent-agent boundaries to reduce tokens during knowledge hand-off. Summarization can be a challenge if specific events or decisions need to be captured. Cognition uses a fine-tuned model for this, which underscores how much work can go into this step.
 
 **Context Trimming**
 
-Whereas summarization typically using an LLM to distill the most relevant pieces of context, trimming can often filter or, as Drew Breunig points out, “[prune](https://www.dbreunig.com/2025/06/26/how-to-fix-your-context.html)” context. This can use heuristics like removing [older messages](https://python.langchain.com/docs/how_to/trim_messages/) from a message list. Drew’s post also mentions [Provence](https://arxiv.org/abs/2501.16214), an fine-tuned LLM utility that performs context pruning for Question-Answering.
+Whereas summarization typically uses an LLM to distill the most relevant pieces of context, trimming can often filter or, as Drew Breunig points out, “[prune](https://www.dbreunig.com/2025/06/26/how-to-fix-your-context.html)” context. This can use hard-coded heuristics like removing [older messages](https://python.langchain.com/docs/how_to/trim_messages/) from a message list. Drew also mentions [Provence](https://arxiv.org/abs/2501.16214), a trained context pruner for Question-Answering.
 
 ### Isolating Context
 
@@ -155,7 +158,7 @@ Whereas summarization typically using an LLM to distill the most relevant pieces
 
 **Multi-agent**
 
-One of the most popular and intuitive ways to isolate context is to split it across sub-agents. A motivation for the OpenAI [Swarm](https://github.com/openai/swarm) library was “[separation of concerns](https://openai.github.io/openai-agents-python/ref/agent/)”, where a team of agents can handle sub-tasks. Each agent has a specific set of tools, instructions, and its own context window.
+One of the most popular ways to isolate context is to split it across sub-agents. A motivation for the OpenAI [Swarm](https://github.com/openai/swarm) library was “[separation of concerns](https://openai.github.io/openai-agents-python/ref/agent/)”, where a team of agents can handle sub-tasks. Each agent has a specific set of tools, instructions, and its own context window.
 
 <figure>
 <img src="/assets/multi_agent.png" width="90%">
@@ -163,16 +166,16 @@ One of the most popular and intuitive ways to isolate context is to split it acr
 </figcaption>
 </figure>
 
-Anthropic’s [multi-agent researcher](https://www.anthropic.com/engineering/built-multi-agent-research-system) makes a clear case for the benefit of this: many agents with isolated contexts outperformed single-agent by 90.2%, largely because each subagent context window can be allocated to a more narrow sub-task. As the blog said: 
+Anthropic’s [multi-agent researcher](https://www.anthropic.com/engineering/built-multi-agent-research-system) makes a case for this: many agents with isolated contexts outperformed single-agent, largely because each subagent context window can be allocated to a more narrow sub-task. As the blog said: 
 
 > *[Subagents operate] in parallel with their own context windows, exploring different aspects of the question simultaneously.*
 > 
 
-Of course, the challenge with multi-agent include token use (e.g., [15× more tokens](https://www.anthropic.com/engineering/built-multi-agent-research-system) than chat), the need for careful [prompt engineering](https://www.anthropic.com/engineering/built-multi-agent-research-system) to plan sub-agent work, and coordination of sub-agents. 
+Of course, the challenges with multi-agent include token use (e.g., up to [15× more tokens](https://www.anthropic.com/engineering/built-multi-agent-research-system) than chat as reported by Anthropic), the need for careful [prompt engineering](https://www.anthropic.com/engineering/built-multi-agent-research-system) to plan sub-agent work, and coordination of sub-agents. 
 
 **Context Isolation with Environments**
 
-HuggingFace’s [deep researcher](https://huggingface.co/blog/open-deep-research#:~:text=From%20building%20,it%20can%20still%20use%20it) shows another interesting example of context isolation. Most agents use [tool calling APIs](https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview), which return JSON objects (tool arguments) that can be passed to tools (e.g., a search API) to get tool feedback (e.g., search results). HuggingFace uses a [CodeAgent](https://huggingface.co/papers/2402.01030), which outputs code to invoke tools. The code then runs in a [sandbox](https://e2b.dev/). Selected context (e.g., return values) from code execution is then passed back to the LLM.
+HuggingFace’s [deep researcher](https://huggingface.co/blog/open-deep-research#:~:text=From%20building%20,it%20can%20still%20use%20it) shows another interesting example of context isolation. Most agents use [tool calling APIs](https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview), which return JSON objects (tool arguments) that can be passed to tools (e.g., a search API) to get tool feedback (e.g., search results). HuggingFace uses a [CodeAgent](https://huggingface.co/papers/2402.01030), which outputs code that contains the desired tool calls. The code then runs in a [sandbox](https://e2b.dev/). Selected context (e.g., return values) from the tool calls is then passed back to the LLM.
 
 <figure>
 <img src="/assets/isolation.png" width="90%">
@@ -180,20 +183,22 @@ HuggingFace’s [deep researcher](https://huggingface.co/blog/open-deep-research
 </figcaption>
 </figure>
 
-This allows context to be isolated in the environment, outside of the LLM context window. Hugging Face noted that this is a great way to isolate token-heavy objects from the LLM: 
+This allows context to be isolated from the LLM in the environment. Hugging Face noted that this is a great way to isolate token-heavy objects in particular:
 
 > *[Code Agents allow for] a better handling of state … Need to store this image / audio / other for later use? No problem, just assign it as a variable [in your state and you [use it later]](https://deepwiki.com/search/i-am-wondering-if-state-that-i_0e153539-282a-437c-b2b0-d2d68e51b873).*
 > 
 
 **State**
 
-It’s worth calling out that an agent’s runtime [state object](https://langchain-ai.github.io/langgraph/concepts/low_level/#state) can also be a great way to isolate context. This can serve the same purpose as sandboxing. A state object can be designed with a [schema](https://langchain-ai.github.io/langgraph/concepts/low_level/#schema) (e.g., a [Pydantic](https://docs.pydantic.dev/latest/concepts/models/) model) that has various fields that context can be written to. One field of the schema (e.g., `messages`) can be exposed to the LLM at each turn of the agent, but the schema can isolate information in other fields for more selective use.
+It’s worth calling out that an agent’s runtime [state object](https://langchain-ai.github.io/langgraph/concepts/low_level/#state) can also be a great way to isolate context. This can serve the same purpose as sandboxing. A state object can be designed with a [schema](https://langchain-ai.github.io/langgraph/concepts/low_level/#schema) (e.g., a [Pydantic](https://docs.pydantic.dev/latest/concepts/models/) model) that has fields that context can be written to. One field of the schema (e.g., `messages`) can be exposed to the LLM at each turn of the agent, but the schema can isolate information in other fields for more selective use.
 
 ### Conclusion
-
-There are a few common patterns for context engineering seen across many popular agents today:
+ 
+Patterns for agent context engineering are still evolving, but we can group common approaches into 4 buckets — **write, select, compress, and isolate —**: 
 
 - *Writing context means saving it outside the context window to help an agent perform a task.*
 - *Selecting context means pulling it into the context window to help an agent perform a task.*
 - *Compressing context involves retaining only the tokens required to perform a task.*
 - *Isolating context involves splitting it up to help an agent perform a task.*
+
+Understanding and utilizing these patterns is a central part of building effective agents today.
