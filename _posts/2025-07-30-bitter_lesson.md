@@ -18,7 +18,7 @@ date:   2025-07-30
 What do we mean by "structure"? Often structure includes inductive biases about how we *expect* models to solve problems. Computer vision is a good example. For decades, researchers designed features (e.g., [SIFT](https://en.wikipedia.org/wiki/Scale-invariant_feature_transform) and [HOG](https://en.wikipedia.org/wiki/Histogram_of_oriented_gradients)) based upon domain knowledge. But these hand-crafted features restricted models to the patterns that we anticipated. As computation and data scaled, deep networks that learned features *directly* from pixels outperformed hand-crafted methods.
 
 With this in mind, Hyung Won Chung's (OpenAI) [talk](https://youtu.be/orDKvo8h71o?si=fsZesZuP25BU6SqZ) about his research approach is interesting:
-s
+
 > *Add structures needed for the given level of compute and data available. 
 Remove them later, because these shortcuts will bottleneck further improvement.*
 > 
