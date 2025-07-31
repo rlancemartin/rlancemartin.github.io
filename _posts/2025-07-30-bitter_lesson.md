@@ -1,10 +1,9 @@
-
 ---
 layout: post
 comments: false
-title:  "Learning The Bitter Lesson"
-excerpt: "The Bitter Lesson in AI application development."
-date:   2025-07-30
+title:  "Learning the Bitter Lesson"
+excerpt: "The Bitter Lesson in AI Engineering."
+date:   2025-07-30 
 ---
 
 [Lance Martin](https://x.com/RLanceMartin)
