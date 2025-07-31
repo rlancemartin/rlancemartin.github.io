@@ -17,7 +17,7 @@ date:   2025-08-01
 
 [The Bitter Lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html) has been learned over and over across [many domains](https://arxiv.org/html/2410.09649v1) of AI research, such as Chess, Go, speech, vision. Leveraging computation turns out to be the most important thing and the “structure” we impose on models often limits their ability to leverage growing computation.
 
-What do we mean by structure? Often structure includes inductive biases about how we *expect* models to solve problems. Computer vision is a good example. For decades, researchers designed features (e.g., [SIFT](https://en.wikipedia.org/wiki/Scale-invariant_feature_transform) and [HOG](https://en.wikipedia.org/wiki/Histogram_of_oriented_gradients)) based upon domain knowledge. But these hand-crafted features restricted models to the patterns that we anticipated. As computation and data scaled, deep networks that learned features *directly* from pixels outperformed hand-crafted methods.
+What do we mean by "structure"? Often structure includes inductive biases about how we *expect* models to solve problems. Computer vision is a good example. For decades, researchers designed features (e.g., [SIFT](https://en.wikipedia.org/wiki/Scale-invariant_feature_transform) and [HOG](https://en.wikipedia.org/wiki/Histogram_of_oriented_gradients)) based upon domain knowledge. But these hand-crafted features restricted models to the patterns that we anticipated. As computation and data scaled, deep networks that learned features *directly* from pixels outperformed hand-crafted methods.
 
 In a [talk](https://youtu.be/orDKvo8h71o?si=fsZesZuP25BU6SqZ) at Stanford, Hyung Won Chung (OpenAI) talks about his approach with this in mind:
 
