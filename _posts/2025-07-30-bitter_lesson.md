@@ -25,7 +25,7 @@ Remove them later, because these shortcuts will bottleneck further improvement.*
 
 ### The Bitter Lesson in AI Engineering
 
-I’ve found that the approach mentioned by Chung also applies to AI engineering, the craft of building applications on top of rapidly improving models. Below I’ll illustrate this with a story about building [open-deep-research](https://github.com/langchain-ai/open_deep_research).
+The Bitter Lessons also applies to [AI engineering](https://www.latent.space/p/ai-engineer), the craft of building applications on top of rapidly improving models. As an example, Boris (lead on Claude Code) [mentioned](https://www.youtube.com/watch?v=Lue8K2jqfKk) that the Bitter Lesson strongly influenced his approach. And I’ve found that Hyung's talk provides some useful lessons for AI engineering. Below I’ll illustrate this with a story about building [open-deep-research](https://github.com/langchain-ai/open_deep_research).
 
 <figure>
 <img src="/assets/bitter_lesson_timeline.png" width="90%">
@@ -64,7 +64,7 @@ I moved to a multi-agent system, which allowed me to use tools and let the syste
 </figcaption>
 </figure>
 
-This is one of the main points of Chung’s talk: we often [fail to remove](https://youtu.be/orDKvo8h71o?feature=shared&t=790) all the structure we add as we update our methods. In my case, I moved to an agent, but still was forcing each agent to write part of the report in parallel. 
+This is one of the main points of Hyung's talk: we often [fail to remove](https://youtu.be/orDKvo8h71o?feature=shared&t=790) all the structure we add as we update our methods. In my case, I moved to an agent, but still was forcing each agent to write part of the report in parallel. 
 
 I moved writing to a final step. The system could now flexibly plan the research strategy, use [multi-agent context gathering](https://x.com/jxnlco/status/1945490018127987092), and write the report in one-shot based on the collected context. It scores a 43.5 on [deep research bench](https://huggingface.co/spaces/Ayanami0730/DeepResearch-Leaderboard) (top 10), which is not bad for a small open source effort (and close to agents that use [RL](https://moonshotai.github.io/Kimi-Researcher/) or benefit from much larger-scale efforts).  
 
@@ -82,11 +82,11 @@ AI engineering can benefit from some simple lessons drawn from Chung’s talk:
 2. **Re-evaluate structure as models improve**
 3. **Make it easy to remove structure**
 
-On the first point, consider what LLM performance assumptions are baked into the design of your application. For my initial workflow, I avoided tool calling because (at the time) it was not reliable. This was no longer true a few months later! Jared Kaplan [co-founder of Anthropic](https://youtu.be/p8Jx4qvDoSo?si=giFZoWqhevhPn_qu) recently made the point that it can even be beneficial to "build things that don't quite work" yet because the models will catch up (often quickly).
+On the first point, consider what LLM performance assumptions are baked into the design of your application. For my initial workflow, I avoided tool calling because (at the time) it was not reliable. This was no longer true a few months later! Jared Kaplan [(co-founder of Anthropic)](https://youtu.be/p8Jx4qvDoSo?si=giFZoWqhevhPn_qu) recently made the point that it can even be beneficial to "build things that don't quite work" yet because the models will catch up (often quickly).
 
-On the second point, I was a bit slow to re-evaluate my assumptions as tool calling improved. And, on the final point, I agree with [Walden Yan](https://cognition.ai/blog/dont-build-multi-agents) and [Harrison](https://blog.langchain.com/how-to-think-about-agent-frameworks/) that agent abstractions can pose risk because they can make it harder remove structure. I still use a framework (LangGraph) for its useful general features (e.g., checkpointing), but stick to its [low-level](https://langchain-ai.github.io/langgraph/concepts/low_level/#state) building blocks (e.g., nodes and edges) that I can easily (re-)configure.
+On the second point, I was a bit slow to re-evaluate my assumptions as tool calling improved. And, on the final point, I agree with [Walden (Cognition)](https://cognition.ai/blog/dont-build-multi-agents) and [Harrison (LangChain)](https://blog.langchain.com/how-to-think-about-agent-frameworks/) that agent abstractions can pose risk because they can make it harder remove structure. I still use a framework (LangGraph) for its useful general features (e.g., checkpointing), but stick to its [low-level](https://langchain-ai.github.io/langgraph/concepts/low_level/#state) building blocks (e.g., nodes and edges) that I can easily (re-)configure.
 
-The design philosophy for building AI applications is in its infancy. Still, as Hyung Won Chung said, it is helpful to focus on the driving force that we *can* predict: model will get much better. Designing AI applications to take advantage of this will probably be the most important thing.  
+The design philosophy for building AI applications is in its infancy. Still, as Hyung said, it is helpful to focus on the driving force that we *can* predict: model will get much better. Designing AI applications to take advantage of this will probably be the most important thing.  
 
 ### Credits
 
