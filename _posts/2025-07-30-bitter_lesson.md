@@ -10,8 +10,9 @@ date:   2025-07-30
 
 ### The Bitter Lesson in AI Research
 
-> *The biggest lesson that can be read from 70 years of AI research is that general methods that leverage computation are ultimately the most effective, and by a large margin.
--* Rich Sutton [The Bitter Lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html)
+> The biggest lesson that can be read from 70 years of AI research is that general methods that leverage computation are ultimately the most effective, and by a large margin.
+> 
+- Rich Sutton [The Bitter Lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html)
 > 
 
 [The Bitter Lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html) has been learned over and over across [many domains](https://arxiv.org/html/2410.09649v1) of AI research, such as Chess, Go, speech, vision. Leveraging computation turns out to be the most important thing and the “structure” we impose on models often limits their ability to leverage growing computation.
