@@ -8,7 +8,7 @@ date:   2025-12-01
 
 [Lance Martin](https://x.com/RLanceMartin)
 
-Humans refine their skills and learn preferences through experience. But many AI agents lack this capacity for ["continual learning"](https://www.dwarkesh.com/p/timelines-june-2025). For example, Claude Code relies on users to manually update its [CLAUDE.md memory files](https://code.claude.com/docs/en/memory). I created a [plugin](https://code.claude.com/docs/en/plugins) called [Claude Diary](https://github.com/rlancemartin/claude-diary) that gives Claude Code the ability to learn from experience and update its own memory.
+Humans refine their skills and learn preferences through experience. But many AI agents lack this capacity for ["continual learning"](https://www.dwarkesh.com/p/timelines-june-2025). For example, Claude Code relies on users to manually update its [CLAUDE.md memory files](https://code.claude.com/docs/en/memory). I created a [plugin](https://code.claude.com/docs/en/plugins) called [Claude Diary](https://github.com/rlancemartin/claude-diary) that gives Claude Code the ability to learn from experience and update its own memory. You can check out the code [here](https://github.com/rlancemartin/claude-diary).
 
 <figure>
 <img src="/assets/claude_diary.png" width="90%">
@@ -20,11 +20,9 @@ Humans refine their skills and learn preferences through experience. But many AI
 
 It's useful to first define what "experiences" and "memory" might mean for agents. The [CoALA paper](https://arxiv.org/pdf/2309.02427) by Sumers et al. (2023) proposes a framework separating "procedural memory" (e.g., instructions in the system prompt) from "episodic memory" (e.g., experiences like past decisions and actions). 
 
-Claude Code stores procedural memory in `CLAUDE.md` files. A history of Claude Code's decisions and actions (e.g., tool call results) live in context during sessions. Full session histories are also logged to `~/.claude/projects/` in JSONL format. 
+Claude Code stores instructions in `CLAUDE.md` files. And full Claude Code session logs with decisions and actions are saved to `~/.claude/projects/` in JSONL format. But, how do we transform specific past decisions and actions into persistent, general rules that can be added to instructions? 
 
-How do we transform specific past decisions and actions into persistent, general rules that guide future behavior?
-
-The [Generative Agents paper](https://arxiv.org/pdf/2304.03442) by Park et al. (2023) shows one approach. Their agents use a reflection step, where they synthesize past actions  into higher-level rules that inform future planning and decisions. Reflection converts granular episodic memories (what happened) into abstract procedural knowledge (how to behave). 
+The [Generative Agents paper](https://arxiv.org/pdf/2304.03442) by Park et al. (2023) shows one approach. Their agents use a reflection step to synthesize past actions into general rules that inform future planning and decisions. 
 
 <figure>
 <img src="/assets/gen_agents.png" width="90%">
@@ -54,13 +52,13 @@ I created a `/diary` [slash command](https://code.claude.com/docs/en/slash-comma
 
 #### When to create diary entries?
 
-I use a hybrid approach to create diary entries: manual `/diary` invocation and / or automatic invocation via the [PreCompact hook](https://code.claude.com/docs/en/hooks-guide#hook-events-overview). This allows me to choose when to create diary entries and will automatically generate entries for longer running sessions that use compaction.
+I use a hybrid approach to create diary entries: manual `/diary` invocation and / or automatic invocation via the [PreCompact hook](https://code.claude.com/docs/en/hooks-guide#hook-events-overview). This allows me to choose when to create diary entries, but will automatically generate entries for longer sessions that use compaction.
  
 #### What to capture in reflections?
 
-The `/reflect` command instructs Claude Code to analyze unprocessed diary entries and synthesizes patterns into CLAUDE.md updates. It first reads the CLAUDE.md file, checks for violations to rules in the diary entries, and prioritizes strengthening weak rules before adding new ones. It also looks across diary entries to identify recurring patterns. 
+The `/reflect` command instructs Claude Code to analyze diary entries and generate CLAUDE.md updates. It reads the CLAUDE.md file, checks for rule violations in the diary entries, and strengthens weak rules. It also looks across diary entries to identify recurring patterns. 
 
-Since `CLAUDE.md` loads into every session, updates proposed by reflection are formatted as one-line bullets with an imperative tone and no explanations. The reflection process saves analysis to `~/.claude/memory/reflections/YYYY-MM-reflection-N.md` and automatically updates CLAUDE.md with synthesized rules.
+Since `CLAUDE.md` loads into every session, updates proposed by reflection are formatted as one-line bullets. The reflection process saves analysis to `~/.claude/memory/reflections/YYYY-MM-reflection-N.md` and automatically updates CLAUDE.md with synthesized rules.
 
 #### How to track processed entries?
 
@@ -76,13 +74,13 @@ I only have Claude Code update its user-level file `~/.claude/CLAUDE.md` because
 
 ## Examples
 
-Here are some examples of how Claude Diary has helped me: 
+Here are some examples areas that I've found Claude Diary to be helpful: 
 
-**PR review feedback**: PR comments (via Claude Code's `pr-comments` command) are rich memory sources. After Claude used excessive exception handling, reflection generated "avoid verbose exception handling; match existing code patterns"—correctly prioritizing one high-impact piece of feedback over more frequent but less important patterns.
+**PR review feedback**: I found that PR comments (which can be loaded via Claude Code's `pr-comments` command) are a great source of feedback to update Claude Code's memory.  
 
-**Git workflow**: Reflection synthesized patterns appearing 2-3 times into rules: isolated PR branches for review, local integration branches for testing, conventional commits (feat:, fix:), specific naming (rlm/feature-description).
+**Git workflow**: I found that this system was good a picking up revealed preferences in my git workflow and adding them to Claude Code's memory. 
 
-**Self-correction**: Three consecutive entries documented the same violation—Claude adding attribution to commits despite an existing rule. Reflection detected this, strengthened the rule (top placement, "ZERO TOLERANCE," explicit system prompt override). The system wasn't just learning new things, but detecting when existing rules needed reinforcement. 
+**Self-correction**: I found that this system was good at detecting when existing rules needed reinforcement, especially when overriding some of Claude Code's default behavior. 
 
 ## Conclusion
 
