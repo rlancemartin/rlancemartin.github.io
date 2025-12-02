@@ -8,7 +8,7 @@ date:   2025-12-01
 
 [Lance Martin](https://x.com/RLanceMartin)
 
-Humans refine their skills and learn preferences through experience. But many AI agents lack this capacity for ["continual learning"](https://www.dwarkesh.com/p/timelines-june-2025). For example, Claude Code relies on users to manually update its [CLAUDE.md memory files](https://code.claude.com/docs/en/memory). I created a [plugin](https://code.claude.com/docs/en/plugins) called [Claude Diary](https://github.com/rlancemartin/claude-diary) that gives Claude Code the ability to learn from experience and update its own memory. You can check out the code [here](https://github.com/rlancemartin/claude-diary).
+Humans refine their skills and learn preferences through experience. But many AI agents lack this capacity for ["continual learning"](https://www.dwarkesh.com/p/timelines-june-2025). I created a [plugin](https://code.claude.com/docs/en/plugins) called [Claude Diary](https://github.com/rlancemartin/claude-diary) that gives Claude Code the ability to learn from experience and update its own memory. You can check out the code [here](https://github.com/rlancemartin/claude-diary).
 
 <figure>
 <img src="/assets/claude_diary.png" width="90%">
@@ -18,7 +18,7 @@ Humans refine their skills and learn preferences through experience. But many AI
 
 ## Ways To Think About Agent Memory
 
-It's useful to first define what "experiences" and "memory" might mean for agents. The [CoALA paper](https://arxiv.org/pdf/2309.02427) by Sumers et al. (2023) proposes a framework separating "procedural memory" (e.g., instructions in the system prompt) from "episodic memory" (e.g., experiences like past decisions and actions). 
+It's useful to think about what "experiences" and "memory" might mean for AI agents. The [CoALA paper](https://arxiv.org/pdf/2309.02427) by Sumers et al. (2023) proposes a framework separating "procedural memory" (e.g., instructions in the system prompt) from "episodic memory" (e.g., experiences like past decisions and actions). 
 
 Claude Code stores instructions in `CLAUDE.md` files. And full Claude Code session logs with decisions and actions are saved to `~/.claude/projects/` in JSONL format. But, how do we transform specific past decisions and actions into persistent, general rules that can be added to instructions? 
 
@@ -34,7 +34,7 @@ In a [recent interview](https://www.youtube.com/watch?v=IDSAMqip6ms&t=352s), Cat
 
 ## Implementing Memory For Claude Code
 
-I used this reflection-based approach to implement a memory system for Claude Code.
+I used this reflection-based approach with Claude Code, asking Claude to distill diary entries from sessions and performing reflection over collected entries to update `CLAUDE.md`.
 
 <figure>
 <img src="/assets/claude_diary_flow.png" width="90%">
@@ -74,14 +74,14 @@ I only have Claude Code update its user-level file `~/.claude/CLAUDE.md` because
 
 ## Examples
 
-Here are some examples areas that I've found Claude Diary to be helpful: 
+I'ved used this for the past month. Here are some examples areas where I've found Claude Diary to be helpful: 
 
-**PR review feedback**: I found that PR comments (which can be loaded via Claude Code's `pr-comments` command) are a great source of feedback to update Claude Code's memory.  
+**PR review feedback**: PR comments (which can be loaded via Claude Code's `pr-comments` command) are a great source of feedback to update Claude Code's memory.  
 
-**Git workflow**: I found that this system was good a picking up revealed preferences in my git workflow and adding them to Claude Code's memory. 
+**Git workflow**: I found that this system was great at picking up revealed preferences in my git workflow and adding them to Claude Code's memory. 
 
-**Self-correction**: I found that this system was good at detecting when existing rules needed reinforcement, especially when overriding some of Claude Code's default behavior. 
+**Self-correction**: Sometimes rules in CLAUDE.md need reinforcement; the system was great at finding cases where Claude did was not following instructions and reinforcing them. 
 
 ## Conclusion
 
-Claude Diary is just one simple attempt to convert raw Claude Sessions into long-term memory updates. The commands are just prompts, making them trivial to modify. I also limit automation, but it is trivial to further automate any of the commands using hooks. There is considerable room for improvement as noted [here](https://github.com/rlancemartin/claude-diary?tab=readme-ov-file#future-work). The code is available at [here](https://github.com/rlancemartin/claude-diary). 
+Claude Diary is just a simple attempt to convert raw Claude Sessions into memory updates. The commands are just prompts, making them easy to modify. I also limit automation, but it is easy to further automate any of the commands using hooks. There is considerable room for improvement as noted [here](https://github.com/rlancemartin/claude-diary?tab=readme-ov-file#future-work). The code is available as a Claude Code plugin [here](https://github.com/rlancemartin/claude-diary). 
