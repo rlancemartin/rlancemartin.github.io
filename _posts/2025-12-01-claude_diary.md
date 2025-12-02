@@ -8,7 +8,7 @@ date:   2025-12-01
 
 [Lance Martin](https://x.com/RLanceMartin)
 
-Humans refine their skills and learn preferences through experience. But many AI agents lack this capacity for ["continual learning"](https://www.dwarkesh.com/p/timelines-june-2025). I created a [plugin](https://code.claude.com/docs/en/plugins) called [Claude Diary](https://github.com/rlancemartin/claude-diary) that gives Claude Code the ability to learn from experience and update its own memory. You can check out the code [here](https://github.com/rlancemartin/claude-diary).
+Humans refine their skills and learn preferences through experience. But many AI agents lack this capacity for [continual learning](https://www.dwarkesh.com/p/timelines-june-2025). I created a [plugin](https://code.claude.com/docs/en/plugins) called [Claude Diary](https://github.com/rlancemartin/claude-diary) that gives Claude Code the ability to learn from experience and update its own memory. You can check out the code [here](https://github.com/rlancemartin/claude-diary).
 
 <figure>
 <img src="/assets/claude_diary.png" width="90%">
@@ -20,7 +20,7 @@ Humans refine their skills and learn preferences through experience. But many AI
 
 The [CoALA paper](https://arxiv.org/pdf/2309.02427) by Sumers et al. (2023) proposes a framework for agent memory, including  "procedural memory" (e.g., prompt instructions) and "episodic memory" (e.g., past actions). 
 
-Claude Code stores its system instructions in `CLAUDE.md` files. And Claude Code session logs are saved to `~/.claude/projects/` in JSONL format. But, how do we transform past actions into persistent, general rules that can be added to instructions? 
+Claude Code stores its system instructions in `CLAUDE.md` files and session logs are saved to `~/.claude/projects/`. But, how can we transform past actions from logs into persistent, general rules that can be added to instructions? 
 
 The [Generative Agents paper](https://arxiv.org/pdf/2304.03442) by Park et al. (2023) shows one approach. Their agents use a reflection step to synthesize past actions into general rules that inform future planning and decisions. 
 
@@ -30,7 +30,7 @@ The [Generative Agents paper](https://arxiv.org/pdf/2304.03442) by Park et al. (
 </figcaption>
 </figure>
 
-In a [recent interview](https://www.youtube.com/watch?v=IDSAMqip6ms&t=352s), Cat Wu (product lead on Claude Code) mentioned some Anthropic staff use a similar pattern with Claude Code: create diary entries that summarize Claude Code sessions. Then perform reflection over the diary entries to identify patterns. 
+In a [recent interview](https://www.youtube.com/watch?v=IDSAMqip6ms&t=352s), Cat Wu (product lead on Claude Code) mentioned some Anthropic staff use a similar pattern with Claude Code: create diary entries from Claude Code sessions and reflect on them to identify patterns. 
 
 ## Implementing Claude Diary
 
@@ -80,7 +80,7 @@ I only have Claude Code update its user-level file `~/.claude/CLAUDE.md` because
 
 ## Examples
 
-I'ved used Claude Diary for the past month. Here are some examples areas where I've found Claude Diary to be helpful:
+I'ved used Claude Diary for the past month. I just run the `diary` command in sessions that I want to capture. Then I run `reflect` periodically to update my `CLAUDE.md`. Here are some examples where I've found Claude Diary to be helpful:
 
 **PR review feedback**: PR comments (which can be loaded via Claude Code's `pr-comments` command) are a great source of feedback to update Claude Code's memory. 
 
