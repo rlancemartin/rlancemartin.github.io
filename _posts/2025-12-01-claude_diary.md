@@ -48,9 +48,8 @@ I initially had Claude Code parse JSONL session logs, but this required dozens o
 
 #### What to capture in diary entries?
 
-I created a `/diary` [slash command](https://code.claude.com/docs/en/slash-commands) that prompts Claude Code to capture key session details like what was accomplished, design decisions, challenges, user preferences, and PR feedback. 
+I created a `/diary` [slash command](https://code.claude.com/docs/en/slash-commands) that prompts Claude Code to capture key session details like what was accomplished, design decisions, challenges, user preferences, and PR feedback. Diary entries are saved to: 
 
-Diary entries are saved to: 
 `~/.claude/memory/diary/YYYY-MM-DD-session-N.md`
 
 #### When to create diary entries?
@@ -61,16 +60,14 @@ I use a hybrid approach to create diary entries: manual `/diary` invocation and 
 
 The `/reflect` command instructs Claude Code to analyze diary entries and generate CLAUDE.md updates. It reads the CLAUDE.md file, checks for rule violations in the diary entries, and strengthens weak rules. It also looks across diary entries to identify recurring patterns. 
 
-Since `CLAUDE.md` loads into every session, updates proposed by reflection are formatted as one-line bullets. The reflection process saves analysis to and automatically updates CLAUDE.md with synthesized rules.
+Since `CLAUDE.md` loads into every session, updates proposed by reflection are formatted as one-line bullets. The reflection process saves analysis to and automatically updates CLAUDE.md with synthesized rules. Reflections are saved to:
 
-Reflections are saved to:
 `~/.claude/memory/reflections/YYYY-MM-reflection-N.md`
 
 #### How to track processed entries?
 
-A `processed.log` file at prevents duplicate analysis of diary entries. The format is `[diary-entry] | [reflection-date] | [reflection-file]`. The reflection command checks this log first.
+A `processed.log` file at prevents duplicate analysis of diary entries. The reflection command checks this log first. The log is saved to:
 
-The log is saved to:
 `~/.claude/memory/reflections/processed.log`
 
 #### When to perform reflection?
