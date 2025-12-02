@@ -16,11 +16,11 @@ Humans refine their skills and learn preferences through experience. But many AI
 </figcaption>
 </figure>
 
-## Ways To Think About Agent Memory
+## Agent Memory
 
-It's useful to think about what "experiences" and "memory" might mean for AI agents. The [CoALA paper](https://arxiv.org/pdf/2309.02427) by Sumers et al. (2023) proposes a framework separating "procedural memory" (e.g., instructions in the system prompt) from "episodic memory" (e.g., experiences like past decisions and actions). 
+The [CoALA paper](https://arxiv.org/pdf/2309.02427) by Sumers et al. (2023) proposes a framework for agent memory, including  "procedural memory" (e.g., prompt instructions) and "episodic memory" (e.g., past actions). 
 
-Claude Code stores instructions in `CLAUDE.md` files. And full Claude Code session logs with decisions and actions are saved to `~/.claude/projects/` in JSONL format. But, how do we transform specific past decisions and actions into persistent, general rules that can be added to instructions? 
+Claude Code stores its system instructions in `CLAUDE.md` files. And Claude Code session logs are saved to `~/.claude/projects/` in JSONL format. But, how do we transform past actions into persistent, general rules that can be added to instructions? 
 
 The [Generative Agents paper](https://arxiv.org/pdf/2304.03442) by Park et al. (2023) shows one approach. Their agents use a reflection step to synthesize past actions into general rules that inform future planning and decisions. 
 
@@ -30,9 +30,9 @@ The [Generative Agents paper](https://arxiv.org/pdf/2304.03442) by Park et al. (
 </figcaption>
 </figure>
 
-In a [recent interview](https://www.youtube.com/watch?v=IDSAMqip6ms&t=352s), Cat Wu (product lead on Claude Code) mentioned some Anthropic staff have adopted a similar pattern with Claude Code: create diary entries from Claude Code sessions that summarize key decisions and actions. Then perform reflection over the diary entries to identify patterns. 
+In a [recent interview](https://www.youtube.com/watch?v=IDSAMqip6ms&t=352s), Cat Wu (product lead on Claude Code) mentioned some Anthropic staff use a similar pattern with Claude Code: create diary entries that summarize Claude Code sessions. Then perform reflection over the diary entries to identify patterns. 
 
-## Implementing Memory For Claude Code
+## Implementing Claude Diary
 
 I used this reflection-based approach with Claude Code, asking Claude to distill diary entries from sessions and performing reflection over collected entries to update `CLAUDE.md`.
 
@@ -48,7 +48,10 @@ I initially had Claude Code parse JSONL session logs, but this required dozens o
 
 #### What to capture in diary entries?
 
-I created a `/diary` [slash command](https://code.claude.com/docs/en/slash-commands) that prompts Claude Code to capture key session details like what was accomplished, design decisions, challenges, user preferences, and PR feedback. Entries save to `~/.claude/memory/diary/YYYY-MM-DD-session-N.md`.
+I created a `/diary` [slash command](https://code.claude.com/docs/en/slash-commands) that prompts Claude Code to capture key session details like what was accomplished, design decisions, challenges, user preferences, and PR feedback. 
+
+Diary entries are saved to: 
+`~/.claude/memory/diary/YYYY-MM-DD-session-N.md`
 
 #### When to create diary entries?
 
@@ -58,11 +61,17 @@ I use a hybrid approach to create diary entries: manual `/diary` invocation and 
 
 The `/reflect` command instructs Claude Code to analyze diary entries and generate CLAUDE.md updates. It reads the CLAUDE.md file, checks for rule violations in the diary entries, and strengthens weak rules. It also looks across diary entries to identify recurring patterns. 
 
-Since `CLAUDE.md` loads into every session, updates proposed by reflection are formatted as one-line bullets. The reflection process saves analysis to `~/.claude/memory/reflections/YYYY-MM-reflection-N.md` and automatically updates CLAUDE.md with synthesized rules.
+Since `CLAUDE.md` loads into every session, updates proposed by reflection are formatted as one-line bullets. The reflection process saves analysis to and automatically updates CLAUDE.md with synthesized rules.
+
+Reflections are saved to:
+`~/.claude/memory/reflections/YYYY-MM-reflection-N.md`
 
 #### How to track processed entries?
 
-A `processed.log` file at `~/.claude/memory/reflections/processed.log` prevents duplicate analysis of diary entries. The format is `[diary-entry] | [reflection-date] | [reflection-file]`. The reflection command checks this log first.
+A `processed.log` file at prevents duplicate analysis of diary entries. The format is `[diary-entry] | [reflection-date] | [reflection-file]`. The reflection command checks this log first.
+
+The log is saved to:
+`~/.claude/memory/reflections/processed.log`
 
 #### When to perform reflection?
 
@@ -74,14 +83,20 @@ I only have Claude Code update its user-level file `~/.claude/CLAUDE.md` because
 
 ## Examples
 
-I'ved used this for the past month. Here are some examples areas where I've found Claude Diary to be helpful: 
+I'ved used Claude Diary for the past month. Here are some examples areas where I've found Claude Diary to be helpful:
 
-**PR review feedback**: PR comments (which can be loaded via Claude Code's `pr-comments` command) are a great source of feedback to update Claude Code's memory.  
+**PR review feedback**: PR comments (which can be loaded via Claude Code's `pr-comments` command) are a great source of feedback to update Claude Code's memory. 
 
-**Git workflow**: I found that this system was great at picking up revealed preferences in my git workflow and adding them to Claude Code's memory. 
+**Git workflow**: The system excels at capturing revealed preferences in git workflow - from atomic commits and branch naming conventions to commit message formatting.
+
+**Testing practices**: Reflection identified patterns like running targeted tests first for quick feedback, then comprehensive suites, and using specialized test libraries.
+
+**Code quality**: The system learned to avoid anti-patterns like naming conflicts between files and package directories, leaving stale directories after refactoring, and unnecessarily verbose code.
+
+**Agent design**: For AI agent work, reflection captured preferences around token efficiency, biasing toward single-agent delegation over premature parallelization, and using filesystem for context offloading.
 
 **Self-correction**: Sometimes rules in CLAUDE.md need reinforcement; the system was great at finding cases where Claude did was not following instructions and reinforcing them. 
 
 ## Conclusion
 
-Claude Diary is just a simple attempt to convert raw Claude Sessions into memory updates. The commands are just prompts, making them easy to modify. I also limit automation, but it is easy to further automate any of the commands using hooks. There is considerable room for improvement as noted [here](https://github.com/rlancemartin/claude-diary?tab=readme-ov-file#future-work). The code is available as a Claude Code plugin [here](https://github.com/rlancemartin/claude-diary). 
+Claude Diary is just a simple attempt to convert raw Claude Sessions into memory updates in `CLAUDE.md`. The commands are just prompts, making them easy to modify. I also limit automation, but it is easy to further automate any of the commands using hooks. There is considerable room for improvement as noted [here](https://github.com/rlancemartin/claude-diary?tab=readme-ov-file#future-work). The code is available as a Claude Code plugin [here](https://github.com/rlancemartin/claude-diary). 
