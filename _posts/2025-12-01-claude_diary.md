@@ -30,6 +30,14 @@ The [Generative Agents paper](https://arxiv.org/pdf/2304.03442) by Park et al. (
 </figcaption>
 </figure>
 
+More recently, [Zhang et al (2025)](https://arxiv.org/pdf/2510.04618) use a similar approach of "grow and refine" agent instructions using a generator that produces reasoning trajectories, a reflector that extracts lessons from successes and failures, and a curator that integrates insights into structured updates.
+
+<figure>
+<img src="/assets/ace.png" width="90%">
+<figcaption>
+</figcaption>
+</figure>
+
 In a [recent interview](https://www.youtube.com/watch?v=IDSAMqip6ms&t=352s), Cat Wu (product lead on Claude Code) mentioned some Anthropic staff use a similar pattern with Claude Code: create diary entries from Claude Code sessions and reflect on them to identify patterns. 
 
 ## Implementing Claude Diary
